@@ -1,0 +1,14 @@
+{
+  "name": "musifer-simple-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal HTML page with SCSS build scripts",
+  "scripts": {
+    "start": "node start-local-site.js",
+    "build:css": "sass styles.scss styles.css --no-source-map",
+    "watch:css": "sass --watch styles.scss:styles.css"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}
