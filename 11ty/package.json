@@ -1,0 +1,12 @@
+{
+  "name": "musifer-11ty-experimental",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve --input=src --output=_site --watch",
+    "build": "npx @11ty/eleventy --input=src --output=_site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0"
+  }
+}
