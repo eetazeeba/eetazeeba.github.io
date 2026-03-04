@@ -1,11 +1,32 @@
-<header>
-  <div class="header-container">
-    <div class="header-content">
-      <a href="/"><div class="header-brand">
-        <img class="logo-img header-logo" src="/Images/Musifer_Logo.svg" alt="Purple electric bass guitar with dark gray wings extending from both sides, purple headstock, black fretboard and pickups, surrounded by two flaming fireballs in red, orange, and yellow. The logo represents Musifer, an artist accelerator and networking platform.">
-        <h1 class="display-title wordmark">MUSIFER</h1>
-      </div></a>
-      <p class="lead header-intro">Optional subscript</p>
-    </div>
+﻿<header class="mus-nav mus-nav--hamburger mus-nav--sticky" data-nav-root>
+  <div class="mus-nav__inner">
+    <a class="mus-nav__brand" href="/">
+      <img class="mus-nav__logo" src="/Images/Musifer_Logo.svg" alt="Musifer logo">
+      <span class="mus-nav__wordmark">{{ nav.site.title | upper }}</span>
+    </a>
+
+    <button
+      class="mus-nav__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mus-nav-menu-hamburger"
+      data-nav-toggle
+    >
+      <span class="mus-nav__sr-only">Toggle navigation</span>
+      <span class="mus-nav__bar"></span>
+      <span class="mus-nav__bar"></span>
+      <span class="mus-nav__bar"></span>
+    </button>
+
+    <nav id="mus-nav-menu-hamburger" class="mus-nav__menu" aria-label="Primary" data-nav-menu>
+      {% for item in nav.navigation %}
+      <a href="{{ item.url }}">{{ item.title }}</a>
+      {% if item.children %}
+      {% for child in item.children %}
+      <a href="{{ child.url }}">{{ child.title }}</a>
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
+    </nav>
   </div>
 </header>

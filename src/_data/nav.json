@@ -1,0 +1,49 @@
+﻿{
+  "site": {
+    "title": "Musifer"
+  },
+  "navigation": [
+    {
+      "title": "Home",
+      "url": "/"
+    },
+    {
+      "title": "About",
+      "url": "/about/",
+      "children": [
+        { "title": "Team", "url": "/about/team/" },
+        { "title": "Mission", "url": "/about/mission/" },
+        { "title": "History", "url": "/about/history/" },
+        { "title": "Portfolio", "url": "/about/portfolio/" },
+        { "title": "Client List", "url": "/about/client-list/" },
+        { "title": "FAQ", "url": "/about/faq/" }
+      ]
+    },
+    {
+      "title": "Services",
+      "url": "/services/",
+      "children": [
+        { "title": "Production / Audio Engineering", "url": "/services/production-audio-engineering/" },
+        { "title": "Legal (On Hold)", "url": "/services/legal/", "status": "on-hold" },
+        { "title": "Pricing / Quote Form", "url": "/services/pricing-quote-form/" }
+      ]
+    },
+    {
+      "title": "Blog",
+      "url": "/blog/",
+      "children": [
+        { "title": "Guides", "url": "/blog/guides/" },
+        { "title": "Articles", "url": "/blog/articles/" },
+        { "title": "Case Studies", "url": "/blog/case-studies/" }
+      ]
+    },
+    {
+      "title": "Contact",
+      "url": "/contact/",
+      "children": [
+        { "title": "Positions / Volunteer / Contribute", "url": "/contact/positions/" },
+        { "title": "Locations / Community Partners", "url": "/contact/locations/" }
+      ]
+    }
+  ]
+}
