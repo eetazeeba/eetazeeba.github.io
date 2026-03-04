@@ -1,5 +1,5 @@
 :root{
-	/* Palette — HEX */
+	/* Palette â€” HEX */
 	--black: #000000ff;
 	--dark-amethyst: #1e0a38ff;
 	--ochre: #d0741fff;
@@ -8,7 +8,7 @@
 	--dust-grey: #d8d4d5ff;
 	--moss-green: #7ec850ff;
 
-	/* Palette — HSL equivalents */
+	/* Palette â€” HSL equivalents */
 	--black-hsl: hsla(0, 0%, 0%, 1);
 	--dark-amethyst-hsl: hsla(266, 70%, 13%, 1);
 	--ochre-hsl: hsla(29, 74%, 47%, 1);
@@ -47,7 +47,6 @@
 body{margin:0;min-height:100vh;display:flex;flex-direction:column;font-family:var(--font-body);background:linear-gradient(180deg,var(--amethyst) 0,var(--amethyst) calc(100% - 14rem),var(--dark-amethyst) calc(100% - 8rem),var(--dark-amethyst) 100%);color:var(--text);line-height:1.5}
 .logo-img{width: clamp(48px, 8%, 300px); max-width: 100%; height: auto; border-radius: 50%; margin-right: 0.75rem; display: inline-block; object-fit: contain;}
 .lead{color:var(--muted);margin-top:0.5rem}
-header{position:sticky;top:0;z-index:1000;padding-left:5rem;padding-right:1.5rem;padding-top:1rem;padding-bottom:0.6rem;text-align:left;background:var(--dark-amethyst);box-shadow:0 6px 14px rgba(0,0,0,0.24)}
 .header-container{max-width:900px}
 .header-content{display:flex;flex-direction:column;gap:0.35rem}
 .header-brand{display:flex;align-items:center;gap:0.6rem}
