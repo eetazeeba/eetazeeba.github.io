@@ -1,0 +1,144 @@
+{
+  "generated_at": "2026-03-06T05:26:36.273Z",
+  "totals": {
+    "entries": 4,
+    "blog": 2,
+    "profiles": 1,
+    "lessons": 1
+  },
+  "entries": [
+    {
+      "id": "test-post-please-ignore",
+      "slug": "test-post-please-ignore",
+      "type": "blog",
+      "status": "draft",
+      "title": "Gotta start somewhere",
+      "summary": "The very first attempt at using Decap CMS to create content for the website.",
+      "tags": [
+        "featured",
+        "update, blog"
+      ],
+      "media_types": [
+        "image"
+      ],
+      "author": [
+        "Everett Ballance (eetazeeba)"
+      ],
+      "published_at": "2026-03-05",
+      "updated_at": "2026-03-05 15:43",
+      "related_ids": [],
+      "source": "content/blog/test-post-please-ignore.md"
+    },
+    {
+      "id": "ava-rivera",
+      "slug": "ava-rivera",
+      "type": "profile",
+      "status": "published",
+      "title": "Ava Rivera",
+      "summary": "Vocal collaborator and co-producer on recent releases.",
+      "tags": [
+        "collaborator",
+        "vocals",
+        "producer"
+      ],
+      "media_types": [
+        "image",
+        "embed"
+      ],
+      "author": [
+        "Eeta Zeeba"
+      ],
+      "published_at": "2026-03-03",
+      "updated_at": "2026-03-03",
+      "related_ids": [],
+      "source": "content/profiles/ava-rivera.md"
+    },
+    {
+      "id": "lesson-melodic-phrasing",
+      "slug": "lesson-melodic-phrasing",
+      "type": "lesson",
+      "status": "draft",
+      "title": "Melodic Phrasing 101",
+      "summary": "Intro lesson focused on phrase length and contour.",
+      "tags": [
+        "lesson",
+        "melody",
+        "beginner"
+      ],
+      "media_types": [
+        "video",
+        "sheet"
+      ],
+      "author": [
+        "Eeta Zeeba"
+      ],
+      "published_at": "2026-03-03",
+      "updated_at": "2026-03-03",
+      "related_ids": [
+        "writing-better-hooks"
+      ],
+      "source": "content/lessons/lesson-melodic-phrasing.md"
+    },
+    {
+      "id": "writing-better-hooks",
+      "slug": "writing-better-hooks",
+      "type": "blog",
+      "status": "published",
+      "title": "Writing Better Hooks",
+      "summary": "Practical hook-writing ideas with short audio demos.",
+      "tags": [
+        "featured",
+        "songwriting",
+        "hooks",
+        "melody"
+      ],
+      "media_types": [
+        "image",
+        "audio"
+      ],
+      "author": [
+        "Eeta Zeeba"
+      ],
+      "published_at": "2026-03-03",
+      "updated_at": "2026-03-03",
+      "related_ids": [
+        "lesson-melodic-phrasing"
+      ],
+      "source": "content/blog/writing-better-hooks.md"
+    }
+  ],
+  "tags": {
+    "featured": [
+      "test-post-please-ignore",
+      "writing-better-hooks"
+    ],
+    "update, blog": [
+      "test-post-please-ignore"
+    ],
+    "collaborator": [
+      "ava-rivera"
+    ],
+    "vocals": [
+      "ava-rivera"
+    ],
+    "producer": [
+      "ava-rivera"
+    ],
+    "lesson": [
+      "lesson-melodic-phrasing"
+    ],
+    "melody": [
+      "lesson-melodic-phrasing",
+      "writing-better-hooks"
+    ],
+    "beginner": [
+      "lesson-melodic-phrasing"
+    ],
+    "songwriting": [
+      "writing-better-hooks"
+    ],
+    "hooks": [
+      "writing-better-hooks"
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+backend:
+  name: github
+  repo: eetazeeba/eetazeeba.github.io
+  branch: main
+
+local_backend: true
+media_folder: "src/_assets/Images/uploads"
+public_folder: "/Images/uploads"
+
+collections:
+  - name: blog
+    label: Blog
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    identifier_field: id
+    fields:
+      - { label: ID, name: id, widget: string, hint: "Lowercase URL-safe id (example: writing-better-hooks).", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use lowercase letters, numbers, and hyphens only."] }
+      - { label: Type, name: type, widget: hidden, default: blog }
+      - { label: Title, name: title, widget: string }
+      - { label: Status, name: status, widget: select, options: [draft, published, archived], default: draft }
+      - label: Author
+        name: author
+        widget: list
+        min: 1
+        field: { label: Author, name: value, widget: string }
+      - { label: Published Date, name: published_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { label: Updated Date, name: updated_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { label: Copyright, name: copyright, widget: string }
+      - label: Tags
+        name: tags
+        widget: list
+        required: true
+        hint: "Add 'featured' to promote this content on homepage/highlight surfaces."
+        field: { label: Tag, name: value, widget: string }
+      - { label: Media Types, name: media_types, widget: select, multiple: true, required: false, options: [image, audio, video, embed, sheet, download] }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - label: Related IDs
+        name: related_ids
+        widget: list
+        required: false
+        hint: "Each value must match an existing content id."
+        field: { label: Related ID, name: value, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use an existing lowercase id."] }
+      - { label: Series, name: series, widget: string, required: false }
+      - { label: Reading Time (minutes), name: reading_time_minutes, widget: number, required: false, min: 1 }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: profiles
+    label: Profiles
+    folder: content/profiles
+    create: true
+    slug: "{{slug}}"
+    identifier_field: id
+    fields:
+      - { label: ID, name: id, widget: string, hint: "Lowercase URL-safe id (example: ava-rivera).", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use lowercase letters, numbers, and hyphens only."] }
+      - { label: Type, name: type, widget: hidden, default: profile }
+      - { label: Title, name: title, widget: string }
+      - { label: Status, name: status, widget: select, options: [draft, published, archived], default: draft }
+      - label: Author
+        name: author
+        widget: list
+        min: 1
+        field: { label: Author, name: value, widget: string }
+      - { label: Published Date, name: published_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { label: Updated Date, name: updated_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { label: Copyright, name: copyright, widget: string }
+      - label: Tags
+        name: tags
+        widget: list
+        required: true
+        hint: "Add 'featured' to promote this content on homepage/highlight surfaces."
+        field: { label: Tag, name: value, widget: string }
+      - { label: Media Types, name: media_types, widget: select, multiple: true, required: true, options: [image, audio, video, embed, sheet, download] }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - { label: Role, name: role, widget: string }
+      - { label: Display Name, name: display_name, widget: string, required: false }
+      - label: Links
+        name: links
+        widget: list
+        required: false
+        fields:
+          - { label: Label, name: label, widget: string }
+          - { label: URL, name: url, widget: string }
+      - { label: Collaboration Start, name: collaboration_start, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: false }
+      - label: Featured Media Paths
+        name: featured_media
+        widget: list
+        required: false
+        field: { label: Path, name: value, widget: string }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: lessons
+    label: Lessons
+    folder: content/lessons
+    create: true
+    slug: "{{slug}}"
+    identifier_field: id
+    fields:
+      - { label: ID, name: id, widget: string, hint: "Lowercase URL-safe id (example: lesson-melodic-phrasing).", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use lowercase letters, numbers, and hyphens only."] }
+      - { label: Type, name: type, widget: hidden, default: lesson }
+      - { label: Title, name: title, widget: string }
+      - { label: Status, name: status, widget: select, options: [draft, published, archived], default: draft }
+      - label: Author
+        name: author
+        widget: list
+        min: 1
+        field: { label: Author, name: value, widget: string }
+      - { label: Published Date, name: published_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { label: Updated Date, name: updated_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { label: Copyright, name: copyright, widget: string }
+      - label: Tags
+        name: tags
+        widget: list
+        required: true
+        hint: "Add 'featured' to promote this content on homepage/highlight surfaces."
+        field: { label: Tag, name: value, widget: string }
+      - { label: Media Types, name: media_types, widget: select, multiple: true, required: true, options: [image, audio, video, embed, sheet, download] }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - label: Related IDs
+        name: related_ids
+        widget: list
+        required: false
+        hint: "Each value must match an existing content id."
+        field: { label: Related ID, name: value, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use an existing lowercase id."] }
+      - { label: Difficulty, name: difficulty, widget: select, options: [beginner, intermediate, advanced] }
+      - { label: Duration (minutes), name: duration_minutes, widget: number, required: false, min: 1 }
+      - label: Prerequisites
+        name: prerequisites
+        widget: list
+        required: false
+        field: { label: Prerequisite, name: value, widget: string }
+      - label: Resources
+        name: resources
+        widget: list
+        required: false
+        fields:
+          - { label: Label, name: label, widget: string }
+          - { label: Kind, name: kind, widget: string }
+          - { label: URL or Path, name: url_or_path, widget: string }
+      - { label: Lesson Format, name: lesson_format, widget: select, required: false, options: [article, video, audio, mixed] }
+      - { label: Body, name: body, widget: markdown }
