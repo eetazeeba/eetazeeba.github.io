@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   height="691.29944"
+   width="800"
+   version="1.1"
+   id="Layer_1"
+   viewBox="0 0 512 442.43164"
+   xml:space="preserve"
+   fill="#d0741f"
+   sodipodi:docname="triangle-icon-2-intense.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs459" /><sodipodi:namedview
+   id="namedview457"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   showgrid="false"
+   inkscape:zoom="1.8154967"
+   inkscape:cx="385.84483"
+   inkscape:cy="557.42322"
+   inkscape:window-width="2560"
+   inkscape:window-height="1417"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="SVGRepo_iconCarrier" />
+
+<g
+   id="SVGRepo_bgCarrier"
+   stroke-width="0"
+   transform="translate(0,-34.7925)" />
+
+<g
+   id="SVGRepo_tracerCarrier"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   transform="translate(0,-34.7925)" />
+
+<g
+   id="SVGRepo_iconCarrier"
+   transform="translate(0,-34.7925)"> <path
+   id="polyline449"
+   d="M 256,34.7925 0,477.2075 h 256 256 z" />  <polygon
+   style="fill:#7ec850"
+   points="256,311.976 512,475.376 0,475.376 "
+   id="polygon453"
+   transform="translate(0,1.8481389)" /> </g>
+
+</svg>
