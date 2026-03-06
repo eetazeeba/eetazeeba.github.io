@@ -11,6 +11,12 @@ Current baseline (as of 2026-03-05)
 - Current header is sticky (`.mus-nav--sticky`) with hamburger behavior and partial dropdown styles.
 - In hamburger mode, parent items with children currently expose child links immediately; this should move to accordion expand/collapse behavior.
 
+Implementation status (as of 2026-03-06)
+- Phase 1 (foundation): complete.
+- Phase 2 (header scroll behavior): complete.
+- Phase 3 (desktop dropdown + compact disclosures): complete baseline, with follow-up refinements now queued.
+- Phase 4 (content modules): pending, not yet executed.
+
 ## 1) Header interaction refresh: hide on scroll down, reveal on scroll up
 
 Target behavior
@@ -77,6 +83,21 @@ Compact-mode accordion requirement (hamburger nav)
 - Keep parent links usable, with submenu expansion handled by a dedicated toggle control.
 - Prefer one expanded submenu at a time in compact mode to reduce vertical menu sprawl.
 - Include keyboard support (`Enter`/`Space` to toggle, `Escape` to collapse current submenu).
+
+Post-cutover refinement criteria (new)
+- Wordmark prominence:
+  - Increase wordmark visual impact in the logo lockup so text presence is not diminished relative to the icon.
+  - Rebalance logo/text scale, spacing, and line-height so the brand lockup reads clearly at all active nav breakpoints.
+- Parent-item trigger model:
+  - Re-evaluate split link/icon behavior for parent items with children.
+  - Prefer a more intuitive single interaction model for submenu activation in desktop mode, or clearly separated interaction zones with stronger affordance if split controls are retained.
+  - Avoid hover-open + icon-click-close friction states that feel contradictory.
+- Top-level legibility and delineation:
+  - Add clearer visual separation between top-level nav items (for example spacing rhythm, separators, grouped pills, or background/focus surfaces).
+  - Improve scanability without reducing hit area or keyboard focus clarity.
+- Compact-mode icon/link spacing (`<= 991px`, especially near `992px` transition):
+  - Reduce excessive gap between parent link labels and submenu toggle icons in hamburger mode.
+  - Use stable alignment rules so link text and toggle stay visually associated in medium-width compact layouts.
 
 ## 3) Breakpoint strategy (recommended ranges)
 
@@ -213,7 +234,7 @@ Phase 2: Header scroll behavior
 - Extend `header-nav.js` with direction-aware hide/reveal logic.
 - Add hysteresis and focus/menu-open safeguards.
 
-Phase 3: Navigation interaction parity across viewport modes
+Phase 3: Navigation interaction parity across viewport modes (implemented baseline)
 - Desktop/large-tablet (`min-width: 992px`):
   - update `header.html` structure for top-level items + child panels
   - keep ARIA/state wiring in JS and width-gated dropdown interaction logic
@@ -222,7 +243,13 @@ Phase 3: Navigation interaction parity across viewport modes
   - keep child lists collapsed by default, expanded by explicit toggle state
   - preserve parent-link usability and keyboard support in expanded/collapsed states
 
-Phase 4: Content modules
+Phase 3 follow-up: Nav/brand legibility refinements (pending)
+- Increase header wordmark prominence and rebalance icon/text lockup sizing.
+- Resolve split-trigger friction for parent nav items with children (prefer unified or clearer interaction contract).
+- Add stronger top-level nav item delineation for readability and scan speed.
+- Tighten compact-mode link/toggle spacing just below desktop breakpoint.
+
+Phase 4: Content modules (pending; not started)
 - Introduce reusable utility/component classes for:
   - responsive grid columns
   - card rail + scroll-snap variants
@@ -241,5 +268,9 @@ Phase 5: QA and hardening
 - Horizontal dropdown nav is active and stable at `>=992px`.
 - Mobile/tablet retain clear, predictable navigation with touch-friendly controls.
 - In hamburger/compact mode, parent items with children expand/collapse as accordions instead of rendering all child links at once.
+- Header brand lockup has clear wordmark impact (text no longer reads undersized next to logo icon).
+- Parent-item submenu behavior does not produce hover-open / click-close confusion.
+- Top-level nav items are visually delineated enough for quick scan at desktop and large-tablet widths.
+- Compact-mode parent links and submenu toggles remain visually grouped and legible near the `992px` transition band.
 - Content modules gracefully shift among stacked, rail, and multi-column patterns by breakpoint.
 - No critical accessibility regressions in nav semantics, focus order, or screen-reader labels.
