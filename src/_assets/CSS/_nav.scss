@@ -42,7 +42,7 @@ $bp-wide: 1200px;
 .mus-nav__brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   color: inherit;
   text-decoration: none;
 }
@@ -56,9 +56,10 @@ $bp-wide: 1200px;
 .mus-nav__wordmark {
   font-family: var(--font-display);
   color: var(--emphasis);
-  letter-spacing: 0.08em;
-  font-size: clamp(1.35rem, 2.4vw, 2rem);
-  line-height: 1;
+  letter-spacing: 0.06em;
+  font-size: clamp(1.55rem, 2.7vw, 2.25rem);
+  line-height: 0.95;
+  font-weight: 600;
 }
 
 .mus-nav a,
@@ -145,6 +146,10 @@ $bp-wide: 1200px;
 .mus-nav__link:focus-visible,
 .mus-nav__submenu a:hover,
 .mus-nav__submenu a:focus-visible,
+.mus-nav__item-row:hover .mus-nav__link,
+.mus-nav__item-row:hover .mus-nav__dropdown-toggle,
+.mus-nav__item-row:focus-within .mus-nav__link,
+.mus-nav__item-row:focus-within .mus-nav__dropdown-toggle,
 .mus-nav__dropdown-toggle:hover,
 .mus-nav__dropdown-toggle:focus-visible {
   background: rgba(216, 212, 213, 0.14);
@@ -172,12 +177,16 @@ $bp-wide: 1200px;
 .mus-nav__dropdown-toggle {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background: transparent;
-  border: 0;
+  border: 1px solid rgba(216, 212, 213, 0.32);
+  border-radius: 999px;
+  min-width: 1.9rem;
+  min-height: 1.9rem;
   cursor: pointer;
   color: var(--soft-apricot);
-  border-radius: 8px;
-  padding: 0.35rem 0.45rem;
+  padding: 0.2rem 0.3rem;
+  background: rgba(216, 212, 213, 0.03);
 }
 
 .mus-nav__dropdown-icon {
@@ -230,7 +239,13 @@ $bp-wide: 1200px;
   .mus-nav__list {
     flex-direction: row;
     align-items: center;
-    gap: 0.2rem;
+    gap: 0.4rem;
+  }
+
+  .mus-nav__item + .mus-nav__item {
+    margin-left: 0.2rem;
+    padding-left: 0.35rem;
+    border-left: 1px solid rgba(216, 212, 213, 0.28);
   }
 
   .mus-nav__item {
@@ -246,7 +261,9 @@ $bp-wide: 1200px;
     display: inline-flex;
     align-items: center;
     border-radius: 8px;
-    padding: 0.45rem 0.7rem;
+    padding: 0.52rem 0.9rem;
+    font-size: 0.98rem;
+    letter-spacing: 0.015em;
   }
 
   .mus-nav__dropdown-toggle {
@@ -273,8 +290,28 @@ $bp-wide: 1200px;
     padding: 0.45rem 0.55rem;
   }
 
+  .mus-nav__dropdown-toggle {
+    margin-left: 0.2rem;
+  }
+
   .mus-nav__item--dropdown.is-open > .mus-nav__submenu {
     display: block;
+  }
+}
+
+@media (max-width: 991px) {
+  .mus-nav__item-row {
+    gap: 0.2rem;
+  }
+
+  .mus-nav__dropdown-toggle {
+    min-width: 1.7rem;
+    min-height: 1.7rem;
+    padding: 0.14rem 0.24rem;
+  }
+
+  .mus-nav__dropdown-icon {
+    font-size: 0.78rem;
   }
 }
 
