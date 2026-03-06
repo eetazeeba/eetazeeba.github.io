@@ -185,14 +185,15 @@ $bp-wide: 1200px;
 
 .mus-nav__dropdown-icon {
   display: inline-block;
-  width: 0.82rem;
-  height: 0.82rem;
-  background: url("/Images/triangle-icon.svg") center / contain no-repeat;
+  width: 0.96rem;
+  height: 0.96rem;
+  background: url("/Images/triangle-icon-2.svg") center / contain no-repeat;
   transform: rotate(180deg);
   transform-origin: 50% 50%;
 }
 
 .mus-nav__item--dropdown.is-open > .mus-nav__item-row .mus-nav__dropdown-icon {
+  background-image: url("/Images/triangle-icon-2-intense.svg");
   transform: rotate(0deg);
 }
 
@@ -371,8 +372,8 @@ $bp-wide: 1200px;
   }
 
   .mus-nav__dropdown-icon {
-    width: 0.76rem;
-    height: 0.76rem;
+    width: 0.9rem;
+    height: 0.9rem;
   }
 }
 
@@ -447,8 +448,8 @@ $bp-wide: 1200px;
   }
 
   .mus-nav__dropdown-icon {
-    width: 0.76rem;
-    height: 0.76rem;
+    width: 0.9rem;
+    height: 0.9rem;
   }
 
   .mus-nav__submenu {
