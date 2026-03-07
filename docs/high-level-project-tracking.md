@@ -7,7 +7,6 @@ Purpose
 ## Current operating model (2026-03-07)
 - Canonical source branch: `main`
 - Experimental test branch: `experimental` (realigned to `main` before new test cycles)
-- Fallback branch retained during smoke period: `jamstack-builder`
 - Deployment target: GitHub Pages via GitHub Actions
 - Pages workflow: `.github/workflows/deploy-pages.yml`
 
@@ -37,6 +36,15 @@ Purpose
 - Planned experiment categories include analytics integration tests and richer video/audio hosting or embedding trials.
 - Before starting major experimental work, periodically rebase or hard-reset `experimental` from `main` to avoid silent drift.
 - Legacy `experimental` history was preserved before realignment using the backup branch and safety tag listed above.
+
+## Branch hygiene checkpoint (2026-03-07)
+- Deprecated migration/intermediary branches reviewed and removed:
+  - `jamstack-builder`
+  - `backport/main-ui-from-jamstack`
+  - `migration/jamstack-main-cutover-2026-03-06`
+- No additional preservation refs were required during this cleanup because:
+  - `jamstack-builder` history remained recoverable via existing `backup/jamstack-builder-pre-main-cutover-2026-03-06` and `safety/jamstack-builder-pre-main-cutover-2026-03-06`.
+  - `backport/main-ui-from-jamstack` and `migration/jamstack-main-cutover-2026-03-06` had no unique commits ahead of `main`.
 
 ## Near-term implementation focus
 - Navigation/branding follow-up items are tracked in:
