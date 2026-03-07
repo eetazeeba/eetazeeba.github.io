@@ -4,8 +4,9 @@ Purpose
 - Keep operational and migration context out of the top-level README.
 - Track the current branch/deployment model and near-term implementation focus.
 
-## Current operating model (2026-03-06)
+## Current operating model (2026-03-07)
 - Canonical source branch: `main`
+- Experimental test branch: `experimental` (realigned to `main` before new test cycles)
 - Fallback branch retained during smoke period: `jamstack-builder`
 - Deployment target: GitHub Pages via GitHub Actions
 - Pages workflow: `.github/workflows/deploy-pages.yml`
@@ -24,9 +25,18 @@ Purpose
 - Tags:
   - `safety/main-pre-jamstack-cutover-2026-03-06`
   - `safety/jamstack-builder-pre-main-cutover-2026-03-06`
+  - `safety/experimental-pre-realign-2026-03-07`
 - Backup branches:
   - `backup/main-pre-jamstack-cutover-2026-03-06`
   - `backup/jamstack-builder-pre-main-cutover-2026-03-06`
+  - `backup/experimental-pre-realign-2026-03-07`
+
+## Experimental branch policy (2026-03-07)
+- `experimental` is no longer treated as a long-lived alternate implementation branch.
+- Use `experimental` for higher-risk or architecture-sensitive tests that should remain reversible.
+- Planned experiment categories include analytics integration tests and richer video/audio hosting or embedding trials.
+- Before starting major experimental work, periodically rebase or hard-reset `experimental` from `main` to avoid silent drift.
+- Legacy `experimental` history was preserved before realignment using the backup branch and safety tag listed above.
 
 ## Near-term implementation focus
 - Navigation/branding follow-up items are tracked in:
