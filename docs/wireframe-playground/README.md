@@ -25,6 +25,11 @@ Open the local Vite URL shown in the terminal (usually `http://localhost:5173`).
 - `src/services_page_wireframe.jsx`
 - `src/App.jsx` currently renders this file by default.
 
+## Styling note
+
+- Wireframes in this playground use Tailwind utility classes for structure/layout.
+- Keep list bullets semantic (`<ul>/<li>`) and avoid manually prefixing list text with bullet glyphs.
+
 ## Adding future wireframes
 
 Drop new wireframes into `src/`, for example:

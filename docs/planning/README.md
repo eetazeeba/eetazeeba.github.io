@@ -11,6 +11,7 @@ Contents
 - `analytics-rollout-plan.md`: analytics rollout plan (`Umami` first, `Plausible`-compatible later) with Phase 1/2 implementation checkpoints and the pre-wireframe frozen core event taxonomy baseline documented on `experimental` (2026-03-09).
 - `domain-direction-musifer-studio-art.md`: domain direction decision record (`musifer.studio` primary, `musifer.art` backup/protection).
 - `privacy-policy-draft.md`: finalized privacy/disclosure reference document used by analytics Phase 0 decisions (filename retained for continuity).
+- `SEO/`: SEO planning set covering site strategy, page intent, schema guidance, and launch QA.
 
 Notes
 - Primary tracker remains at `docs/high-level-project-tracking.md` for quick top-level access.

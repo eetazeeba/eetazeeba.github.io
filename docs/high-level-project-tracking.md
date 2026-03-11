@@ -99,6 +99,10 @@ Purpose
   - Phase 2 complete
   - Phase 3 complete (including follow-up refinements)
   - Phase 4 baseline system complete; route-level adoption for `/services/`, `/blog/`, and `/contact/` remains a follow-up
+- Sitemap/nav alignment note (2026-03-11):
+  - `services` and `contact` public route slugs now match the current direction in `docs/sitemap.md`.
+  - Public nav labels/URLs in `src/_data/nav.json` were realigned to that sitemap structure.
+  - A distinct `/contact/community/` scaffold now exists instead of folding community language into `/contact/locations/`.
 
 ## Playwright validation expansion note (2026-03-07)
 - Automated rail interaction validation was intentionally skipped for tonight after implementation work.

@@ -37,6 +37,7 @@
 - [`docs/planning/analytics-rollout-plan.md`](docs/planning/analytics-rollout-plan.md): analytics rollout plan (`Umami` first, `Plausible`-compatible later) with vendor-agnostic integration guidance
 - [`docs/planning/domain-direction-musifer-studio-art.md`](docs/planning/domain-direction-musifer-studio-art.md): current domain direction (`musifer.studio` primary, `musifer.art` backup/protection)
 - [`docs/planning/privacy-policy-draft.md`](docs/planning/privacy-policy-draft.md): finalized privacy/disclosure reference used for analytics rollout readiness (filename retained for continuity)
+- [`docs/planning/SEO/`](docs/planning/SEO): SEO planning set for strategy, page intent, schema, and launch QA
 
 ## Hosting through GitHub Pages
 - Deployment workflow: `.github/workflows/deploy-pages.yml`

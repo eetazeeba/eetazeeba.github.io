@@ -1,4 +1,10 @@
-﻿# Musifer Sitemap (Draft)
+# Musifer Sitemap (Draft)
+
+Notes
+- This file is the planning and navigation sitemap for Musifer.
+- It is intended to improve readability, menu formatting, and overall IA direction.
+- It is not the generated `sitemap.xml` that search engines will eventually consume.
+- Public navigation data and route folders should stay aligned with this structure.
 
 ## Top Level
 - Home (`/`)
@@ -16,9 +22,9 @@
 - FAQ (`/about/faq/`)
 
 ## Services
-- Production / Audio Engineering (`/services/production-audio-engineering/`)
+- Production (`/services/production/`)
 - Legal (On Hold) (`/services/legal/`)
-- Pricing / Quote Form (`/services/pricing-quote-form/`)
+- Rates / Quote (`/services/rates-quote/`)
 
 ## Blog
 - Guides (`/blog/guides/`)
@@ -26,5 +32,6 @@
 - Case Studies (`/blog/case-studies/`)
 
 ## Contact
-- Positions / Volunteer / Contribute (`/contact/positions/`)
-- Locations / Community Partners (`/contact/locations/`)
+- Work with us (`/contact/work-with-us/`)
+- Locations (`/contact/locations/`)
+- Community (`/contact/community/`)
