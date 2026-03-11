@@ -46,6 +46,8 @@ Purpose
 ### Structured-data QA
 - Only planned schema types are emitted.
 - JSON-LD matches visible page content.
+- Breadcrumb schema only appears on pages that visibly render breadcrumb navigation.
+- Breadcrumb item URLs match the page's canonical trailing-slash route.
 - `Article` schema is present only on real article pages.
 - `FAQPage` is used only if the FAQ page truly contains visible question/answer content.
 - `LocalBusiness` is omitted unless the location/business model is genuinely ready.
@@ -119,6 +121,8 @@ Purpose
 - Make sure high-performing guides and case studies continue to point users toward the right service or contact action.
 
 ## Manual-review items currently known
-- The repo does not yet include a generated XML sitemap, `robots.txt`, or shared metadata/schema pipeline.
-- Blog article templates and routing are still future work, so article-level SEO checks become active only when those pages exist.
+- The repo does not yet include a generated XML sitemap or `robots.txt`.
+- A shared JSON-LD pipeline now exists in the base layout, and current public consumers are homepage `Organization` plus breadcrumb-driven `BreadcrumbList` payloads for the stable section hierarchy.
+- Shared metadata/canonical/Open Graph support now exists in the base public layout, but remaining scaffold pages still need page-specific copy.
+- Blog article templates and routing are still future work, so the dormant `Article` builder contract becomes active only when those pages exist.
 - Canonical host handling must follow the real live host until custom-domain rollout is actually complete.

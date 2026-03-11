@@ -10,8 +10,13 @@ Purpose
 ## Current state
 - The site is an Eleventy static site deployed through GitHub Pages.
 - Public routes are file-based under `src/**/index.njk`.
-- The shared public layout currently outputs only a simple `<title>` and does not yet provide a reusable canonical, description, Open Graph, or JSON-LD system.
-- No repo-tracked generated `sitemap.xml`, `robots.txt`, or schema helper exists yet.
+- The shared public layout now supports reusable page-level title, description, canonical, Open Graph, and robots inputs.
+- No repo-tracked generated `sitemap.xml` exists yet.
+- Shared JSON-LD rendering now exists in the base layout via `src/_includes/meta/json-ld.njk`; pages can opt in by supplying `jsonLd` data.
+- Shared payload ownership is now split cleanly:
+  - `src/_data/site.js` for site-level identity values
+  - `src/_data/schema.js` for schema assembly helpers
+  - page or directory `*.11tydata.js` files for page-specific schema inputs such as homepage identity and breadcrumb trails
 - [`../../sitemap.md`](../../sitemap.md) is the intended information-architecture and navigation planning reference.
 - `src/_data/nav.json` and the current public route structure now align with the sitemap direction for `services` and `contact`.
 - Analytics planning and baseline instrumentation are already documented in [`../analytics-rollout-plan.md`](../analytics-rollout-plan.md); SEO measurement should align with that vocabulary and remain privacy-conscious.
@@ -109,6 +114,7 @@ These rules should become shared template behavior once implementation starts.
 ## GitHub Pages and static-site constraints
 - Metadata must come from page/front matter data or shared Eleventy data, not from server-side logic.
 - Canonical, Open Graph, and schema output should be centralized in shared layout/includes to avoid route-by-route inconsistency.
+- Article schema should stay compatible with the current Decap CMS `blog` collection fields so editorial data can flow into public templates without a second schema-only authoring layer.
 - Route changes are expensive once indexed, so intended slugs should be settled before priority pages launch.
 - Static generation is an advantage for SEO only if the output is consistent, crawlable, and aligned with the intended sitemap.
 
@@ -118,6 +124,6 @@ These rules should become shared template behavior once implementation starts.
 - See [schema-plan.md](schema-plan.md) for page-type guidance and implementation rules.
 
 ## Immediate implementation follow-up
-- Add shared metadata inputs to templates/front matter before public rollout of redesigned landing pages.
-- Define the future article-page data contract in a way that supports both metadata and `Article` schema without duplicate authoring.
+- Apply page-specific metadata across the remaining priority landing pages and meaningful child pages that still rely on generic scaffolds.
+- Wire real routed article templates to the existing shared `Article` builder contract once blog page generation is in place.
 - Keep future navigation or route changes synchronized across `docs/sitemap.md`, `src/_data/nav.json`, and the public route folders.

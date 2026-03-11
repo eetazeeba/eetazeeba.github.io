@@ -51,7 +51,7 @@ ID rules
 
 ### FB-003 - Grid dead-space handling in uneven content cells
 - Priority: `P2`
-- Status: `new`
+- Status: `triaged`
 - Area: `about, phase-4-layout, grid-composition`
 - Reported: `2026-03-07`
 - Source: `user screenshot feedback`
@@ -85,6 +85,12 @@ ID rules
   4. No regressions in existing grid/rail behavior.
 - Notes:
   - Priority requested as `P2/3`; tracked as `P2` under current legend.
+  - Update `2026-03-11`: a same-day `services` layout fix widened the large-screen shell and removed dense three-column card internals, which improved readability in the immediate failing sections.
+  - That fix also re-surfaced the broader "progressive bleed" concern at larger resolutions, where extra horizontal room can make uneven adjacent modules and trailing dead-space pockets more noticeable again.
+  - Follow-up should treat this as a reusable composition problem, not a `services`-only bug:
+    - review how wider shells interact with uneven card stacks
+    - define when cards should rebalance, span, or collapse to fewer columns
+    - verify that any dead-space mitigation does not reintroduce narrow-copy columns or overflow regressions
 
 ## Completed items
 

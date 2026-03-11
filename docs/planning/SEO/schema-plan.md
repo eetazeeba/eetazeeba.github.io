@@ -17,11 +17,11 @@ Purpose
 
 | Page type | Recommended schema | Use when | Notes |
 | --- | --- | --- | --- |
-| Home | `Organization` | When the homepage clearly represents Musifer as the site owner/operator | Keep identity details accurate and modest. Do not invent social profiles, phone numbers, or locations not shown elsewhere. |
+| Home | `Organization` | Implemented | Uses shared site identity data only: name, canonical site URL, description, and logo. No speculative social/business fields are included. |
 | About / interior section pages | None by default | Use plain HTML first | About content does not need forced schema unless a page later becomes a true FAQ or breadcrumbed hierarchy page. |
 | Section hubs (`/services/`, `/blog/`, `/contact/`) | None by default | Use plain HTML first | Hubs should earn visibility through content, metadata, and linking before adding decorative schema. |
-| Interior pages with visible breadcrumb navigation | `BreadcrumbList` | Only when breadcrumbs are present in the rendered UI | Do not emit breadcrumb schema for navigation that users cannot see. |
-| Blog article pages | `Article` | Once article templates exist and pages expose title, author, publish date, update date, summary, canonical URL, and image when available | This is the highest-priority schema implementation after shared metadata plumbing. |
+| Interior pages with visible breadcrumb navigation | `BreadcrumbList` | Implemented for the current stable section hierarchy (`about`, `services`, `contact`, `blog`, and live blog bucket hubs) | Breadcrumb UI now renders from shared layout data, and schema is derived from the same breadcrumb trail. |
+| Blog article pages | `Article` | Builder contract implemented; public consumers still pending | Future routed article pages should expose the existing Decap fields unchanged so the shared builder can emit `Article` without extra template-only schema glue. |
 | FAQ page | `FAQPage` | Only if `/about/faq/` or another page becomes a genuine question-and-answer page | Avoid FAQ schema on marketing copy disguised as FAQs. |
 | Contact / locations | `LocalBusiness` only if later justified | Only if Musifer publishes a real business/location representation with stable contact or service-area details | Do not add `LocalBusiness` by default for a vague or primarily online presence. |
 
@@ -35,6 +35,14 @@ Purpose
 ### Centralize output
 - Add one shared JSON-LD include/helper in the Eleventy layout system.
 - Feed that helper through page/front matter data rather than writing raw schema into multiple templates.
+- Current implementation:
+  - rendering lives in `src/_includes/meta/json-ld.njk`
+  - page or layout data should pass a `jsonLd` value as either one schema object or an array of schema objects
+  - safe serialization is handled centrally by the Eleventy `jsonLd` filter in `.eleventy.js`
+  - schema assembly lives in `src/_data/schema.js`
+  - homepage `Organization` is supplied from `src/index.11tydata.js` plus shared values in `src/_data/site.js`
+  - breadcrumbed section pages receive both visible breadcrumb data and `BreadcrumbList` payloads from section-level `*.11tydata.js` files
+  - future blog article pages can reuse the same path by exposing the existing Decap-style article fields
 - Keep page-type branching predictable:
   - global identity data for `Organization`
   - page-level breadcrumb data
@@ -64,19 +72,43 @@ Purpose
 - Primary candidate: homepage.
 - Use to identify Musifer as the site owner/operator.
 - Keep properties conservative until the canonical domain and public contact/location details are stable.
+- Current implementation uses:
+  - `name`
+  - `url`
+  - `description`
+  - `logo`
 
 ### `BreadcrumbList`
-- Add only after visible breadcrumb navigation is designed and implemented.
+- Visible breadcrumb navigation is now implemented in the shared layout via `src/_includes/navigation/breadcrumbs.njk`.
 - Most useful for:
   - service child pages
   - blog bucket hubs to article pages
   - possible contact subpages
-- Not worth implementing before route names and IA are settled.
+- Current rollout covers the stable public sections and their current descendants:
+  - `/about/`
+  - `/services/`
+  - `/contact/`
+  - `/blog/`
+  - `/blog/guides/`
+  - `/blog/articles/`
+  - `/blog/case-studies/`
+- Revisit breadcrumb coverage if route hierarchy changes or if any of these pages stop representing the intended public IA.
 
 ### `Article`
 - Highest-value schema target for the roadmap because `blog` is the main long-term discovery surface.
 - Each article page should expose accurate authoring and date information.
 - Do not output `Article` schema for draft content, bucket hubs, or stub pages.
+- Shared builder path now exists in `src/_data/schema.js`, but it intentionally stays dormant until a real routed article page supplies:
+  - `type: blog` or `schemaType: Article`
+  - `status: published`
+  - `title`
+  - `summary` or `description`
+  - `author`
+  - `published_at`
+  - optional `updated_at`
+  - optional `copyright`
+  - optional `socialImagePath` or `articleImagePath`
+- These inputs mirror the current Decap CMS `blog` collection so future article templates can pass through editorial data instead of maintaining a second schema-only contract.
 
 ### `FAQPage`
 - Only use if `/about/faq/` becomes a true FAQ resource with discrete question/answer pairs visible on the page.
@@ -94,6 +126,11 @@ Purpose
 
 ## Implementation dependencies
 - Shared metadata plumbing should land before or alongside schema output.
-- Blog article routing and templates must exist before `Article` schema work starts.
+- Blog article routing and templates still need to exist before `Article` schema is emitted publicly, even though the shared builder contract now exists.
 - Breadcrumb schema depends on actual breadcrumb UI, not just planned hierarchy.
 - Canonical host handling should follow the actual live host until custom-domain cutover is complete.
+- The current shared JSON-LD path is now used by:
+  - homepage `Organization`
+  - breadcrumb-enabled interior pages via `BreadcrumbList`
+- The next intended consumer is:
+  - future blog article templates via `Article`

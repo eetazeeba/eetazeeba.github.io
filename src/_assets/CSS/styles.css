@@ -3,6 +3,7 @@
   --black: #000000ff;
   --dark-amethyst: #1e0a38ff;
   --ochre: #d0741fff;
+  --sandy-clay: #e8b27dff;
   --amethyst: #a063afff;
   --soft-apricot: #edd3b5ff;
   --dust-grey: #d8d4d5ff;
@@ -11,6 +12,7 @@
   --black-hsl: hsla(0, 0%, 0%, 1);
   --dark-amethyst-hsl: hsla(266, 70%, 13%, 1);
   --ochre-hsl: hsla(29, 74%, 47%, 1);
+  --sandy-clay-hsl: hsla(30, 70%, 70%, 1);
   --amethyst-hsl: hsla(288, 32%, 54%, 1);
   --soft-apricot-hsl: hsla(32, 61%, 82%, 1);
   --dust-grey-hsl: hsla(345, 5%, 84%, 1);
@@ -280,6 +282,11 @@ footer {
   }
 }
 @media (min-width: 1200px) {
+  main,
+  .l-page-shell,
+  .l-section-shell {
+    max-width: 1120px;
+  }
   .l-page-shell,
   .l-section-shell {
     padding-inline: 1.5rem;
@@ -348,13 +355,37 @@ footer {
   padding: 0.5rem 0.9rem;
   background: var(--accent);
   color: #fff;
+  border: 1px solid transparent;
   border-radius: 8px;
   text-decoration: none;
+}
+
+.btn--secondary {
+  background: rgba(216, 212, 213, 0.35);
+  color: var(--text);
+  border-color: rgba(30, 10, 56, 0.24);
+}
+
+.btn--soft-emphasis {
+  background: var(--sandy-clay);
+  color: var(--text);
+  border-color: rgba(30, 10, 56, 0.22);
+}
+
+.btn--soft-emphasis:hover,
+.btn--soft-emphasis:focus-visible {
+  background: var(--emphasis);
+  color: var(--dark-amethyst);
 }
 
 .card-impact .btn {
   background: var(--attention);
   color: var(--text);
+}
+
+.card-impact .btn--secondary {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(30, 10, 56, 0.35);
 }
 
 /* Stacked card baseline for single-column module flow. */
@@ -485,6 +516,51 @@ footer {
   display: block;
 }
 
+.breadcrumbs {
+  margin-top: 0.25rem;
+  margin-bottom: 1.1rem;
+}
+
+.breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.7rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--muted);
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+  content: "/";
+  opacity: 0.7;
+}
+
+.breadcrumbs__item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadcrumbs__item a:hover,
+.breadcrumbs__item a:focus-visible {
+  color: var(--soft-apricot);
+  text-decoration: underline;
+}
+
+.breadcrumbs__item [aria-current=page] {
+  color: var(--soft-apricot);
+}
+
 /* About reference page: visual QA target for Phase 4 composition work. */
 .about-page .card,
 .about-page .card-impact {
@@ -560,19 +636,6 @@ footer {
   margin-bottom: 1rem;
 }
 
-.about-chip {
-  display: inline-block;
-  width: fit-content;
-  margin: 0;
-  padding: 0.3rem 0.6rem;
-  border-radius: 999px;
-  border: 1px dashed rgba(30, 10, 56, 0.3);
-  background: rgba(216, 212, 213, 0.25);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 .about-preview-card {
   display: flex;
   flex-direction: column;
@@ -586,6 +649,11 @@ footer {
 
 .about-preview-card p {
   margin: 0;
+}
+
+.about-preview-card .btn {
+  width: fit-content;
+  margin-top: auto;
 }
 
 @media (min-width: 768px) {
@@ -614,5 +682,206 @@ footer {
   .module-rail {
     --module-rail-gap: 1.5rem;
     grid-auto-columns: clamp(17rem, 34vw, 24rem);
+  }
+}
+/* Services landing page: production implementation from locked wireframe. */
+.services-page .card,
+.services-page .card-impact {
+  margin-bottom: 0;
+}
+
+.services-kicker,
+.services-order,
+.services-subheading {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.card-impact .services-kicker {
+  color: var(--dark-amethyst);
+}
+
+.services-lead,
+.services-section-copy,
+.services-hero__aside-copy,
+.services-cta-note,
+.services-final-copy {
+  margin: 0;
+}
+
+.services-hero__layout,
+.services-conversion-grid {
+  align-items: start;
+}
+
+.services-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.services-support-note,
+.services-fit-note,
+.services-cta-note,
+.services-final-band {
+  margin: 0;
+  padding: 0.95rem 1rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(30, 10, 56, 0.28);
+  background: rgba(216, 212, 213, 0.28);
+}
+
+.card-impact .services-support-note,
+.card-impact .services-cta-note {
+  background: rgba(255, 255, 255, 0.34);
+  border-color: rgba(30, 10, 56, 0.35);
+}
+
+.services-hero__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  text-align: center;
+  padding: 1.1rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(30, 10, 56, 0.35);
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.services-value-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.services-value-chip {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(30, 10, 56, 0.3);
+  background: rgba(255, 255, 255, 0.36);
+  font-size: 0.92rem;
+}
+
+.services-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.services-chip {
+  display: inline-block;
+  width: fit-content;
+  margin: 0;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px dashed rgba(30, 10, 56, 0.3);
+  background: rgba(216, 212, 213, 0.25);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.services-lane-grid,
+.services-step-grid,
+.services-route-grid {
+  align-items: stretch;
+}
+
+.services-step-grid,
+.services-route-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.services-lane-card,
+.services-route-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-height: 100%;
+  padding: 1.05rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(30, 10, 56, 0.25);
+  background: rgba(216, 212, 213, 0.25);
+}
+
+.services-panel {
+  margin: 0;
+  padding: 0.95rem 1rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(30, 10, 56, 0.25);
+  background: rgba(216, 212, 213, 0.2);
+  overflow-wrap: anywhere;
+}
+
+.services-panel--soft {
+  background: rgba(216, 212, 213, 0.25);
+}
+
+.services-bullet-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.services-bullet-list li + li {
+  margin-top: 0.4rem;
+}
+
+.services-inline-link {
+  width: fit-content;
+  color: var(--dark-amethyst);
+  font-weight: 600;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.services-cta-cluster,
+.services-faq-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.services-cta-primary {
+  width: fit-content;
+}
+
+.services-route-card .card-title,
+.services-lane-card .card-title,
+.services-panel .card-title {
+  margin-bottom: 0;
+  overflow-wrap: anywhere;
+}
+
+.services-final-band {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .services-value-grid,
+  .services-step-grid,
+  .services-route-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .services-section-header {
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+  }
+  .services-hero__aside {
+    min-height: 100%;
+    justify-content: center;
   }
 }
