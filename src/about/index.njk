@@ -72,43 +72,66 @@ title: About
       </div>
     </div>
 
-    <div class="module-rail module-rail--snap" aria-label="About child-page previews">
-      <article class="about-preview-card">
-        <p class="about-order">01</p>
-        <h3 class="card-title">Team</h3>
-        <p>People, collaborators, and the roles shaping platform growth.</p>
-        <a class="btn btn--soft-emphasis" href="/about/team/">Open Team</a>
-      </article>
-      <article class="about-preview-card">
-        <p class="about-order">02</p>
-        <h3 class="card-title">Mission</h3>
-        <p>The practical outcomes Musifer is designed to support for artists.</p>
-        <a class="btn btn--soft-emphasis" href="/about/mission/">Open Mission</a>
-      </article>
-      <article class="about-preview-card">
-        <p class="about-order">03</p>
-        <h3 class="card-title">History</h3>
-        <p>How the project evolved from concept into a public Jamstack build.</p>
-        <a class="btn btn--soft-emphasis" href="/about/history/">Open History</a>
-      </article>
-      <article class="about-preview-card">
-        <p class="about-order">04</p>
-        <h3 class="card-title">Portfolio</h3>
-        <p>Selected examples of work, process, and creative outcomes.</p>
-        <a class="btn btn--soft-emphasis" href="/about/portfolio/">Open Portfolio</a>
-      </article>
-      <article class="about-preview-card">
-        <p class="about-order">05</p>
-        <h3 class="card-title">Client List</h3>
-        <p>Community and partner signals that reinforce trust and delivery credibility.</p>
-        <a class="btn btn--soft-emphasis" href="/about/client-list/">Open Client List</a>
-      </article>
-      <article class="about-preview-card">
-        <p class="about-order">06</p>
-        <h3 class="card-title">FAQ</h3>
-        <p>Answers to common orientation questions for first-time visitors.</p>
-        <a class="btn btn--soft-emphasis" href="/about/faq/">Open FAQ</a>
-      </article>
+    <div class="module-rail-frame" data-module-nav data-module-position-pips>
+      <div class="module-rail-frame__viewport">
+        <button
+          class="module-rail-nav module-rail-nav--prev"
+          type="button"
+          data-module-nav-prev
+          aria-label="Scroll to previous About previews"
+          aria-controls="about-index-rail"
+          hidden>
+          <span class="module-rail-nav__icon" aria-hidden="true"></span>
+        </button>
+        <div class="module-rail module-rail--snap" id="about-index-rail" aria-label="About child-page previews">
+          <article class="about-preview-card">
+            <p class="about-order">01</p>
+            <h3 class="card-title">Team</h3>
+            <p>People, collaborators, and the roles shaping platform growth.</p>
+            <a class="btn btn--soft-emphasis" href="/about/team/">Open Team</a>
+          </article>
+          <article class="about-preview-card">
+            <p class="about-order">02</p>
+            <h3 class="card-title">Mission</h3>
+            <p>The practical outcomes Musifer is designed to support for artists.</p>
+            <a class="btn btn--soft-emphasis" href="/about/mission/">Open Mission</a>
+          </article>
+          <article class="about-preview-card">
+            <p class="about-order">03</p>
+            <h3 class="card-title">History</h3>
+            <p>How the project evolved from concept into a public Jamstack build.</p>
+            <a class="btn btn--soft-emphasis" href="/about/history/">Open History</a>
+          </article>
+          <article class="about-preview-card">
+            <p class="about-order">04</p>
+            <h3 class="card-title">Portfolio</h3>
+            <p>Selected examples of work, process, and creative outcomes.</p>
+            <a class="btn btn--soft-emphasis" href="/about/portfolio/">Open Portfolio</a>
+          </article>
+          <article class="about-preview-card">
+            <p class="about-order">05</p>
+            <h3 class="card-title">Client List</h3>
+            <p>Community and partner signals that reinforce trust and delivery credibility.</p>
+            <a class="btn btn--soft-emphasis" href="/about/client-list/">Open Client List</a>
+          </article>
+          <article class="about-preview-card">
+            <p class="about-order">06</p>
+            <h3 class="card-title">FAQ</h3>
+            <p>Answers to common orientation questions for first-time visitors.</p>
+            <a class="btn btn--soft-emphasis" href="/about/faq/">Open FAQ</a>
+          </article>
+        </div>
+        <button
+          class="module-rail-nav module-rail-nav--next"
+          type="button"
+          data-module-nav-next
+          aria-label="Scroll to next About previews"
+          aria-controls="about-index-rail"
+          hidden>
+          <span class="module-rail-nav__icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="module-position-pips" aria-hidden="true"></div>
     </div>
   </section>
 

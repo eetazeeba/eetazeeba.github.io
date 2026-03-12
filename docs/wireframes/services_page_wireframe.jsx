@@ -1,4 +1,4 @@
-export default function ServicesPageWireframe() {
+﻿export default function ServicesPageWireframe() {
   const services = [
     {
       number: "01",
@@ -62,7 +62,7 @@ export default function ServicesPageWireframe() {
   const faqTeasers = [
     "Not sure which service you need? Use the quote form anyway and describe the project in plain language.",
     "Smaller or early-stage creative work can still be a fit if the scope is clear and the goals are realistic.",
-    "If Musifer is not the right match, the response should still point you toward a sensible next step.",
+    "If Musifer is not the right match, get in touch and we'll help you find the right support for your project. Check out our community resources and partner network!",
   ];
 
   return (
@@ -70,7 +70,7 @@ export default function ServicesPageWireframe() {
       <div className="mx-auto max-w-6xl space-y-6">
         <header className="rounded-3xl border-2 border-dashed border-zinc-500 bg-white p-4 md:p-6">
           <div className="text-xs uppercase tracking-[0.3em] text-zinc-500">
-            Services page wireframe / Codex-ready handoff
+            Services page wireframe
           </div>
           <h1 className="mt-2 text-2xl font-semibold md:text-4xl">
             Services parent-route structure
@@ -166,9 +166,9 @@ export default function ServicesPageWireframe() {
                   <div className="text-xs uppercase tracking-[0.2em] text-zinc-500">
                     Common asks
                   </div>
-                  <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+                  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
                     {service.bullets.map((bullet) => (
-                      <li key={bullet}>• {bullet}</li>
+                      <li key={bullet}>{bullet}</li>
                     ))}
                   </ul>
                 </div>
@@ -217,9 +217,9 @@ export default function ServicesPageWireframe() {
               <div className="text-xs uppercase tracking-[0.2em] text-zinc-500">
                 Helpful starting info
               </div>
-              <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
                 {prepItems.map((item) => (
-                  <li key={item}>• {item}</li>
+                  <li key={item}>{item}</li>
                 ))}
               </ul>
             </div>
@@ -310,8 +310,8 @@ export default function ServicesPageWireframe() {
         </section>
 
         <footer className="rounded-3xl border-2 border-dashed border-zinc-500 bg-white p-4 text-sm text-zinc-600 md:p-6">
-          Mobile order should remain linear: Hero → Service Categories → How Work Starts
-          → Project Fit → Quote CTA → FAQ → Final Routing.
+          Mobile order should remain linear: Hero -&gt; Service Categories -&gt; How Work Starts
+          -&gt; Project Fit -&gt; Quote CTA -&gt; FAQ -&gt; Final Routing.
           <br />
           Integration note: preserve existing card/layout conventions where possible,
           promote this into shared modules instead of page-specific hacks, and keep
@@ -322,3 +322,4 @@ export default function ServicesPageWireframe() {
     </div>
   );
 }
+

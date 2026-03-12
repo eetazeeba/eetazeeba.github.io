@@ -92,6 +92,40 @@ ID rules
     - define when cards should rebalance, span, or collapse to fewer columns
     - verify that any dead-space mitigation does not reintroduce narrow-copy columns or overflow regressions
 
+### FB-004 - Rail navigation affordance and optional position pips
+- Priority: `P3`
+- Status: `planned`
+- Area: `module-rail, module-card-stack, interaction-polish`
+- Reported: `2026-03-12`
+- Source: `user UX feedback`
+- Related phase: `Phase 4 content-module refinement`
+- Files likely impacted:
+  - `src/_assets/CSS/_components.scss`
+  - `src/_assets/scripts/rail-affordances.js`
+  - `src/_includes/layouts/base.njk`
+  - `src/about/index.njk`
+- Problem statement:
+  - Horizontal content rails currently rely on a subtle native scrollbar that is easy to miss, so users may not realize more cards are available off-screen.
+- Repro steps:
+  1. Open a page with an overflowing content rail on desktop.
+  2. Hover or focus the rail area and compare the visible navigation cues to the amount of hidden off-screen content.
+  3. Observe that the scrollbar alone can be too subtle to advertise continued rail content.
+- User impact:
+  - Visitors can miss additional cards or discover the rail interaction later than intended.
+- Proposed direction:
+  - Add a reusable hover/focus treatment with edge fades and directional controls for overflowing rails.
+  - Preserve native scrolling and snap behavior.
+  - Support optional exact-location pips for snap rails and card stacks without overlapping scrollbar space.
+- Acceptance criteria:
+  1. Overflowing rails visibly advertise available left/right content on hover or focus.
+  2. Directional controls appear only when content exists in that direction.
+  3. Optional pips reflect the active card index for snap rails and card stacks.
+  4. Pips do not overlap or block scrollbar visibility or dragging.
+  5. No regressions in rail snap behavior, keyboard focus scrolling, or page-level overflow containment.
+- Notes:
+  - Treat as additive polish, not a carousel rewrite.
+  - Exclude non-snap free-scroll rails from exact-position pip tracking.
+
 ## Completed items
 
 ### FB-002 - About page narrow-viewport horizontal overflow regression

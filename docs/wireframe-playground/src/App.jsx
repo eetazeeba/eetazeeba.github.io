@@ -1,4 +1,4 @@
-import ServicesPageWireframe from './services_page_wireframe.jsx'
+import ServicesPageWireframe from './blog_page_wireframe.jsx'
 
 function App() {
   return <ServicesPageWireframe />
