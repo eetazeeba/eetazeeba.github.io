@@ -1,6 +1,6 @@
 # Musifer SEO Launch Checklist
 
-Snapshot date: 2026-03-11 (branch `experimental`)
+Snapshot date: 2026-03-12 (branch `experimental`)
 
 Purpose
 - Provide a practical QA and post-launch checklist for Musifer SEO work.
@@ -124,5 +124,5 @@ Purpose
 - The repo does not yet include a generated XML sitemap or `robots.txt`.
 - A shared JSON-LD pipeline now exists in the base layout, and current public consumers are homepage `Organization` plus breadcrumb-driven `BreadcrumbList` payloads for the stable section hierarchy.
 - Shared metadata/canonical/Open Graph support now exists in the base public layout, but remaining scaffold pages still need page-specific copy.
-- Blog article templates and routing are still future work, so the dormant `Article` builder contract becomes active only when those pages exist.
+- Blog article templates and routing now exist for published public blog entries; continue checking that draft entries do not generate public routes or `Article` schema.
 - Canonical host handling must follow the real live host until custom-domain rollout is actually complete.

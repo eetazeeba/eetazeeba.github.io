@@ -1,6 +1,6 @@
 # Musifer SEO Strategy
 
-Snapshot date: 2026-03-11 (branch `experimental`)
+Snapshot date: 2026-03-12 (branch `experimental`)
 
 Purpose
 - Define the sitewide SEO approach for Musifer before the next implementation pass on `services`, `blog`, and `contact`.
@@ -125,5 +125,5 @@ These rules should become shared template behavior once implementation starts.
 
 ## Immediate implementation follow-up
 - Apply page-specific metadata across the remaining priority landing pages and meaningful child pages that still rely on generic scaffolds.
-- Wire real routed article templates to the existing shared `Article` builder contract once blog page generation is in place.
+- Keep the routed blog article templates aligned to the shared `Article` builder contract as the blog library grows.
 - Keep future navigation or route changes synchronized across `docs/sitemap.md`, `src/_data/nav.json`, and the public route folders.

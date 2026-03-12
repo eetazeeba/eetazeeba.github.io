@@ -1,10 +1,47 @@
-﻿---
-layout: layouts/base.njk
-title: Articles
 ---
+layout: layouts/base.njk
+title: Articles | Blog
+breadcrumbTitle: Articles
+description: Browse Musifer articles for editorial perspective, field notes, and artist-facing context without archive clutter.
+---
+{% set bucket = blog.publicBucketMap.articles %}
 
-<section class="card">
-  <h1 class="card-title">Articles</h1>
-  <p>Starter scaffold page. Content pending.</p>
-  <a class="btn" href="/">Back to home</a>
-</section>
+<div class="l-page-shell l-module-stack blog-bucket-page">
+  <section class="card card-impact blog-bucket-header" aria-labelledby="articles-heading">
+    <p class="blog-kicker">Blog / Articles</p>
+    <h1 class="card-title display-title" id="articles-heading">{{ bucket.title }}</h1>
+    <p class="blog-page-deck">{{ bucket.hubDescription }}</p>
+  </section>
+
+  <section class="card" aria-labelledby="articles-list-heading">
+    <div class="blog-section-header">
+      <div>
+        <p class="blog-kicker">Current publishing</p>
+        <h2 class="card-title" id="articles-list-heading">What is live in this lane</h2>
+        <p class="blog-section-copy">{{ bucket.countLabel }}</p>
+      </div>
+      <a class="btn btn--secondary" href="/blog/">Back to blog hub</a>
+    </div>
+
+    {% if bucket.entries.length %}
+    <div class="module-card-stack">
+      {% for entry in bucket.entries %}
+      <article class="blog-bucket-entry">
+        <p class="blog-inline-meta">{{ entry.metadataLabel }}</p>
+        <h3 class="card-title">{{ entry.title }}</h3>
+        <p>{{ entry.summary }}</p>
+        <a class="blog-inline-link" href="{{ entry.url }}">Read article</a>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="blog-empty-state">
+      <p>Articles will stay selective here. The lane exists now so the public structure is honest before the library fills out.</p>
+      <div class="blog-browse-links">
+        <a class="btn" href="/blog/">Return to the blog hub</a>
+        <a class="btn btn--secondary" href="/contact/community/">Open community pathways</a>
+      </div>
+    </div>
+    {% endif %}
+  </section>
+</div>

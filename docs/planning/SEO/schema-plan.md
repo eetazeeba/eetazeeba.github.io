@@ -1,6 +1,6 @@
 # Musifer Schema Plan
 
-Snapshot date: 2026-03-11 (branch `experimental`)
+Snapshot date: 2026-03-12 (branch `experimental`)
 
 Purpose
 - Define which structured-data types fit Musifer's planned pages and content model.
@@ -21,7 +21,7 @@ Purpose
 | About / interior section pages | None by default | Use plain HTML first | About content does not need forced schema unless a page later becomes a true FAQ or breadcrumbed hierarchy page. |
 | Section hubs (`/services/`, `/blog/`, `/contact/`) | None by default | Use plain HTML first | Hubs should earn visibility through content, metadata, and linking before adding decorative schema. |
 | Interior pages with visible breadcrumb navigation | `BreadcrumbList` | Implemented for the current stable section hierarchy (`about`, `services`, `contact`, `blog`, and live blog bucket hubs) | Breadcrumb UI now renders from shared layout data, and schema is derived from the same breadcrumb trail. |
-| Blog article pages | `Article` | Builder contract implemented; public consumers still pending | Future routed article pages should expose the existing Decap fields unchanged so the shared builder can emit `Article` without extra template-only schema glue. |
+| Blog article pages | `Article` | Implemented for published public blog entries | Routed article pages now expose the shared CMS-style fields so the shared builder can emit `Article` without extra template-only schema glue. |
 | FAQ page | `FAQPage` | Only if `/about/faq/` or another page becomes a genuine question-and-answer page | Avoid FAQ schema on marketing copy disguised as FAQs. |
 | Contact / locations | `LocalBusiness` only if later justified | Only if Musifer publishes a real business/location representation with stable contact or service-area details | Do not add `LocalBusiness` by default for a vague or primarily online presence. |
 
@@ -108,7 +108,7 @@ Purpose
   - optional `updated_at`
   - optional `copyright`
   - optional `socialImagePath` or `articleImagePath`
-- These inputs mirror the current Decap CMS `blog` collection so future article templates can pass through editorial data instead of maintaining a second schema-only contract.
+- These inputs mirror the current Decap CMS `blog` collection so routed article templates can pass through editorial data instead of maintaining a second schema-only contract.
 
 ### `FAQPage`
 - Only use if `/about/faq/` becomes a true FAQ resource with discrete question/answer pairs visible on the page.
@@ -132,5 +132,7 @@ Purpose
 - The current shared JSON-LD path is now used by:
   - homepage `Organization`
   - breadcrumb-enabled interior pages via `BreadcrumbList`
-- The next intended consumer is:
-  - future blog article templates via `Article`
+- The current public consumers are:
+  - homepage `Organization`
+  - breadcrumb-enabled interior pages via `BreadcrumbList`
+  - published blog article pages via `Article`

@@ -1,6 +1,6 @@
 # Musifer Page Intent Map
 
-Snapshot date: 2026-03-11 (branch `experimental`)
+Snapshot date: 2026-03-12 (branch `experimental`)
 
 Purpose
 - Map page purpose, search intent, conversion role, and indexing expectations across the current and planned Musifer site.
@@ -19,7 +19,7 @@ Purpose
 | Home | `/` | Implemented | Orientation page for first-time visitors, artists exploring support, and people evaluating Musifer as a creative platform. | brand queries, artist support, music guidance, creator resources | Send visitors into `services`, `blog`, and `contact` based on intent. | Link clearly to the three priority sections; surface one or two proof/trust paths. | Index |
 | About | `/about/` | Implemented | Trust and brand-context page for people who need to understand the mission, background, and direction. | brand queries, about Musifer, artist-first platform | Support trust before a service or contact decision. | Link to services, blog, and contact; child pages should roll up into About and vice versa. | Index |
 | Services landing | `/services/` | Implemented conversion-focused landing page | Commercial intent hub for visitors evaluating what Musifer can help with now. | music production help, artist support services, creative services | Move users into a specific service and then toward contact or quote. | Link to priority services, supporting blog content, and contact paths. | Index |
-| Blog index | `/blog/` | Implemented scaffold | Discovery hub for educational and trust-building content. Priority SEO growth surface. | artist advice blog, music guidance blog, music industry help | Move users into bucket hubs and article pages; support later service/contact conversion. | Link to `guides`, `articles`, `case-studies`, featured posts, and selected services. | Index |
+| Blog index | `/blog/` | Implemented curated landing page | Discovery hub for educational and trust-building content. Priority SEO growth surface. | artist advice blog, music guidance blog, music industry help | Move users into bucket hubs and article pages; support later service/contact conversion. | Link to `guides`, `articles`, `case-studies`, featured posts, and selected services. | Index |
 | Contact landing | `/contact/` | Implemented scaffold | Action hub for visitors ready to reach out, explore participation, or find local/community context. | contact Musifer, work with Musifer, community contact | Convert high-intent visitors into inquiry or next-step behavior. | Link to work-with-us, locations, and other relevant contact paths. | Index |
 
 ## About section
@@ -45,10 +45,10 @@ Purpose
 
 | Page | Intended route | Current implementation | Purpose and audience | Query themes | Conversion role | Linking expectations | Indexing |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Guides hub | `/blog/guides/` | Implemented scaffold | Evergreen instructional content for recurring artist problems. | how to write better hooks, artist workflow tips, beginner music guidance | Discovery entry point that later routes users to services or contact. | Link to articles, case studies, and relevant services. | Index |
-| Articles hub | `/blog/articles/` | Implemented scaffold | Essays, interpretation, editorial perspective, and thought pieces. | music industry thoughts, artist strategy, creative perspective | Build trust and brand voice; support newsletter/contact/service pathways later. | Link to guides/case studies when they deepen the topic. | Index |
-| Case studies hub | `/blog/case-studies/` | Implemented scaffold | Proof-oriented stories showing process, outcomes, and applied experience. | music case study, production breakdown, artist support example | Bridge informational traffic into service consideration. | Link strongly to the most relevant service and contact path. | Index |
-| Blog article pages | `/blog/<bucket>/<slug>/` | Not implemented yet | Individual article pages for discovery, education, and trust. | topic-specific long-tail queries | Move visitors into another article, a service page, or contact based on readiness. | Link to bucket hub, related posts, relevant service, and contact CTA where justified. | Index when substantive and published |
+| Guides hub | `/blog/guides/` | Implemented lightweight hub page | Evergreen instructional content for recurring artist problems. | how to write better hooks, artist workflow tips, beginner music guidance | Discovery entry point that later routes users to services or contact. | Link to articles, case studies, and relevant services. | Index |
+| Articles hub | `/blog/articles/` | Implemented lightweight hub page | Essays, interpretation, editorial perspective, and thought pieces. | music industry thoughts, artist strategy, creative perspective | Build trust and brand voice; support newsletter/contact/service pathways later. | Link to guides/case studies when they deepen the topic. | Index |
+| Case studies hub | `/blog/case-studies/` | Implemented lightweight hub page | Proof-oriented stories showing process, outcomes, and applied experience. | music case study, production breakdown, artist support example | Bridge informational traffic into service consideration. | Link strongly to the most relevant service and contact path. | Index |
+| Blog article pages | `/blog/<bucket>/<slug>/` | Implemented for published public blog entries | Individual article pages for discovery, education, and trust. | topic-specific long-tail queries | Move visitors into another article, a service page, or contact based on readiness. | Link to bucket hub, related posts, relevant service, and contact CTA where justified. | Index when substantive and published |
 
 ## Contact section
 
@@ -66,6 +66,7 @@ Purpose
   - `guides`: evergreen how-to, checklists, explainers, process walkthroughs
   - `articles`: commentary, perspective, narrative, interpretation
   - `case-studies`: proof, breakdowns, before/after, applied lessons
+- The CMS content model now stores a primary `bucket` slug on blog entries; keep public IA aligned to the three buckets above unless planning docs are updated first.
 - Do not add more public buckets unless there is enough repeated content to justify a stable archive page.
 - Give each article one primary public bucket.
 
@@ -111,6 +112,6 @@ Purpose
   - action follow-up: contact or quote path
 
 ## Current implementation gaps to reconcile
-- Blog bucket hubs exist, but article-page routing and article templates do not.
-- Current scaffold pages are too thin to carry their eventual SEO role without further implementation.
+- The current blog library is still sparse, so the landing page and bucket hubs need ongoing editorial curation rather than archive-heavy expansion.
 - The content model currently allows tag drift, so taxonomy exposure should stay restrained until governance improves.
+- If future buckets are introduced in CMS data, update IA/navigation/planning docs before exposing new public hub pages.
