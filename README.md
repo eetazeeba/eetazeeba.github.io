@@ -13,10 +13,12 @@
 - [GitHub Pages](https://docs.github.com/en/pages) + [GitHub Actions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) for hosting/deploy
 
 ## Quick start
-1. `npm install`
+1. `npm ci`
 2. `npm run start`
 3. Open `http://localhost:8080/`
 4. Build production output with `npm run build`
+
+Use `npm ci` for normal setup and branch sync on an existing clone. Use `npm install` only when intentionally adding or updating dependencies and commit the resulting lockfile change.
 
 ## Key directories
 - `src/`: Eleventy templates, includes, and route pages
@@ -27,6 +29,7 @@
 - `.github/workflows/`: Continuous Integration and Continuous Delivery/Deployment (CI/DI) workflows (including Pages deploy)
 
 ## Documentation map
+- [`docs/workflows/two-device-development-routine.md`](docs/workflows/two-device-development-routine.md): day-to-day branch, device, and dependency routine
 - [`docs/planning/README.md`](docs/planning/README.md): planning-folder index and scope notes
 - [`docs/cms-content-spec.md`](docs/cms-content-spec.md): content model and field rules
 - [`docs/sitemap.md`](docs/sitemap.md): route and information architecture notes
