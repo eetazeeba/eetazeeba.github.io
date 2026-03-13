@@ -6,7 +6,7 @@ Use this routine when moving between the macOS and Windows development machines 
 
 ### macOS
 - Node `24.13.1`
-- npm `11.8.0`
+- npm `11.11.1`
 - Git `2.50.1`
 
 ### Windows
@@ -24,7 +24,7 @@ Use this routine when moving between the macOS and Windows development machines 
 - `experimental` is a sandbox branch for deliberate tests, not a second default work branch.
 - SCSS files in `src/_assets/CSS/` are the source of truth.
 - Compiled `styles.css` and `header-nav.css` stay tracked for now and should not be hand-edited.
-- GitHub Actions still deploys with Node `20`. Local development is standardized on Node `24.13.1`, so keep that mismatch in mind until the workflow is updated.
+- GitHub Actions Pages builds should follow `.nvmrc`, so local development and CI share the same Node baseline.
 
 ## Starting A New Task
 
@@ -64,6 +64,65 @@ git push -u origin HEAD
 
 Do not leave the current device with unpushed branch work if you expect to continue on the other machine.
 
+## Open A Pull Request Back To `main`
+
+This repo follows a GitHub-style branch flow: open a pull request into `main`, let required checks finish, use review to settle the last changes, then merge with **Squash and merge**. GitHub references:
+
+- [GitHub flow](https://docs.github.com/get-started/quickstart/github-flow)
+- [About protected branches](https://docs.github.com/enterprise/admin/guides/developer-workflow/about-protected-branches-and-required-status-checks)
+- [About pull request merges](https://docs.github.com/articles/about-pull-request-merge-squashing)
+- [Merging a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request?tool=cli)
+
+## Pull Request Decision Tree
+
+Before opening the pull request, use this decision tree:
+
+1. If the feature branch only exists locally, push it to `origin` first.
+2. If the feature branch already exists on `origin`, sync it with both `origin/<branch>` and `origin/main`.
+3. After either path, run the shared pre-pull-request checks and push the final branch state.
+
+### Path A: first push for a local-only branch
+
+```bash
+git checkout <existing-feature-branch>
+git push -u origin HEAD
+```
+
+### Path B: branch already exists on `origin`
+
+```bash
+git fetch origin
+git checkout <existing-feature-branch>
+git pull --rebase origin <existing-feature-branch>
+git rebase origin/main
+```
+
+### Shared pre-pull-request checks
+
+```bash
+npm ci
+npm run build
+npm run cms:validate
+git push
+```
+## Rebase-conflict Resolution
+
+If `git rebase origin/main` reports conflicts, use the rebase-conflict routine below, then run the shared pre-pull-request checks and push again.
+
+Pull request routine:
+
+1. Open the pull request from the feature branch into `main`.
+2. Wait for `guard-main` and `validate-main-pr` to pass.
+3. Address review feedback and re-request review if the changes are substantial.
+4. Merge with **Squash and merge**.
+5. Delete the feature branch after merge.
+
+Notes:
+
+- Deployment still happens only after the squash merge lands on `main`.
+- `cms:index` is not a required PR check yet because it rewrites tracked `content/_index.json` with a generated timestamp.
+- If a content change requires a refreshed index, run `npm run cms:check` manually before merging and include the resulting tracked index update in the branch.
+
 ## Recovery Commands
 
 ### Discard local drift on `main`
@@ -101,6 +160,7 @@ git rebase --abort
 1. Start from updated `main`.
 2. Create or resume one short-lived feature branch.
 3. Use `npm ci` after pulling changes onto an existing clone.
-4. Push the current branch before leaving a device.
-5. Resume the same branch on the other machine.
-6. Keep `main` clean and keep `experimental` reserved for intentional sandbox work.
+4. Open a pull request back into `main`, pass checks, and use **Squash and merge**.
+5. Push the current branch before leaving a device.
+6. Resume the same branch on the other machine.
+7. Keep `main` clean and keep `experimental` reserved for intentional sandbox work.

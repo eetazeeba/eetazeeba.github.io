@@ -9,6 +9,11 @@ Purpose
 - Experimental test branch: `experimental` (realigned to `main` before new test cycles)
 - Deployment target: GitHub Pages via GitHub Actions
 - Pages workflow: `.github/workflows/deploy-pages.yml`
+- Feature work should return to `main` through reviewed pull requests rather than direct feature-branch pushes.
+- Preferred merge method for short-lived feature branches: **Squash and merge**
+- Intended required checks for pull requests into `main`: `guard-main` and `validate-main-pr`
+- Deployment still occurs only after the merge lands on `main`
+- Node baseline source of truth: `.nvmrc` (used for local development and Pages CI)
 
 ## Analytics tangent status (Plausible) (2026-03-09)
 - Tracking artifact: `docs/planning/plausible-feasibility-and-implementation-plan.md`.
