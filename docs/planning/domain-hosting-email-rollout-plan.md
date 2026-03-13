@@ -136,4 +136,4 @@ Cautions and rollback notes
 - `docs/planning/domain-direction-musifer-studio-art.md`
 - `docs/high-level-project-tracking.md`
 - `docs/planning/jamstack-main-migration-plan.md`
-- `docs/planning/plausible-feasibility-and-implementation-plan.md`
+- `docs/planning/analytics-feasibility-and-implementation-plan.md`

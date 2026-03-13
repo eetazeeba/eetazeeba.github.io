@@ -44,7 +44,7 @@ Use `npm ci` for normal setup and branch sync on an existing clone. Use `npm ins
 - [`docs/audits/css-refresh-conflict-audit.md`](docs/audits/css-refresh-conflict-audit.md): CSS audit and implementation risks
 - [`docs/planning/jamstack-main-migration-plan.md`](docs/planning/jamstack-main-migration-plan.md): branch consolidation and cutover history
 - [`docs/high-level-project-tracking.md`](docs/high-level-project-tracking.md): operational status and ongoing tracking notes
-- [`docs/planning/plausible-feasibility-and-implementation-plan.md`](docs/planning/plausible-feasibility-and-implementation-plan.md): analytics feasibility review and proposed rollout phases (planning only)
+- [`docs/planning/analytics-feasibility-and-implementation-plan.md`](docs/planning/analytics-feasibility-and-implementation-plan.md): active analytics planning/status doc (current near-term direction is Umami, planning only)
 
 ## Infrastructure rollout snapshot
 - Registrar and DNS provider of choice: Porkbun.
@@ -64,12 +64,13 @@ Use `npm ci` for normal setup and branch sync on an existing clone. Use `npm ins
   - [Configuring a publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
   - [Using custom workflows with GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 
-## Analytics investigation status (Plausible)
-- Current status on `main` (2026-03-09): investigated/planning only; no Plausible script or analytics wrapper is implemented in tracked source.
-- Investigation notes and proposed phases are tracked in `docs/planning/plausible-feasibility-and-implementation-plan.md`.
-- Hosting context for analytics decisions:
+## Analytics planning status
+- Current status on `main` (2026-03-13): documentation/planning only; no Umami, Plausible, or other analytics implementation is present in tracked source.
+- Active planning/status reference: `docs/planning/analytics-feasibility-and-implementation-plan.md` (renamed from the earlier Plausible-specific filename; current near-term direction is Umami).
+- Hosting and SEO context for analytics decisions:
   - Repo-documented near-term deployment path remains GitHub Pages via Actions as the transitional custom-domain step.
   - Current target hosting decision is Vercel for the long-term primary site once the GitHub Pages transition is complete.
+  - SEO assumptions that depend on the final canonical domain, final redirects, metadata behavior, or robots behavior remain planning-only until later rollout phases validate them.
   - Historical Netlify linkage (`creative-cassata-f39fb9`) is not the active rollout plan and has no repo-tracked deploy/config artifacts.
 
 ## CMS notes

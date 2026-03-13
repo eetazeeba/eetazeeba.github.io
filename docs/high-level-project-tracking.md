@@ -15,15 +15,20 @@ Purpose
 - Pages workflow: `.github/workflows/deploy-pages.yml`
 - Rollout planning artifact: `docs/planning/domain-hosting-email-rollout-plan.md`
 
-## Analytics tangent status (Plausible) (2026-03-09)
-- Tracking artifact: `docs/planning/plausible-feasibility-and-implementation-plan.md`.
-- Current `main` status: investigation/evaluation only; no analytics implementation has been merged.
+## Analytics and SEO planning status (Umami, planning only) (2026-03-13)
+- Tracking artifact: `docs/planning/analytics-feasibility-and-implementation-plan.md` (renamed from the earlier Plausible-specific filename).
+- Current `main` status: documentation/planning only; no analytics implementation has been merged.
 - Confirmed repo state:
-  - No Plausible script include in shared layout templates.
+  - No Umami, Plausible, or other analytics script include in shared layout templates.
   - No analytics helper/config files committed in source.
-- Hosting context relevant to analytics:
+- Current planning direction:
+  - Near-term analytics platform direction: Umami.
+  - Earlier Plausible-specific guidance is now superseded unless explicitly retained as historical context in the tracking artifact.
+  - Event taxonomy planning can remain vendor-neutral.
+- Hosting and SEO context relevant to analytics:
   - The near-term public-domain activation plan still uses GitHub Pages via Actions.
   - The target long-term host is Vercel after the custom-domain transition is complete.
+  - SEO validation for canonical routing, metadata behavior, robots behavior, and final sitemap behavior still depends on the later domain and hosting rollout phases.
   - Historical Netlify linkage (`creative-cassata-f39fb9`) is not the active rollout plan and still has no repo-tracked deploy/config artifact.
 - Open decisions before implementation:
   - Exact canonical production hostname after domain purchase is still implementation-pending.

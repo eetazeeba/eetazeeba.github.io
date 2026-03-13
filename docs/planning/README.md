@@ -9,7 +9,7 @@ Contents
 - `jamstack-main-migration-plan.md`: branch consolidation and cutover plan/history.
 - `responsive-layout-navigation-refresh-plan.md`: responsive/navigation roadmap and phase status.
 - `responsive-layout-phase-4-content-modules-implementation-brief.md`: Phase 4 implementation-state brief tied to the roadmap.
-- `plausible-feasibility-and-implementation-plan.md`: Plausible analytics investigation and proposed rollout phases.
+- `analytics-feasibility-and-implementation-plan.md`: active analytics planning/status doc (renamed from the earlier Plausible-specific filename; current near-term direction is Umami).
 - `domain-direction-musifer-studio-art.md`: domain naming decision record (`musifer.studio` primary, `musifer.art` backup/protection); vendor and rollout sequencing now live in the rollout plan.
 
 Notes
