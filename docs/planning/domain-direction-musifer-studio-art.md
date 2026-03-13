@@ -3,9 +3,9 @@
 ## Current decision
 - Preferred primary public domain direction: `musifer.studio`.
 - Secondary/backup/brand-protection direction: `musifer.art`.
-- Decision status (as of 2026-03-09): direction selected for planning; not yet implemented.
+- Decision status (as of 2026-03-13): naming direction selected for planning; registrar, hosting, and email rollout choices are now documented in `docs/planning/domain-hosting-email-rollout-plan.md`.
 - `.com` is not currently the preferred acquisition target due to cost/squatting constraints.
-- Final canonical host/domain implementation is still pending follow-up.
+- Final live implementation is still pending follow-up.
 
 ## Rationale
 - Why `musifer.studio` is preferred:
@@ -17,36 +17,32 @@
   - Brand-protection value against lookalike/impersonation risk.
   - Useful as an alternate redirect domain if primary canonical routing later standardizes on `.studio`.
 
-## Hosting implications (repo-visible facts only)
-- Repo-documented deployment path is GitHub Pages via Actions from `main`:
-  - Workflow: `.github/workflows/deploy-pages.yml`.
-- Netlify context:
-  - Netlify project linkage exists as `creative-cassata-f39fb9` (external dashboard context).
-  - Repo does not currently prove active Netlify deployment behavior for production.
-- No repo-tracked custom-domain/Netlify edge config artifacts were found at this time:
-  - no `CNAME`
-  - no `netlify.toml`
-  - no `_headers`
-  - no `_redirects`
+## Infrastructure alignment
+- Registrar and DNS provider of choice: Porkbun.
+- Transitional custom-domain host: GitHub Pages via Actions from `main`.
+- Long-term primary hosting target: Vercel.
+- Domain email target after hosting migration: Proton.
 - Practical implication:
-  - Canonical domain/redirect behavior must be explicitly implemented and documented later; this file records direction only.
+  - This file keeps the naming decision and rationale.
+  - Operational sequencing now lives in `docs/planning/domain-hosting-email-rollout-plan.md`.
 
 ## Follow-up implementation tasks (not executed in this pass)
-- Acquire and register target domains (`musifer.studio` primary, `musifer.art` backup/protection).
-- Produce DNS plan:
-  - authoritative DNS provider choice
-  - records for primary host
-  - redirect behavior for backup domain
-- Implement GitHub Pages custom-domain setup for the chosen canonical domain.
-- If Netlify is used for any live environment, document Netlify domain settings and deploy-context behavior.
-- Validate redirects/canonical signals end-to-end after domain cutover:
+- Acquire and register target domains through Porkbun (`musifer.studio` primary, `musifer.art` backup/protection).
+- Connect the canonical domain to GitHub Pages first as the temporary public state.
+- Produce the DNS plan for each rollout phase:
+  - transitional GitHub Pages records
+  - later Vercel verification and canonical-host records
+  - backup-domain redirect behavior if `musifer.art` is acquired
+  - later Proton mail records
+- Migrate the canonical domain from GitHub Pages to Vercel in a later phase.
+- Validate redirects/canonical signals end-to-end after each domain/host transition:
   - host redirects
   - canonical tags where applicable
   - mixed-host drift checks
 - Reconcile analytics/domain assumptions after cutover to avoid fragmented reporting.
 
 ## Documentation follow-up after acquisition/connection
-- Update `README.md` hosting/domain section with confirmed canonical domain and active host path.
+- Update `README.md` infrastructure section with confirmed canonical domain and active host path.
 - Update `docs/high-level-project-tracking.md` from "direction selected" to "implemented state" with dates.
 - Update `docs/planning/plausible-feasibility-and-implementation-plan.md` to reflect final canonical domain decision for analytics setup.
 - Keep this document as the historical decision record; append implementation outcome notes rather than replacing rationale.

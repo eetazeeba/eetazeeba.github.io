@@ -4,16 +4,21 @@ Purpose
 - Keep operational and migration context out of the top-level README.
 - Track the current branch/deployment model and near-term implementation focus.
 
-## Current operating model (2026-03-07)
+## Current operating model (2026-03-13)
 - Canonical source branch: `main`
 - Experimental test branch: `experimental` (realigned to `main` before new test cycles)
-- Deployment target: GitHub Pages via GitHub Actions
+- Current repo-visible deploy baseline: GitHub Pages via GitHub Actions
+- GitHub Pages custom-domain use is now treated as a transitional phase, not the final hosting architecture
+- Planned long-term primary host: Vercel
+- Registrar/DNS provider of choice: Porkbun
+- Planned domain email provider after hosting migration: Proton
 - Pages workflow: `.github/workflows/deploy-pages.yml`
 - Feature work should return to `main` through reviewed pull requests rather than direct feature-branch pushes.
 - Preferred merge method for short-lived feature branches: **Squash and merge**
 - Intended required checks for pull requests into `main`: `guard-main` and `validate-main-pr`
 - Deployment still occurs only after the merge lands on `main`
 - Node baseline source of truth: `.nvmrc` (used for local development and Pages CI)
+- Rollout planning artifact: `docs/planning/domain-hosting-email-rollout-plan.md`
 
 ## Analytics tangent status (Plausible) (2026-03-09)
 - Tracking artifact: `docs/planning/plausible-feasibility-and-implementation-plan.md`.
@@ -22,19 +27,27 @@ Purpose
   - No Plausible script include in shared layout templates.
   - No analytics helper/config files committed in source.
 - Hosting context relevant to analytics:
-  - In-repo deploy model remains GitHub Pages via Actions.
-  - Netlify project `creative-cassata-f39fb9` is connected for environment visibility, but there is no repo-tracked Netlify deployment/config artifact yet (`netlify.toml`, `_headers`, `_redirects`).
+  - The near-term public-domain activation plan still uses GitHub Pages via Actions.
+  - The target long-term host is Vercel after the custom-domain transition is complete.
+  - Historical Netlify linkage (`creative-cassata-f39fb9`) is not the active rollout plan and still has no repo-tracked deploy/config artifact.
 - Open decisions before implementation:
-  - Canonical production hostname and host strategy (Pages only, Netlify only, or dual with canonical redirect).
+  - Exact canonical production hostname after domain purchase is still implementation-pending.
+  - Whether analytics should start during the transitional GitHub Pages phase or wait for Vercel cutover.
   - Production-only tracking versus preview/branch deploy tracking.
   - Privacy/disclosure requirements before enabling analytics.
   - Initial event taxonomy priorities for `/services/`, `/blog/`, and `/contact/`.
 
-## Domain direction note (2026-03-09)
-- Tracking artifact: `docs/planning/domain-direction-musifer-studio-art.md`.
+## Domain and infrastructure note (2026-03-13)
+- Tracking artifacts:
+  - `docs/planning/domain-direction-musifer-studio-art.md`
+  - `docs/planning/domain-hosting-email-rollout-plan.md`
 - Current direction: `musifer.studio` preferred primary; `musifer.art` retained as backup/brand-protection.
-- Current state on `main`: planning direction documented only; no canonical domain cutover/redirect implementation has been applied yet.
-- Follow-up remains: finalize canonical host/domain implementation and publish corresponding hosting/domain documentation updates after rollout.
+- Current planning state:
+  - Porkbun selected for registrar/DNS.
+  - GitHub Pages selected as the temporary custom-domain stopgap.
+  - Vercel selected as the long-term primary host.
+  - Proton selected as the final-phase domain email provider.
+- Repo-visible implementation is still pending; these are documented rollout decisions, not completed infrastructure changes.
 
 ## CMS operational notes
 - Decap config path: `src/admin/config.yml`
@@ -59,7 +72,7 @@ Purpose
 ## Experimental branch policy (2026-03-07)
 - `experimental` is no longer treated as a long-lived alternate implementation branch.
 - Use `experimental` for higher-risk or architecture-sensitive tests that should remain reversible.
-- Planned experiment categories include analytics integration tests and richer video/audio hosting or embedding trials.
+- Planned experiment categories include analytics integration tests and richer video/audio hosting or embedding trials that should remain compatible with the Pages-to-Vercel rollout.
 - Before starting major experimental work, periodically rebase or hard-reset `experimental` from `main` to avoid silent drift.
 - Legacy `experimental` history was preserved before realignment using the backup branch and safety tag listed above.
 

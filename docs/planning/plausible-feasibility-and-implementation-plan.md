@@ -2,10 +2,12 @@
 
 Snapshot date: 2026-03-07 (local repo review on branch `experimental`)
 
-Status on `main` (2026-03-09)
+Status on `main` (2026-03-13)
 - This document is an investigation/planning artifact now tracked on `main`.
 - No Plausible implementation has been merged to `main` yet.
 - Proposed phases below are candidate rollout steps, not completed work.
+- Infrastructure planning has since narrowed to Porkbun for registrar/DNS, GitHub Pages for the temporary custom-domain step, Vercel for the long-term primary host, and Proton for final-phase domain email.
+- Historical Netlify notes below are retained only as research context; they are not the active rollout target.
 
 ## 1. Current site architecture
 - Framework/build system:
@@ -18,6 +20,8 @@ Status on `main` (2026-03-09)
   - All public pages declare `layout: layouts/base.njk`.
 - Deployment/hosting findings:
   - In-repo CI/CD is configured for GitHub Pages deployment from `main` via GitHub Actions.
+  - That GitHub Pages path is now the documented transitional custom-domain phase, not the final hosting target.
+  - Vercel is the current planned long-term primary host once hosting migration begins.
   - No repo-level Netlify configuration file (`netlify.toml`) or redirect/header files were found.
 - Relevant files and why they matter:
   - `package.json`: defines build and dev commands.
@@ -59,18 +63,20 @@ Status on `main` (2026-03-09)
 - GitHub Pages evidence (confirmed by repo):
   - Present and explicit in `README.md`, workflow config, and migration/tracking docs.
   - CI build+deploy path is concrete and reproducible from repo files.
+- Vercel decision state (planning, not yet implemented in repo):
+  - `docs/planning/domain-hosting-email-rollout-plan.md` now records Vercel as the target primary host after the GitHub Pages custom-domain transition.
 - Netlify evidence (confirmed by repo):
   - None found in tracked project files.
   - No Netlify build/deploy/header/redirect/domain config in repo.
 - Known external context (provided, not repo-proven):
   - Project is linked in Netlify as site `creative-cassata-f39fb9`.
-  - Treat this as confirmed linkage metadata only unless Netlify config/deploy behavior is documented elsewhere.
+  - Treat this as confirmed linkage metadata only; it is not part of the current rollout plan unless later reintroduced explicitly.
 - Hosting state classification:
   - Current repo evidence indicates GitHub Pages as the active documented deployment path.
-  - Netlify appears attached externally but not yet represented in code/config.
-  - This looks like either early transition/hybrid exploration or a disconnected project record; repo alone cannot disambiguate.
+  - Current planning guidance indicates that GitHub Pages is transitional and Vercel is the intended steady-state host.
+  - Netlify appears attached externally but not represented in code/config and is not the active rollout target.
 - Follow-up documentation needed outside repo:
-  - Netlify dashboard settings: build command, publish directory, production branch, deploy contexts, env vars, custom domain, and any header/redirect rules currently configured in UI.
+  - Vercel dashboard settings once migration begins: build command, output directory, production branch, project/environment variables if introduced, and domain verification details.
 
 ## 4. Feasibility verdict
 - Plausible integration is technically feasible with low churn and no major architectural changes.
@@ -78,8 +84,8 @@ Status on `main` (2026-03-09)
   - Static MPA pages are straightforward for Plausible pageview tracking.
   - A single shared base layout exists for global script insertion.
 - Caveats/unknowns:
-  - Canonical production domain is not established from repo evidence.
-  - If both GitHub Pages and Netlify hosts are live, domain strategy must be decided to avoid fragmented metrics.
+  - Canonical production domain is not established from repo-visible implementation yet.
+  - If analytics starts during the temporary GitHub Pages custom-domain phase, the later Vercel cutover should be planned to avoid fragmented metrics.
   - Privacy policy/cookie disclosure updates are not yet present in repo and may be required by your policy posture.
 
 ## 5. Recommended integration strategy
@@ -123,7 +129,8 @@ Implementation status note
 
 ### Phase 0: prerequisites / config verification
 - Intended changes:
-  - Confirm canonical public domain and host strategy (GitHub Pages only, Netlify only, or dual with canonical redirect).
+  - Confirm the exact canonical public domain once registration is complete.
+  - Confirm whether analytics should start on the transitional GitHub Pages custom domain or wait for Vercel cutover.
   - Confirm whether Plausible should run on preview deploys or production only.
   - Confirm policy requirements for privacy notice updates.
 - Likely files touched:
@@ -179,7 +186,7 @@ Implementation status note
 - Intended changes:
   - Validate pageview + event collection in production-like environment.
   - Document event taxonomy and maintenance rules.
-  - Record host-specific deployment notes (GitHub Pages and/or Netlify) for analytics config.
+  - Record host-specific deployment notes for the transitional GitHub Pages phase and the later Vercel phase as needed.
 - Likely files touched:
   - `README.md` (analytics section)
   - `docs/high-level-project-tracking.md` (hosting + analytics state)
@@ -191,9 +198,9 @@ Implementation status note
   - Analytics setup and domain assumptions documented in-repo.
 
 ## 8. Open questions
-- What is the canonical production hostname today (GitHub Pages domain, custom domain, Netlify domain, or another endpoint)?
-- Is Netlify `creative-cassata-f39fb9` actually deploying this repo, or only linked as a project record?
-- If Netlify is deploying, what are the configured build command, publish directory, and production branch in Netlify UI?
+- What is the exact canonical production hostname once the Porkbun domain purchase is complete?
+- Should analytics start on the temporary GitHub Pages custom domain, or wait for the Vercel cutover to keep reporting history cleaner?
+- When Vercel migration begins, what build/output settings and production-branch settings will be used in the Vercel project?
 - Should analytics run only on production deploys, or also on preview/branch deploys?
 - Do you want `/admin` excluded explicitly (in addition to layout-based exclusion) for defense in depth?
 - Is there an existing privacy policy/legal disclosure standard that must be updated when analytics is enabled?

@@ -4,13 +4,18 @@
 - A Jamstack website built with Eleventy.
 - Content managed in Markdown/front matter files.
 - Optional Decap CMS admin interface for editing content.
-- GitHub Pages deployment through GitHub Actions.
+- GitHub remains the source-of-truth repo for code, content, and normal CI/CD workflow context.
+- Current infrastructure planning is phased: activate the custom domain on GitHub Pages first, migrate primary hosting to Vercel later, and roll out Proton domain email last.
 
-## Tools used
+## Core stack and infrastructure
 - [Eleventy (11ty)](https://www.11ty.dev/docs/) for static site generation
 - [Decap CMS](https://decapcms.org/docs/intro/) for browser-based content editing
 - [Sass](https://sass-lang.com/documentation/) for stylesheet authoring
-- [GitHub Pages](https://docs.github.com/en/pages) + [GitHub Actions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) for hosting/deploy
+- [GitHub Actions](https://docs.github.com/en/actions) for the current build/deploy workflow context
+- [GitHub Pages](https://docs.github.com/en/pages) for the temporary custom-domain stopgap after domain purchase
+- Vercel as the long-term primary hosting target after the GitHub Pages transition
+- Porkbun as registrar and DNS provider of choice
+- Proton as the planned domain email provider after hosting migration
 
 ## Quick start
 1. `npm ci`
@@ -33,16 +38,27 @@ Use `npm ci` for normal setup and branch sync on an existing clone. Use `npm ins
 - [`docs/planning/README.md`](docs/planning/README.md): planning-folder index and scope notes
 - [`docs/cms-content-spec.md`](docs/cms-content-spec.md): content model and field rules
 - [`docs/sitemap.md`](docs/sitemap.md): route and information architecture notes
+- [`docs/planning/domain-hosting-email-rollout-plan.md`](docs/planning/domain-hosting-email-rollout-plan.md): selected infrastructure stack and phased rollout plan
+- [`docs/planning/domain-direction-musifer-studio-art.md`](docs/planning/domain-direction-musifer-studio-art.md): domain naming direction (`musifer.studio` primary, `musifer.art` backup/protection)
 - [`docs/planning/responsive-layout-navigation-refresh-plan.md`](docs/planning/responsive-layout-navigation-refresh-plan.md): responsive/nav refresh roadmap
 - [`docs/audits/css-refresh-conflict-audit.md`](docs/audits/css-refresh-conflict-audit.md): CSS audit and implementation risks
 - [`docs/planning/jamstack-main-migration-plan.md`](docs/planning/jamstack-main-migration-plan.md): branch consolidation and cutover history
 - [`docs/high-level-project-tracking.md`](docs/high-level-project-tracking.md): operational status and ongoing tracking notes
 - [`docs/planning/plausible-feasibility-and-implementation-plan.md`](docs/planning/plausible-feasibility-and-implementation-plan.md): analytics feasibility review and proposed rollout phases (planning only)
-- [`docs/planning/domain-direction-musifer-studio-art.md`](docs/planning/domain-direction-musifer-studio-art.md): current domain direction (`musifer.studio` primary, `musifer.art` backup/protection)
 
-## Hosting through GitHub Pages
+## Infrastructure rollout snapshot
+- Registrar and DNS provider of choice: Porkbun.
+- Current repo-visible deploy baseline remains GitHub Pages via GitHub Actions from `main`.
+- GitHub Pages custom-domain use is documented as a transitional state after domain purchase, not the final hosting architecture.
+- Long-term primary hosting target: Vercel.
+- Domain email rollout target after hosting migration: Proton.
+- GitHub remains the source-of-truth repo and normal CI/CD/build workflow context throughout the rollout.
+- Planning reference: `docs/planning/domain-hosting-email-rollout-plan.md`.
+
+## Transitional GitHub Pages notes
 - Deployment workflow: `.github/workflows/deploy-pages.yml`
-- Expected model: build `_site` from `main`, then deploy via Actions.
+- Expected near-term model: build `_site` from `main`, then deploy via Actions while the custom domain is first activated on GitHub Pages.
+- Planned follow-up: retire or reduce GitHub Pages custom-domain usage once Vercel is live on the canonical domain.
 - Helpful docs:
   - [About GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)
   - [Configuring a publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
@@ -52,8 +68,9 @@ Use `npm ci` for normal setup and branch sync on an existing clone. Use `npm ins
 - Current status on `main` (2026-03-09): investigated/planning only; no Plausible script or analytics wrapper is implemented in tracked source.
 - Investigation notes and proposed phases are tracked in `docs/planning/plausible-feasibility-and-implementation-plan.md`.
 - Hosting context for analytics decisions:
-  - Repo-documented deployment path remains GitHub Pages via Actions.
-  - Netlify project linkage exists as `creative-cassata-f39fb9` (dashboard visibility context), but no Netlify deploy/config files are currently tracked in this repo.
+  - Repo-documented near-term deployment path remains GitHub Pages via Actions as the transitional custom-domain step.
+  - Current target hosting decision is Vercel for the long-term primary site once the GitHub Pages transition is complete.
+  - Historical Netlify linkage (`creative-cassata-f39fb9`) is not the active rollout plan and has no repo-tracked deploy/config artifacts.
 
 ## CMS notes
 - CMS config is in `src/admin/config.yml`.
