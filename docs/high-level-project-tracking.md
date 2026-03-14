@@ -24,6 +24,7 @@ Purpose
 - Intended required checks for pull requests into `main`: `guard-main` and `validate-main-pr`
 - Deployment still occurs only after the merge lands on `main`
 - Node baseline source of truth: `.nvmrc` (used for local development and Pages CI)
+- Rollout planning artifact: `docs/planning/domain-hosting-email-rollout-plan.md`
 
 ## Analytics and SEO planning status (Umami, planning only) (2026-03-13)
 - Tracking artifact: `docs/planning/analytics-feasibility-and-implementation-plan.md` (renamed from the earlier Plausible-specific filename).
