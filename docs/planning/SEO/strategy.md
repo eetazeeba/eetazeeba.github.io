@@ -70,8 +70,8 @@ These rules should become shared template behavior once implementation starts.
 
 ### Canonical URLs
 - Canonicals should be absolute and should use the actual live host, not the aspirational host.
-- Until custom-domain cutover is implemented and verified, canonical assumptions should follow the live GitHub Pages host documented in repo planning rather than force `musifer.studio`.
-- After domain cutover, update this strategy, the deploy config, and related planning docs together.
+- For active Phase 1, canonical assumptions should use `musifer.studio` as the public host while GitHub Pages remains the transitional platform underneath.
+- If the Pages-to-Vercel cutover changes host behavior later, update this strategy, the deploy config, and related planning docs together.
 - Use self-referencing canonicals for normal public pages.
 - Use external canonicals only when a page is intentionally syndicated elsewhere and the source of truth is not Musifer.
 

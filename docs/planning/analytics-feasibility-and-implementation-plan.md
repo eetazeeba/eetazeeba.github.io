@@ -5,8 +5,8 @@ Status
 - Renamed from `plausible-feasibility-and-implementation-plan.md` to reduce vendor-specific naming drift.
 - Current intended near-term analytics direction: Umami.
 - Earlier Plausible-specific guidance in this file is superseded unless explicitly called out as historical context.
-- No analytics implementation has been merged to `main`; no tracking vendor is live based on tracked repo files.
-- This is a documentation/planning artifact only. It does not add scripts, tags, env vars, dependencies, or deploy/config changes.
+- Tracked source now includes staged analytics scaffolding on `main`; broader rollout decisions and verification remain open.
+- This remains primarily a planning/status artifact; it does not add code in this Phase 1 domain pass.
 
 ## 1. Current intended state
 - Umami is the intended near-term analytics platform.
@@ -17,7 +17,7 @@ Status
   - Vercel is the planned long-term primary host.
   - Proton remains deferred until after hosting migration.
 - GitHub remains the source-of-truth repo and normal CI/CD/build context.
-- Analytics should remain documented as planned only until a later implementation pass explicitly changes tracked source.
+- Analytics should remain documented as staged rollout work until later implementation and verification passes explicitly advance it.
 - SEO validation that depends on the final canonical domain, final redirects, final metadata behavior, or robots behavior remains future work.
 
 ## 2. Repo-verified current state
@@ -30,9 +30,9 @@ Status
   - Public route templates use a shared base layout.
   - `/admin` is a separate Decap CMS route and is not part of the public layout chain.
 - Analytics implementation state:
-  - No Umami, Plausible, or other analytics script include was found in shared public layouts.
-  - No analytics helper script, provider config, env var wiring, or consent/disclosure implementation was found in tracked source.
-  - No existing analytics/tracking implementation is documented as live in active repo files.
+  - Shared public layout includes analytics gating and provider wiring for production builds.
+  - Production deploy workflow sets analytics env vars, and repo-tracked helper/config files exist.
+  - Later instrumentation scope, privacy publication, and rollout verification remain active planning items.
 - Hosting state relevant to analytics and SEO:
   - In-repo CI/CD still points to GitHub Pages via Actions from `main`.
   - Active infrastructure planning documents GitHub Pages as transitional and Vercel as the target steady-state host.
@@ -55,8 +55,8 @@ Status
 
 ## 4. Current analytics planning guidance
 Planning boundary
-- Nothing in this document indicates that analytics is already live.
-- Future technical steps may be described here for planning clarity, but they are not implemented in this documentation pass.
+- This document tracks later decisions beyond the current staged scaffold.
+- The existing analytics wiring does not by itself complete rollout acceptance, privacy publication, or verification.
 
 Near-term direction
 - Default planning direction is Umami for baseline pageview analytics when implementation is later authorized.
@@ -70,7 +70,7 @@ Useful event taxonomy that still remains valid
 - Contact funnel actions: contact CTAs and outbound contact links.
 
 Planning decisions that still need later validation
-- Confirm the exact canonical public domain once registration is complete.
+- Confirm custom-domain resolution, HTTPS, and GitHub Pages settings stability on `musifer.studio` once the manual Phase 1 handoff is complete.
 - Decide whether analytics should start during the transitional GitHub Pages custom-domain phase or wait for the Vercel cutover.
 - Decide whether production-only tracking remains sufficient or whether preview/branch tracking is needed later.
 - Confirm privacy/disclosure requirements before enablement.
@@ -82,7 +82,7 @@ What appears aligned now
 - No active doc currently claims that analytics, canonical-domain SEO work, or final host-level SEO behavior is already implemented.
 
 What still needs later validation
-- Exact canonical hostname after domain purchase.
+- Canonical routing, redirect behavior, and verification on `musifer.studio` during the GitHub Pages to Vercel transition.
 - Redirect behavior and canonical-domain enforcement during the GitHub Pages to Vercel transition.
 - Final metadata, canonical tag, and structured-data policy once the hosting path stabilizes.
 - Final sitemap and robots behavior on the canonical domain after hosting migration.
@@ -91,7 +91,7 @@ What still needs later validation
 ## 6. Documentation confidence note
 - Aligned now:
   - Umami is the intended near-term analytics direction.
-  - Analytics remains planning-only in the repo.
+  - Staged analytics scaffolding exists in the repo, but rollout verification remains incomplete.
   - Infrastructure assumptions match the active rollout documents.
 - Intentionally retained as historical/traceability context:
   - the earlier Plausible-specific filename in repo history
@@ -99,4 +99,4 @@ What still needs later validation
   - historical references to Netlify as non-active background context
 - Boundary reminder:
   - This pass updates documentation only.
-  - No analytics platform was implemented as part of this task.
+  - No new analytics platform work was implemented as part of this Phase 1 domain task.

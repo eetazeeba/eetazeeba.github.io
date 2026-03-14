@@ -5,8 +5,11 @@ Purpose
 - Track the current branch/deployment model and near-term implementation focus.
 
 ## Current operating model (2026-03-13)
-- Canonical source branch: `main`
+- Canonical source branch and clean sync/deploy branch: `main`
+- Daily work happens on short-lived feature branches merged back through reviewed pull requests.
 - Experimental test branch: `experimental` (realigned to `main` before new test cycles)
+- Canonical public domain: `musifer.studio`
+- Backup/brand-protection domain: `musifer.art`
 - Current repo-visible deploy baseline: GitHub Pages via GitHub Actions
 - GitHub Pages custom-domain use is now treated as a transitional phase, not the final hosting architecture
 - Planned long-term primary host: Vercel
@@ -19,22 +22,18 @@ Purpose
 - Deployment still occurs only after the merge lands on `main`
 - Node baseline source of truth: `.nvmrc` (used for local development and Pages CI)
 - Rollout planning artifact: `docs/planning/domain-hosting-email-rollout-plan.md`
-- Feature work should return to `main` through reviewed pull requests rather than direct feature-branch pushes.
-- Preferred merge method for short-lived feature branches: **Squash and merge**
-- Intended required checks for pull requests into `main`: `guard-main` and `validate-main-pr`
-- Deployment still occurs only after the merge lands on `main`
-- Node baseline source of truth: `.nvmrc` (used for local development and Pages CI)
-- Rollout planning artifact: `docs/planning/domain-hosting-email-rollout-plan.md`
 
-## Analytics and SEO planning status (Umami, planning only) (2026-03-13)
-- Tracking artifact: `docs/planning/analytics-feasibility-and-implementation-plan.md` (renamed from the earlier Plausible-specific filename).
-- Current `main` status: documentation/planning only; no analytics implementation has been merged.
+## Analytics and SEO planning status (Umami staged rollout) (2026-03-13)
+- Tracking artifacts:
+  - `docs/planning/analytics-rollout-plan.md`
+  - `docs/planning/analytics-feasibility-and-implementation-plan.md`
+- Current `main` status: staged analytics scaffolding has been merged, while broader instrumentation, privacy publication, and rollout verification remain open.
 - Confirmed repo state:
-  - No Umami, Plausible, or other analytics script include in shared layout templates.
-  - No analytics helper/config files committed in source.
+  - Shared public layout now includes analytics gating and provider wiring for production builds.
+  - The Pages deploy workflow sets production analytics environment variables.
 - Current planning direction:
   - Near-term analytics platform direction: Umami.
-  - Earlier Plausible-specific guidance is now superseded unless explicitly retained as historical context in the tracking artifact.
+  - Earlier Plausible-specific guidance is now superseded unless explicitly retained as historical context in the tracking artifacts.
   - Event taxonomy planning can remain vendor-neutral.
 - Hosting and SEO context relevant to analytics:
   - The near-term public-domain activation plan still uses GitHub Pages via Actions.
@@ -42,7 +41,7 @@ Purpose
   - SEO validation for canonical routing, metadata behavior, robots behavior, and final sitemap behavior still depends on the later domain and hosting rollout phases.
   - Historical Netlify linkage (`creative-cassata-f39fb9`) is not the active rollout plan and still has no repo-tracked deploy/config artifact.
 - Open decisions before implementation:
-  - Exact canonical production hostname after domain purchase is still implementation-pending.
+  - Confirm `musifer.studio` resolution, HTTPS, and Pages-settings stability once the manual GitHub Pages and Porkbun steps are completed.
   - Whether analytics should start during the transitional GitHub Pages phase or wait for Vercel cutover.
   - Production-only tracking versus preview/branch deploy tracking.
   - Privacy/disclosure requirements before enabling analytics.
@@ -53,12 +52,16 @@ Purpose
   - `docs/planning/domain-direction-musifer-studio-art.md`
   - `docs/planning/domain-hosting-email-rollout-plan.md`
 - Current direction: `musifer.studio` preferred primary; `musifer.art` retained as backup/brand-protection.
-- Current planning state:
-  - Porkbun selected for registrar/DNS.
-  - GitHub Pages selected as the temporary custom-domain stopgap.
-  - Vercel selected as the long-term primary host.
-  - Proton selected as the final-phase domain email provider.
-- Repo-visible implementation is still pending; these are documented rollout decisions, not completed infrastructure changes.
+- Phase 1 active state:
+  - Porkbun remains the registrar and DNS authority.
+  - GitHub Pages via Actions from `main` remains the transitional live host path.
+  - Repo-side custom-domain readiness does not require a tracked `CNAME` for the current Actions-based deploy.
+  - Vercel remains Phase 2 and Proton remains Phase 3.
+- Manual operator handoff still outstanding:
+  - set the GitHub Pages custom domain in repo settings
+  - add only the required Porkbun DNS records using live dashboard values
+  - keep the default GitHub Pages hostname available until the custom domain is stable
+  - avoid adding Vercel or Proton records during Phase 1
 
 ## Wireframe preview utility (2026-03-10)
 - Added isolated local workspace: `docs/wireframe-playground/` (Vite + React).

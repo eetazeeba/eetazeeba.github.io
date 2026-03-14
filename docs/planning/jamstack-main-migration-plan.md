@@ -30,4 +30,5 @@
 ## Post-cutover checks
 - Verify GitHub Pages source is set to **GitHub Actions**.
 - Verify workflow permissions allow Pages deployment and OIDC token usage.
+- Phase 1 domain handoff note (2026-03-13): for this Actions-based Pages deploy, the custom domain is set in GitHub repo settings with Porkbun DNS; no tracked `CNAME` file is required.
 - Smoke-test homepage, routes, assets, nav interactions, and `/admin` access posture.

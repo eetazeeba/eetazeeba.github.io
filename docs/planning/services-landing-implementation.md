@@ -45,7 +45,7 @@ Purpose
   - self-referencing canonical URLs
   - practical Open Graph tags
   - optional `robots` directives
-- Canonicals intentionally use `https://eetazeeba.github.io` because the SEO planning docs require the live GitHub Pages host until domain cutover is implemented and verified.
+- Canonicals intentionally use `https://musifer.studio` for active Phase 1 while GitHub Pages remains the transitional host.
 - No service-specific rich schema was added for `/services/` in this pass. That remains intentional and matches `docs/planning/SEO/schema-plan.md`, which does not recommend forcing `Service`-style schema onto section hubs.
 - Shared breadcrumb UI and `BreadcrumbList` output now apply through the base layout and section data files, so `/services/` and its child pages participate in the shared schema path without page-local JSON-LD markup.
 - Internal linking stays restrained:
@@ -85,7 +85,7 @@ Purpose
 
 ## Likely regression areas
 - Shared layout metadata changes now affect every page using `layouts/base.njk`.
-- Future domain-cutover work must update `src/_data/site.js` together with deploy/config/docs so canonicals and OG URLs do not drift.
+- Future host-cutover work must update `src/_data/site.js` together with deploy/config/docs so canonicals and OG URLs do not drift.
 - If future social-image assets are added, the current logo fallback should be replaced with a better preview image rather than copied route by route.
 
 ## Follow-up boundaries

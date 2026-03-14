@@ -3,9 +3,9 @@
 ## Current decision
 - Preferred primary public domain direction: `musifer.studio`.
 - Secondary/backup/brand-protection direction: `musifer.art`.
-- Decision status (as of 2026-03-13): naming direction selected for planning; registrar, hosting, and email rollout choices are now documented in `docs/planning/domain-hosting-email-rollout-plan.md`.
+- Decision status (as of 2026-03-13): domains purchased; `musifer.studio` is the canonical public domain for active Phase 1, and `musifer.art` is retained for backup/brand protection.
 - `.com` is not currently the preferred acquisition target due to cost/squatting constraints.
-- Final live implementation is still pending follow-up.
+- GitHub Pages custom-domain hosting is the transitional live state from `main`; Vercel and Proton remain deferred to later phases.
 
 ## Rationale
 - Why `musifer.studio` is preferred:
@@ -26,13 +26,14 @@
   - This file keeps the naming decision and rationale.
   - Operational sequencing now lives in `docs/planning/domain-hosting-email-rollout-plan.md`.
 
-## Follow-up implementation tasks (not executed in this pass)
-- Acquire and register target domains through Porkbun (`musifer.studio` primary, `musifer.art` backup/protection).
-- Connect the canonical domain to GitHub Pages first as the temporary public state.
+## Remaining phased follow-up tasks
+- Complete the GitHub Pages custom-domain setting in repo settings for `musifer.studio`.
+- Add only the required Porkbun DNS records for GitHub Pages using current provider dashboards.
+- Keep `musifer.art` parked as backup/brand protection until a later redirect or alternate-host decision is explicitly made.
 - Produce the DNS plan for each rollout phase:
   - transitional GitHub Pages records
   - later Vercel verification and canonical-host records
-  - backup-domain redirect behavior if `musifer.art` is acquired
+  - backup-domain redirect behavior if `musifer.art` is later activated
   - later Proton mail records
 - Migrate the canonical domain from GitHub Pages to Vercel in a later phase.
 - Validate redirects/canonical signals end-to-end after each domain/host transition:
@@ -41,8 +42,7 @@
   - mixed-host drift checks
 - Reconcile analytics/domain assumptions after cutover to avoid fragmented reporting.
 
-## Documentation follow-up after acquisition/connection
-- Update `README.md` infrastructure section with confirmed canonical domain and active host path.
-- Update `docs/high-level-project-tracking.md` from "direction selected" to "implemented state" with dates.
-- Update `docs/planning/analytics-feasibility-and-implementation-plan.md` to reflect the final canonical domain decision for the active analytics plan.
+## Documentation follow-up after Phase 1 handoff
+- Keep `README.md` and the rollout docs aligned with `musifer.studio` as canonical and GitHub Pages as transitional.
+- Update tracking and analytics planning docs again if the backup domain starts redirecting or the Vercel cutover begins.
 - Keep this document as the historical decision record; append implementation outcome notes rather than replacing rationale.

@@ -54,7 +54,7 @@ Status
   - Static MPA model supports baseline pageviews without SPA route listeners.
   - Existing passthrough script pipeline now carries the shared analytics helper and supports later page-level instrumentation.
 - Caveats now narrowed to implementation readiness:
-  - Domain direction is documented, but final DNS/canonical redirect implementation is still pending.
+  - Domain direction is documented, and repo canonicals now target `musifer.studio`, but final Pages-settings and DNS verification still depends on the manual Phase 1 handoff.
   - Privacy policy now exists as a finalized planning reference and must be published/linked in the live site when analytics is enabled.
   - The Phase 1 gating contract and Phase 2 wrapper are implemented; page-level instrumentation phases remain pending.
 
@@ -62,14 +62,14 @@ Status
 - Canonical hosting/deployment baseline:
   - GitHub Pages is the canonical host baseline for this analytics rollout.
 - Domain direction:
-  - Current production domain: `eetazeeba.github.io`.
-  - Intended canonical domain after cutover: `musifer.studio`.
+  - Current canonical production domain: `musifer.studio`.
+  - GitHub Pages remains the transitional host path underneath that canonical domain during Phase 1.
   - Secondary/backup direction: `musifer.art`.
   - Domain planning reference: [`docs/planning/domain-direction-musifer-studio-art.md`](domain-direction-musifer-studio-art.md).
 - Initial rollout scope:
   - Production-only analytics collection for the first rollout.
 - Build-time gating contract (implemented):
-  - Production analytics enablement uses an explicit build-time environment flag contract. The GitHub Pages production deploy workflow sets `ANALYTICS_ENABLED=true`, `ANALYTICS_PROVIDER=umami`, and `ANALYTICS_DOMAIN=eetazeeba.github.io`. Eleventy reads these from `process.env`, exposes them via a global `analytics` data object, and `base.njk` includes analytics only when `analytics.enabled` is true. Non-production builds keep analytics disabled by default.
+  - Production analytics enablement uses an explicit build-time environment flag contract. The GitHub Pages production deploy workflow sets `ANALYTICS_ENABLED=true`, `ANALYTICS_PROVIDER=umami`, and `ANALYTICS_DOMAIN=musifer.studio`. Eleventy reads these from `process.env`, exposes them via a global `analytics` data object, and `base.njk` includes analytics only when `analytics.enabled` is true. Non-production builds keep analytics disabled by default.
 - Privacy/disclosure readiness tracking:
   - Active privacy policy reference: [`docs/planning/privacy-policy-draft.md`](privacy-policy-draft.md) (content finalized; filename retained for continuity).
 - Netlify status for this plan:

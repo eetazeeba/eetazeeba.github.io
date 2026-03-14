@@ -1,8 +1,8 @@
 # Privacy Policy
 
-**Last updated:** March 09, 2026
+**Last updated:** March 13, 2026
 
-This Privacy Policy describes how **Musifer, operated by Everett Ballance** ("Musifer," "we," "us," or "our") collects, uses, and shares information when you visit eetazeeba.github.io, contact us, or otherwise interact with this website (the "Site").
+This Privacy Policy describes how **Musifer, operated by Everett Ballance** ("Musifer," "we," "us," or "our") collects, uses, and shares information when you visit musifer.studio, contact us, or otherwise interact with this website (the "Site").
 
 ## 1. Scope
 

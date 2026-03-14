@@ -1,7 +1,7 @@
 # Domain, Hosting, and Email Rollout Plan
 
 Status
-- Planning decision record updated on 2026-03-13.
+- Phase 1 activated on 2026-03-13 after domain purchase.
 - This document is the current operational reference for infrastructure rollout sequencing.
 - It supersedes older "host still undecided" and "DNS provider still undecided" notes in active planning docs.
 
@@ -9,10 +9,11 @@ Status
 - Primary public domain direction remains `musifer.studio`.
 - Backup/brand-protection domain direction remains `musifer.art`.
 - Registrar and DNS provider of choice: Porkbun.
-- Transitional custom-domain host after purchase: GitHub Pages via GitHub Actions from `main`.
+- Transitional custom-domain host for active Phase 1: GitHub Pages via GitHub Actions from `main`.
 - Long-term primary hosting target: Vercel.
 - Domain email target after hosting migration: Proton.
 - GitHub remains the source-of-truth repo and normal CI/CD/build workflow context throughout all phases.
+- `main` remains the clean sync and deploy branch; daily work happens on short-lived feature branches.
 
 ## Why this stack
 - Porkbun keeps registrar and DNS management simple for a solo maintainer without adding another infrastructure layer.
@@ -23,10 +24,14 @@ Status
 
 ## Transitional architecture note
 Current and near-term state
-- `main` remains the canonical branch and repo source of truth.
+- `main` remains the canonical branch, clean sync branch, and deploy branch.
+- Daily work happens on short-lived feature branches that merge back into `main`.
 - GitHub Actions remains the documented build/deploy path in-repo.
-- The first custom-domain activation is planned on GitHub Pages.
-- Porkbun is the intended registrar and DNS control point once the domain is purchased.
+- GitHub Pages is the active transitional live host for Phase 1.
+- `musifer.studio` is the canonical public domain.
+- `musifer.art` is retained as backup/brand protection only for now.
+- Porkbun remains the registrar and DNS authority.
+- Repo-side custom-domain readiness does not require a tracked `CNAME`; for this Actions-based Pages deploy, the custom domain is set in GitHub repo settings.
 
 Target state
 - GitHub remains the source-of-truth repo.
@@ -41,27 +46,30 @@ What changes between states
 - Domain verification steps move from Pages-focused setup to Vercel-focused setup.
 - Email records are added only after the hosting and canonical-domain path is stable.
 
-## Phase 1: Domain purchase and transitional GitHub Pages setup
+## Phase 1: Active transitional GitHub Pages setup
 Objective
-- Purchase the domain through Porkbun and get the canonical custom domain live on GitHub Pages as a temporary state.
+- Keep the purchased canonical domain live through GitHub Pages as a temporary public state while preserving the later Vercel and Proton phases.
 
-Dependencies and prerequisites
-- Confirm `musifer.studio` availability and purchase decision.
-- Decide whether `musifer.art` is acquired in the same pass for backup/brand-protection.
-- Accept Porkbun as the authoritative DNS plan, superseding earlier unresolved DNS-provider notes.
+Current repo-side status
+- The existing Pages workflow already builds and deploys `_site` from `main`.
+- Canonical site metadata now targets `https://musifer.studio`.
+- No tracked or generated `CNAME` file is required for this Actions-based GitHub Pages deployment.
 
-Checklist
-- Register the chosen domain(s) with Porkbun.
-- Keep Porkbun as registrar and DNS provider unless a later explicit decision changes that.
+Operator handoff checklist
+- Set `musifer.studio` as the GitHub Pages custom domain in repo settings.
 - Add only the DNS records required for the GitHub Pages custom-domain connection.
-- Configure GitHub Pages custom-domain settings for the canonical domain.
+- Pull exact DNS values from the live GitHub and Porkbun dashboards at implementation time rather than from static repo examples.
+- Keep Porkbun as registrar and DNS provider unless a later explicit decision changes that.
 - Verify canonical resolution and basic site reachability on the new domain.
+- Verify the default GitHub Pages hostname remains available until the custom domain resolves cleanly and HTTPS is stable.
+- Keep `musifer.art` secondary only during Phase 1 unless a separate redirect decision is explicitly documented later.
+- Do not add Vercel or Proton records during Phase 1.
 - Document the state as transitional so it is not mistaken for the final hosting architecture.
 
 Cautions and rollback notes
-- Keep the default GitHub Pages hostname available until the custom domain resolves cleanly.
 - Avoid mixing GitHub Pages and future Vercel canonical DNS records at the same time without a controlled cutover plan.
-- Do not add Proton mail records during this phase.
+- Promote this repo change into `main` only when the GitHub Pages settings and Porkbun DNS steps can be completed in the same working session.
+- Keep rollback notes focused on restoring the last known-good Pages-plus-Porkbun state rather than improvising new provider setup.
 
 ## Phase 2: Migrate primary hosting to Vercel
 Objective
@@ -129,7 +137,7 @@ Cautions and rollback notes
 ## What is not changing
 - GitHub remains the source-of-truth repo.
 - The existing repo workflow and build context remain the baseline until a later hosting migration changes the live target.
-- This documentation pass does not change source code, deployment config, package files, workflows, DNS, or live integrations.
+- This Phase 1 pass does not add Vercel config, Proton config, a tracked `CNAME`, hardcoded DNS values, secrets, or live integrations.
 - No secrets, credentials, or personal account details belong in these planning documents.
 
 ## Related documents

@@ -58,7 +58,7 @@ Purpose
 - `/blog/` now carries page-specific title/description and stays on the shared canonical/OG pipeline.
 - Bucket hubs now carry page-specific descriptions and `Bucket | Blog | Musifer` title structure through the base layout.
 - Generated article pages now activate the shared `Article` JSON-LD builder and render breadcrumb trails that include the bucket hub when that hub is part of the public IA.
-- Canonicals still intentionally use `https://eetazeeba.github.io` until domain cutover work lands.
+- Canonicals now intentionally use `https://musifer.studio` for active Phase 1 while GitHub Pages remains the transitional host.
 - Internal linking was kept restrained:
   - blog hub to bucket hubs and live articles
   - article pages back to hub/bucket
