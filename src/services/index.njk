@@ -1,10 +1,258 @@
-﻿---
+---
 layout: layouts/base.njk
-title: Services
+title: Services for Independent Artists
+description: Explore Musifer services for production, release support, artist materials, and practical project planning, then move into the right quote or contact path for your project.
+valuePoints:
+  - Multidisciplinary support
+  - Artist-first scope
+  - Clear next steps
+serviceLanes:
+  - number: "01"
+    title: Production + release support
+    summary: Hands-on support for recordings, launch planning, and the practical structure that helps a release leave the draft stage and meet the public cleanly.
+    bullets:
+      - Production coordination
+      - Release planning
+      - Launch asset prep
+    fit: Best for singles, EPs, albums, and artist-led releases that need both momentum and shape.
+    linkHref: /services/production/
+    linkLabel: Explore production support
+  - number: "02"
+    title: Visual + asset systems
+    summary: Cover art direction, promo graphics, and visual support built to travel across streaming platforms, socials, press kits, and launch materials.
+    bullets:
+      - Cover art systems
+      - Promo graphics
+      - Release visual consistency
+    fit: Best for artists who need a recognizable package instead of one-off assets that drift apart.
+    linkHref: /services/rates-quote/
+    linkLabel: Start with rates / quote
+  - number: "03"
+    title: Writing + editorial clarity
+    summary: Artist bios, one-sheets, page copy, and editorial cleanup that makes the project easier to understand without sanding off its personality.
+    bullets:
+      - Artist bios
+      - One-sheets + page copy
+      - Messaging cleanup
+    fit: Best for projects that need clearer language before a release, outreach push, or site update.
+    linkHref: /contact/work-with-us/
+    linkLabel: Discuss the project
+  - number: "04"
+    title: Rights + future legal track
+    summary: Legal support is being built carefully rather than oversold. Musifer can still help capture the project context now and point you toward the next honest step.
+    bullets:
+      - Rights-question triage
+      - Future-service fit check
+      - Honest status notes
+    fit: Best for artists who need clarity about whether legal support belongs in the next phase.
+    linkHref: /services/legal/
+    linkLabel: See legal status
+processSteps:
+  - number: "01"
+    title: Share the project
+    body: Start with the basics. What are you building, where does it stand now, and what kind of help do you think you need?
+  - number: "02"
+    title: We review the fit
+    body: Musifer reviews scope, goals, timing, and constraints to identify the right lane or recommend a cleaner next move.
+  - number: "03"
+    title: Get a clear next step
+    body: You receive a quote, recommendation, or practical direction instead of being left to guess what happens next.
+prepItems:
+  - Project type and current stage
+  - Rough timeline or target release window
+  - Known deliverables or wishlist
+  - Links, drafts, references, or current assets
+faqItems:
+  - number: "01"
+    question: Not sure which lane fits?
+    answer: Use the quote path anyway and describe the project in plain language. Sorting the work is part of the intake, not a test you have to pass first.
+    linkHref: /services/rates-quote/
+    linkLabel: Use the rates / quote path
+  - number: "02"
+    question: Can smaller or early-stage work still be a fit?
+    answer: Yes, if the scope is clear and the goals are realistic. Musifer is more interested in a workable project than in inflated agency theater.
+  - number: "03"
+    question: What if Musifer is not the right match?
+    answer: Reach out anyway. If the fit is off, the goal is still to point you toward a better next step, community path, or future-ready direction.
+    linkHref: /contact/community/
+    linkLabel: Explore community pathways
+adjacentPaths:
+  - title: Work with us
+    body: Use the direct contact path when you already know you want a conversation and the project details are mostly in hand.
+    href: /contact/work-with-us/
+    label: Open the contact path
+  - title: Read the blog
+    body: Visit the blog for practical guides, editorial notes, and later case-study support as the content library grows.
+    href: /blog/
+    label: Browse the blog
+  - title: Learn the context
+    body: If you need more trust, background, or brand context before deciding, the About section is the right slower lane.
+    href: /about/
+    label: Visit About
 ---
 
-<section class="card">
-  <h1 class="card-title">Services</h1>
-  <p>Starter scaffold page. Content pending.</p>
-  <a class="btn" href="/">Back to home</a>
-</section>
+<div class="l-page-shell l-module-stack services-page">
+  <section class="card card-impact services-hero" aria-labelledby="services-hero-heading">
+    <div class="l-grid--2 services-hero__layout">
+      <div class="l-module-stack">
+        <p class="services-kicker">01 / Services</p>
+        <h1 class="card-title display-title" id="services-hero-heading">
+          Creative support for independent artists and evolving projects
+        </h1>
+        <p class="services-lead">
+          Musifer helps artists shape the work around the music: release support, visual systems,
+          editorial cleanup, and the practical digital pieces that make a project easier to launch,
+          understand, and sustain.
+        </p>
+        <div class="services-action-row">
+          <a class="btn" href="#service-lanes">Explore service lanes</a>
+          <a class="btn btn--secondary" href="#how-work-starts">How work starts</a>
+        </div>
+        <p class="services-support-note">
+          Built for independent creative work, artist support, and clear next steps rather than bloated full-agency theater.
+        </p>
+      </div>
+
+      <aside class="services-hero__aside" aria-label="Services summary">
+        <img class="content-logo" src="/Images/Musifer_Logo.svg" alt="Musifer brand mark">
+        <p class="services-hero__aside-copy">
+          A practical front door for artists who need structure, assets, and clearer decisions before the work goes public.
+        </p>
+        <div class="services-value-grid" aria-label="Quick value points">
+          {% for point in valuePoints %}
+          <p class="services-value-chip">{{ point }}</p>
+          {% endfor %}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="card services-section" id="service-lanes" aria-labelledby="service-lanes-heading">
+    <div class="services-section-header">
+      <div>
+        <p class="services-kicker">02 / Service Lanes</p>
+        <h2 class="card-title" id="service-lanes-heading">What Musifer is cut out to handle</h2>
+        <p class="services-section-copy">
+          These four lanes help visitors self-sort without pretending the page needs a giant checklist or a maze of thin child pages.
+        </p>
+      </div>
+      <p class="services-chip">4 core lanes</p>
+    </div>
+
+    <div class="l-grid--2 services-lane-grid">
+      {% for lane in serviceLanes %}
+      <article class="services-lane-card">
+        <p class="services-order">{{ lane.number }}</p>
+        <h3 class="card-title">{{ lane.title }}</h3>
+        <p>{{ lane.summary }}</p>
+
+        <div class="services-panel">
+          <p class="services-subheading">Common asks</p>
+          <ul class="services-bullet-list">
+            {% for bullet in lane.bullets %}
+            <li>{{ bullet }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <p class="services-fit-note">{{ lane.fit }}</p>
+        <a class="services-inline-link" href="{{ lane.linkHref }}">{{ lane.linkLabel }}</a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="l-grid--2 services-process-grid">
+    <article class="card services-section" id="how-work-starts" aria-labelledby="how-work-starts-heading">
+      <p class="services-kicker">03 / How Work Starts</p>
+      <h2 class="card-title" id="how-work-starts-heading">A simple intake path, not a maze</h2>
+      <div class="services-step-grid">
+        {% for step in processSteps %}
+        <div class="services-panel services-panel--soft">
+          <p class="services-order">{{ step.number }}</p>
+          <h3 class="card-title">{{ step.title }}</h3>
+          <p>{{ step.body }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="card services-section" aria-labelledby="project-fit-heading">
+      <p class="services-kicker">04 / Project Fit</p>
+      <h2 class="card-title" id="project-fit-heading">What helps before reaching out</h2>
+      <div class="services-panel services-panel--soft">
+        <p class="services-subheading">Helpful starting info</p>
+        <ul class="services-bullet-list">
+          {% for item in prepItems %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <p class="services-fit-note">
+        If you are unsure where the project belongs, the quote path still works as the general entry point.
+        Describe the work in plain language and sort the details together from there.
+      </p>
+      <a class="services-inline-link" href="/services/rates-quote/">Bring the project into the quote path</a>
+    </article>
+  </section>
+
+  <section class="card card-impact services-conversion-band" aria-labelledby="services-conversion-heading">
+    <div class="l-grid--2 services-conversion-grid">
+      <div>
+        <p class="services-kicker">05 / Next Step</p>
+        <h2 class="card-title" id="services-conversion-heading">Ready to talk through your project?</h2>
+        <p class="services-section-copy">
+          By this point, the visitor has seen the service lanes, the intake path, and enough fit guidance
+          to know whether a quote request or direct conversation makes sense.
+        </p>
+      </div>
+
+      <div class="services-cta-cluster">
+        <a class="btn services-cta-primary" href="/services/rates-quote/">Start rates / quote</a>
+        <a class="btn btn--secondary" href="/contact/work-with-us/">Use the work-with-us path</a>
+        <p class="services-cta-note">
+          Tell Musifer what you are building, what stage it is in, and where support would unblock the next move.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="l-grid--2 services-support-grid">
+    <article class="card services-section" id="services-faq" aria-labelledby="services-faq-heading">
+      <p class="services-kicker">06 / FAQ Style Notes</p>
+      <h2 class="card-title" id="services-faq-heading">Questions people usually have before sending the form</h2>
+      <div class="services-faq-stack">
+        {% for item in faqItems %}
+        <div class="services-panel services-panel--soft">
+          <p class="services-order">{{ item.number }}</p>
+          <h3 class="card-title">{{ item.question }}</h3>
+          <p>{{ item.answer }}</p>
+          {% if item.linkHref and item.linkLabel %}
+          <a class="services-inline-link" href="{{ item.linkHref }}">{{ item.linkLabel }}</a>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="card services-section" aria-labelledby="services-routing-heading">
+      <p class="services-kicker">07 / Adjacent Paths</p>
+      <h2 class="card-title" id="services-routing-heading">Keep nearby routes visible without muddying the goal</h2>
+      <div class="services-route-grid">
+        {% for path in adjacentPaths %}
+        <article class="services-route-card">
+          <h3 class="card-title">{{ path.title }}</h3>
+          <p>{{ path.body }}</p>
+          <a class="services-inline-link" href="{{ path.href }}">{{ path.label }}</a>
+        </article>
+        {% endfor %}
+      </div>
+      <div class="services-final-band">
+        <p class="services-final-copy">
+          If the project has shape, Musifer can help find the next clean move without turning the process into a performance.
+        </p>
+        <a class="btn" href="/services/rates-quote/">Take the quote path</a>
+      </div>
+    </article>
+  </section>
+</div>

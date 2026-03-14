@@ -1,10 +1,47 @@
-﻿---
-layout: layouts/base.njk
-title: Case Studies
 ---
+layout: layouts/base.njk
+title: Case Studies | Blog
+breadcrumbTitle: Case Studies
+description: Browse Musifer case studies for applied breakdowns, process notes, and proof-oriented reading as that lane grows.
+---
+{% set bucket = blog.publicBucketMap["case-studies"] %}
 
-<section class="card">
-  <h1 class="card-title">Case Studies</h1>
-  <p>Starter scaffold page. Content pending.</p>
-  <a class="btn" href="/">Back to home</a>
-</section>
+<div class="l-page-shell l-module-stack blog-bucket-page">
+  <section class="card card-impact blog-bucket-header" aria-labelledby="case-studies-heading">
+    <p class="blog-kicker">Blog / Case studies</p>
+    <h1 class="card-title display-title" id="case-studies-heading">{{ bucket.title }}</h1>
+    <p class="blog-page-deck">{{ bucket.hubDescription }}</p>
+  </section>
+
+  <section class="card" aria-labelledby="case-studies-list-heading">
+    <div class="blog-section-header">
+      <div>
+        <p class="blog-kicker">Current publishing</p>
+        <h2 class="card-title" id="case-studies-list-heading">What is live in this lane</h2>
+        <p class="blog-section-copy">{{ bucket.countLabel }}</p>
+      </div>
+      <a class="btn btn--secondary" href="/blog/">Back to blog hub</a>
+    </div>
+
+    {% if bucket.entries.length %}
+    <div class="module-card-stack">
+      {% for entry in bucket.entries %}
+      <article class="blog-bucket-entry">
+        <p class="blog-inline-meta">{{ entry.metadataLabel }}</p>
+        <h3 class="card-title">{{ entry.title }}</h3>
+        <p>{{ entry.summary }}</p>
+        <a class="blog-inline-link" href="{{ entry.url }}">Read case study</a>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="blog-empty-state">
+      <p>Case studies are part of the public structure now, but they are being held until there is enough real material to justify the lane.</p>
+      <div class="blog-browse-links">
+        <a class="btn" href="/blog/">Return to the blog hub</a>
+        <a class="btn btn--secondary" href="/services/rates-quote/">Use the quote path</a>
+      </div>
+    </div>
+    {% endif %}
+  </section>
+</div>

@@ -27,6 +27,10 @@ function isIsoDateMinute(value) {
   return typeof value === "string" && /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(value);
 }
 
+function isIsoDateOrMinute(value) {
+  return isIsoDate(value) || isIsoDateMinute(value);
+}
+
 function asArray(value) {
   if (Array.isArray(value)) return value;
   if (value === undefined || value === null || value === "") return [];
@@ -55,14 +59,13 @@ function validateEntry(entry) {
     errors.push(`invalid status '${data.status}'`);
   }
 
-  if (data.published_at !== undefined && !isIsoDate(data.published_at)) {
-    errors.push("published_at must be ISO 8601 date (YYYY-MM-DD)");
+  if (data.published_at !== undefined && !isIsoDateOrMinute(data.published_at)) {
+    errors.push("published_at must be YYYY-MM-DD or YYYY-MM-DD HH:mm");
   }
 
   if (
     data.updated_at !== undefined &&
-    !isIsoDate(data.updated_at) &&
-    !isIsoDateMinute(data.updated_at)
+    !isIsoDateOrMinute(data.updated_at)
   ) {
     errors.push("updated_at must be YYYY-MM-DD or YYYY-MM-DD HH:mm");
   }
@@ -88,6 +91,14 @@ function validateEntry(entry) {
 
   if (data.type === "profile" && !data.role) {
     errors.push("profile entries must include role");
+  }
+
+  if (data.type === "blog") {
+    if (!data.bucket) {
+      errors.push("blog entries must include bucket");
+    } else if (typeof data.bucket !== "string" || !ID_PATTERN.test(data.bucket)) {
+      errors.push("blog bucket must be lowercase URL-safe text (letters, numbers, hyphens)");
+    }
   }
 
   if (data.type === "lesson") {

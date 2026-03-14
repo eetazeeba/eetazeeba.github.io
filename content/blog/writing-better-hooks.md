@@ -11,6 +11,7 @@ copyright: "Copyright (c) 2026 Musifer"
 tags: [featured, songwriting, hooks, melody]
 media_types: [image, audio]
 summary: Practical hook-writing ideas with short audio demos.
+bucket: guides
 related_ids: [lesson-melodic-phrasing]
 series: Songwriting Lab
 reading_time_minutes: 8

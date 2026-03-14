@@ -1,0 +1,7 @@
+{% if analytics.provider == "umami" and analytics.domain %}
+<script
+  defer
+  data-domains="{{ analytics.domain }}"
+  src="https://analytics.{{ analytics.domain }}/script.js"
+></script>
+{% endif %}

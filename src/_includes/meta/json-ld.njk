@@ -1,0 +1,4 @@
+{% set serializedJsonLd = jsonLd | jsonLd %}
+{% if serializedJsonLd %}
+  <script type="application/ld+json">{{ serializedJsonLd | safe }}</script>
+{% endif %}

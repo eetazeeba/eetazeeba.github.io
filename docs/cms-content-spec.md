@@ -6,7 +6,7 @@ Purpose
 
 ## Format and conventions
 - File format: Markdown with YAML front matter.
-- Date format: ISO 8601 (`YYYY-MM-DD`) for date fields; `updated_at` may include minute precision (`YYYY-MM-DD HH:mm`).
+- Date format: use `YYYY-MM-DD` for date-only values, or `YYYY-MM-DD HH:mm` when minute-precision UTC timing matters.
 - IDs and slugs: lowercase, URL-safe, hyphenated.
 - Tags: multiple tags are allowed and recommended.
 - Promotion tag convention: use `featured` to mark entries for homepage/highlight placement.
@@ -30,8 +30,8 @@ Required fields
 - `title` (string).
 - `status` (enum): `draft | published | archived`.
 - `author` (string or list of strings).
-- `published_at` (date string, ISO 8601).
-- `updated_at` (date or minute-precision datetime string, ISO 8601-ish: `YYYY-MM-DD` or `YYYY-MM-DD HH:mm`).
+- `published_at` (date or minute-precision datetime string, `YYYY-MM-DD` or `YYYY-MM-DD HH:mm`).
+- `updated_at` (date or minute-precision datetime string, `YYYY-MM-DD` or `YYYY-MM-DD HH:mm`).
 - `copyright` (string).
 - `tags` (list of strings, can be empty). Include `featured` when an entry should be promoted.
 - `media_types` (list): any of `image`, `audio`, `video`, `embed`, `sheet`, `download`.
@@ -49,6 +49,7 @@ Optional fields
 ## Type-specific fields
 
 `blog`
+- `bucket` (string): primary public bucket slug used for routing and hub placement. Current public buckets are `guides`, `articles`, and `case-studies`, but the field stays slug-based so future expansion is possible without another schema rewrite.
 - `series` (string, optional).
 - `reading_time_minutes` (integer, optional).
 
@@ -75,12 +76,13 @@ title: Writing Better Hooks
 status: published
 author:
   - Eeta Zeeba
-published_at: 2026-03-03
-updated_at: 2026-03-03
+published_at: 2026-03-03 09:00
+updated_at: 2026-03-03 15:43
 copyright: "Copyright (c) 2026 Musifer"
 tags: [featured, songwriting, hooks, melody]
 media_types: [image, audio]
 summary: Practical hook-writing ideas with short audio demos.
+bucket: guides
 related_ids: [lesson-melodic-phrasing]
 series: Songwriting Lab
 reading_time_minutes: 8
@@ -152,7 +154,8 @@ Main markdown body...
 ## Validation targets for first implementation
 - Required fields present.
 - Enum values valid.
-- Date fields parse as ISO 8601.
+- Date fields parse as `YYYY-MM-DD` or `YYYY-MM-DD HH:mm` where allowed by the field contract.
 - `id` uniqueness across all content directories.
+- `blog.bucket` present and URL-safe.
 - `related_ids` only reference existing IDs.
 - `media_types` normalized to allowed values.

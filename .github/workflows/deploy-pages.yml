@@ -18,6 +18,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ANALYTICS_ENABLED: "true"
+      ANALYTICS_PROVIDER: "umami"
+      ANALYTICS_DOMAIN: "musifer.studio"
     steps:
       - name: Checkout
         uses: actions/checkout@v4

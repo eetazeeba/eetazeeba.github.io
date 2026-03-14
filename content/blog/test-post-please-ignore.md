@@ -14,6 +14,7 @@ tags:
 media_types:
   - image
 summary: The very first attempt at using Decap CMS to create content for the website.
+bucket: articles
 series: Development
 reading_time_minutes: 2
 ---

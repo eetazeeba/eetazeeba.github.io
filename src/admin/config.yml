@@ -24,8 +24,8 @@ collections:
         widget: list
         min: 1
         field: { label: Author, name: value, widget: string }
-      - { label: Published Date, name: published_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
-      - { label: Updated Date, name: updated_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { label: Published Date, name: published_at, widget: string, hint: "Use YYYY-MM-DD for date-only or YYYY-MM-DD HH:mm for UTC minute precision.", pattern: ["^\\d{4}-\\d{2}-\\d{2}(?: \\d{2}:\\d{2})?$", "Use YYYY-MM-DD or YYYY-MM-DD HH:mm (UTC)."] }
+      - { label: Updated Date, name: updated_at, widget: string, hint: "Use YYYY-MM-DD for date-only or YYYY-MM-DD HH:mm for UTC minute precision.", pattern: ["^\\d{4}-\\d{2}-\\d{2}(?: \\d{2}:\\d{2})?$", "Use YYYY-MM-DD or YYYY-MM-DD HH:mm (UTC)."] }
       - { label: Copyright, name: copyright, widget: string }
       - label: Tags
         name: tags
@@ -35,6 +35,7 @@ collections:
         field: { label: Tag, name: value, widget: string }
       - { label: Media Types, name: media_types, widget: select, multiple: true, required: false, options: [image, audio, video, embed, sheet, download] }
       - { label: Summary, name: summary, widget: text, required: false }
+      - { label: Bucket, name: bucket, widget: string, required: true, hint: "Current public buckets are guides, articles, and case-studies. Use lowercase hyphenated slugs so future expansion stays possible.", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use lowercase letters, numbers, and hyphens only."] }
       - label: Related IDs
         name: related_ids
         widget: list
@@ -61,8 +62,8 @@ collections:
         widget: list
         min: 1
         field: { label: Author, name: value, widget: string }
-      - { label: Published Date, name: published_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
-      - { label: Updated Date, name: updated_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { label: Published Date, name: published_at, widget: string, hint: "Use YYYY-MM-DD for date-only or YYYY-MM-DD HH:mm for UTC minute precision.", pattern: ["^\\d{4}-\\d{2}-\\d{2}(?: \\d{2}:\\d{2})?$", "Use YYYY-MM-DD or YYYY-MM-DD HH:mm (UTC)."] }
+      - { label: Updated Date, name: updated_at, widget: string, hint: "Use YYYY-MM-DD for date-only or YYYY-MM-DD HH:mm for UTC minute precision.", pattern: ["^\\d{4}-\\d{2}-\\d{2}(?: \\d{2}:\\d{2})?$", "Use YYYY-MM-DD or YYYY-MM-DD HH:mm (UTC)."] }
       - { label: Copyright, name: copyright, widget: string }
       - label: Tags
         name: tags
@@ -105,8 +106,8 @@ collections:
         widget: list
         min: 1
         field: { label: Author, name: value, widget: string }
-      - { label: Published Date, name: published_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
-      - { label: Updated Date, name: updated_at, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { label: Published Date, name: published_at, widget: string, hint: "Use YYYY-MM-DD for date-only or YYYY-MM-DD HH:mm for UTC minute precision.", pattern: ["^\\d{4}-\\d{2}-\\d{2}(?: \\d{2}:\\d{2})?$", "Use YYYY-MM-DD or YYYY-MM-DD HH:mm (UTC)."] }
+      - { label: Updated Date, name: updated_at, widget: string, hint: "Use YYYY-MM-DD for date-only or YYYY-MM-DD HH:mm for UTC minute precision.", pattern: ["^\\d{4}-\\d{2}-\\d{2}(?: \\d{2}:\\d{2})?$", "Use YYYY-MM-DD or YYYY-MM-DD HH:mm (UTC)."] }
       - { label: Copyright, name: copyright, widget: string }
       - label: Tags
         name: tags

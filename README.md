@@ -44,6 +44,10 @@ Use `npm ci` for normal setup and branch sync on an existing clone. Use `npm ins
 - [`docs/audits/css-refresh-conflict-audit.md`](docs/audits/css-refresh-conflict-audit.md): CSS audit and implementation risks
 - [`docs/planning/jamstack-main-migration-plan.md`](docs/planning/jamstack-main-migration-plan.md): branch consolidation and cutover history
 - [`docs/high-level-project-tracking.md`](docs/high-level-project-tracking.md): operational status and ongoing tracking notes
+- [`docs/planning/analytics-rollout-plan.md`](docs/planning/analytics-rollout-plan.md): analytics rollout plan (`Umami` first, `Plausible`-compatible later) with vendor-agnostic integration guidance
+- [`docs/planning/domain-direction-musifer-studio-art.md`](docs/planning/domain-direction-musifer-studio-art.md): current domain direction (`musifer.studio` primary, `musifer.art` backup/protection)
+- [`docs/planning/privacy-policy-draft.md`](docs/planning/privacy-policy-draft.md): finalized privacy/disclosure reference used for analytics rollout readiness (filename retained for continuity)
+- [`docs/planning/SEO/`](docs/planning/SEO): SEO planning set for strategy, page intent, schema, and launch QA
 - [`docs/planning/analytics-feasibility-and-implementation-plan.md`](docs/planning/analytics-feasibility-and-implementation-plan.md): active analytics planning/status doc (current near-term direction is Umami, planning only)
 
 ## Infrastructure rollout snapshot

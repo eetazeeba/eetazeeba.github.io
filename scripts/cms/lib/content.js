@@ -26,16 +26,13 @@ function extractFrontMatter(raw) {
     return { frontMatter: null, body: raw };
   }
 
-  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
-  const marker = `${newline}---${newline}`;
-  const end = raw.indexOf(marker, 3);
-
-  if (end === -1) {
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+  if (!match) {
     return { frontMatter: null, body: raw };
   }
 
-  const frontMatter = raw.slice(4, end);
-  const body = raw.slice(end + marker.length);
+  const frontMatter = match[1];
+  const body = raw.slice(match[0].length);
   return { frontMatter, body };
 }
 

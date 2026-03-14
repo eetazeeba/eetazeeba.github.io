@@ -23,9 +23,9 @@
       "title": "Services",
       "url": "/services/",
       "children": [
-        { "title": "Production / Audio Engineering", "url": "/services/production-audio-engineering/" },
+        { "title": "Production", "url": "/services/production/" },
         { "title": "Legal (On Hold)", "url": "/services/legal/", "status": "on-hold" },
-        { "title": "Pricing / Quote Form", "url": "/services/pricing-quote-form/" }
+        { "title": "Rates / Quote", "url": "/services/rates-quote/" }
       ]
     },
     {
@@ -41,8 +41,9 @@
       "title": "Contact",
       "url": "/contact/",
       "children": [
-        { "title": "Positions / Volunteer / Contribute", "url": "/contact/positions/" },
-        { "title": "Locations / Community Partners", "url": "/contact/locations/" }
+        { "title": "Work with us", "url": "/contact/work-with-us/" },
+        { "title": "Locations", "url": "/contact/locations/" },
+        { "title": "Community", "url": "/contact/community/" }
       ]
     }
   ]

@@ -60,6 +60,12 @@ Purpose
   - Proton selected as the final-phase domain email provider.
 - Repo-visible implementation is still pending; these are documented rollout decisions, not completed infrastructure changes.
 
+## Wireframe preview utility (2026-03-10)
+- Added isolated local workspace: `docs/wireframe-playground/` (Vite + React).
+- Current default preview target: `docs/wireframe-playground/src/services_page_wireframe.jsx`.
+- Intended for local wireframe iteration (including Preview.js workflows) only; it is not wired into Eleventy production output or GitHub Pages deployment.
+- `main` guard workflow: `.github/workflows/guard-experimental-only-main.yml` blocks this experimental-only path from landing on `main`.
+
 ## CMS operational notes
 - Decap config path: `src/admin/config.yml`
 - CMS branch target: `main`
@@ -103,7 +109,12 @@ Purpose
   - Phase 1 complete
   - Phase 2 complete
   - Phase 3 complete (including follow-up refinements)
-  - Phase 4 baseline system complete; route-level adoption for `/services/`, `/blog/`, and `/contact/` remains a follow-up
+  - Phase 4 baseline system complete; route-level adoption is now in place for `/about/`, `/services/`, and `/blog/`, with `/contact/` still the main parent-page follow-up
+- Sitemap/nav alignment note (2026-03-11):
+  - `services` and `contact` public route slugs now match the current direction in `docs/sitemap.md`.
+  - Public nav labels/URLs in `src/_data/nav.json` were realigned to that sitemap structure.
+  - A distinct `/contact/community/` scaffold now exists instead of folding community language into `/contact/locations/`.
+  - `blog` now has a curated landing page, lightweight bucket hubs, and minimal routed article support for published public entries.
 
 ## Playwright validation expansion note (2026-03-07)
 - Automated rail interaction validation was intentionally skipped for tonight after implementation work.

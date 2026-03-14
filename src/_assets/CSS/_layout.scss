@@ -138,6 +138,12 @@ footer {
 }
 
 @media (min-width: 1200px) {
+  main,
+  .l-page-shell,
+  .l-section-shell {
+    max-width: 1120px;
+  }
+
   .l-page-shell,
   .l-section-shell {
     padding-inline: 1.5rem;

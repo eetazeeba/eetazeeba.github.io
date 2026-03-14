@@ -3,7 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{ title }} | {{ nav.site.title }}</title>
+  {% set siteTitle = site.title or nav.site.title %}
+  {% set metaTitle = title or siteTitle %}
+  {% set canonicalPath = page.url or "/" %}
+  {% set canonicalUrl = site.url + canonicalPath %}
+  {% set metaDescription = description %}
+  {% set socialImageUrl = site.url + (socialImagePath or site.socialImagePath) %}
+  {% set robotsValue = robots %}
+  <title>{{ metaTitle }} | {{ siteTitle }}</title>
+  {% if metaDescription %}
+  <meta name="description" content="{{ metaDescription }}">
+  {% endif %}
+  <link rel="canonical" href="{{ canonicalUrl }}">
+  {% if robotsValue %}
+  <meta name="robots" content="{{ robotsValue }}">
+  {% endif %}
+  <meta property="og:site_name" content="{{ siteTitle }}">
+  <meta property="og:title" content="{{ metaTitle }} | {{ siteTitle }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ canonicalUrl }}">
+  {% if metaDescription %}
+  <meta property="og:description" content="{{ metaDescription }}">
+  {% endif %}
+  <meta property="og:image" content="{{ socialImageUrl }}">
+  {% include "meta/json-ld.njk" %}
   <link rel="stylesheet" href="/CSS/styles.css">
   <link rel="stylesheet" href="/CSS/header-nav.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,10 +37,23 @@
   {% include "header.html" %}
 
   <main>
+    {% include "navigation/breadcrumbs.njk" %}
     {{ content | safe }}
   </main>
 
   {% include "footer.html" %}
   <script src="/scripts/header-nav.js"></script>
+  <script src="/scripts/rail-affordances.js"></script>
+  <script>
+    window.__MUSIFER_ANALYTICS__ = {
+      enabled: {% if analytics.enabled %}true{% else %}false{% endif %},
+      provider: "{{ analytics.provider | escape }}",
+      domain: "{{ analytics.domain | escape }}"
+    };
+  </script>
+  {% if analytics.enabled %}
+    {% include "analytics/umami.njk" %}
+  {% endif %}
+  <script defer src="/scripts/analytics.js"></script>
 </body>
 </html>

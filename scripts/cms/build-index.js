@@ -8,6 +8,37 @@ function toSlug(entry) {
   return path.basename(entry.filePath, ".md");
 }
 
+function parseSortableDate(value) {
+  if (!value || typeof value !== "string") {
+    return null;
+  }
+
+  const raw = value.trim();
+  const dateOnlyMatch = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const minutePrecisionMatch = raw.match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})$/);
+
+  if (dateOnlyMatch) {
+    return Date.UTC(
+      Number(dateOnlyMatch[1]),
+      Number(dateOnlyMatch[2]) - 1,
+      Number(dateOnlyMatch[3])
+    );
+  }
+
+  if (minutePrecisionMatch) {
+    return Date.UTC(
+      Number(minutePrecisionMatch[1]),
+      Number(minutePrecisionMatch[2]) - 1,
+      Number(minutePrecisionMatch[3]),
+      Number(minutePrecisionMatch[4]),
+      Number(minutePrecisionMatch[5])
+    );
+  }
+
+  const parsed = new Date(raw);
+  return Number.isNaN(parsed.getTime()) ? null : parsed.getTime();
+}
+
 function run() {
   const entries = loadContentEntries().map((entry) => {
     const { data, relPath } = entry;
@@ -18,6 +49,7 @@ function run() {
       status: data.status || null,
       title: data.title || null,
       summary: data.summary || null,
+      bucket: data.bucket || null,
       tags: Array.isArray(data.tags) ? data.tags : [],
       media_types: Array.isArray(data.media_types) ? data.media_types : [],
       author: Array.isArray(data.author) ? data.author : data.author ? [data.author] : [],
@@ -29,10 +61,13 @@ function run() {
   });
 
   entries.sort((a, b) => {
-    if (!a.published_at && !b.published_at) return 0;
-    if (!a.published_at) return 1;
-    if (!b.published_at) return -1;
-    return a.published_at < b.published_at ? 1 : -1;
+    const aSortValue = parseSortableDate(a.published_at);
+    const bSortValue = parseSortableDate(b.published_at);
+
+    if (aSortValue === null && bSortValue === null) return 0;
+    if (aSortValue === null) return 1;
+    if (bSortValue === null) return -1;
+    return aSortValue < bSortValue ? 1 : -1;
   });
 
   const tagMap = {};

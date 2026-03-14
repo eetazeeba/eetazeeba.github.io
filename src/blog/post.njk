@@ -1,0 +1,73 @@
+<article class="l-page-shell l-module-stack blog-article-page">
+  <header class="card card-impact blog-article-hero" aria-labelledby="blog-article-heading">
+    <div class="l-grid--2 blog-article-hero__layout">
+      <div class="l-module-stack">
+        <p class="blog-kicker">Article / {{ entry.bucketTitle }}</p>
+        <h1 class="card-title display-title" id="blog-article-heading">{{ entry.title }}</h1>
+        <p class="blog-article-lede">{{ entry.summary }}</p>
+      </div>
+
+      <aside class="blog-article-hero__meta" aria-label="Article metadata">
+        <p class="blog-article-meta">{{ entry.articleMetadataLabel }}</p>
+        <p class="blog-article-meta">
+          By {{ entry.author | join(", ") }}
+          {% if entry.showUpdatedLine %}
+            / Updated {{ entry.articleUpdatedLabel }}
+          {% endif %}
+        </p>
+        {% if entry.bucketIsPublic %}
+        <a class="btn btn--secondary" href="{{ entry.bucketUrl }}">Browse {{ entry.bucketTitle }}</a>
+        {% else %}
+        <a class="btn btn--secondary" href="/blog/">Back to the blog hub</a>
+        {% endif %}
+      </aside>
+    </div>
+  </header>
+
+  <div class="l-grid--2 blog-article-layout">
+    <section class="card blog-article-body" aria-labelledby="blog-article-body-heading">
+      <h2 class="blog-sr-only" id="blog-article-body-heading">Article body</h2>
+      <div class="blog-prose">
+        {{ entry.htmlContent | safe }}
+      </div>
+    </section>
+
+    <aside class="module-card-stack is-compact blog-article-sidebar" aria-label="Article pathways">
+      <section class="card">
+        <p class="blog-kicker">Keep reading</p>
+        <h2 class="card-title">More from the blog</h2>
+        {% if entry.relatedBlogEntries.length %}
+        <div class="module-card-stack is-compact">
+          {% for related in entry.relatedBlogEntries %}
+          <article class="blog-inline-card">
+            <p class="blog-inline-meta">{{ related.metadataLabel }}</p>
+            <h3 class="card-title">{{ related.title }}</h3>
+            <p>{{ related.summary }}</p>
+            <a class="blog-inline-link" href="{{ related.url }}">Read related post</a>
+          </article>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p>Use the bucket hubs and curated blog landing page to find the next useful lane without getting buried in archive noise.</p>
+        <div class="module-card-stack is-compact">
+          <a class="btn btn--soft-emphasis" href="/blog/">Back to the blog hub</a>
+          {% if entry.bucketIsPublic %}
+          <a class="btn btn--secondary" href="{{ entry.bucketUrl }}">Browse {{ entry.bucketTitle }}</a>
+          {% endif %}
+        </div>
+        {% endif %}
+      </section>
+
+      <section class="card">
+        <p class="blog-kicker">Need help?</p>
+        <h2 class="card-title">Move from reading into real support</h2>
+        <p>When the article stops being enough and the project needs structure, the next step should stay clear.</p>
+        <div class="module-card-stack is-compact">
+          <a class="btn" href="/services/production/">Explore production support</a>
+          <a class="btn btn--secondary" href="/services/rates-quote/">Use the rates / quote path</a>
+          <a class="blog-inline-link" href="/contact/work-with-us/">Prefer a direct conversation?</a>
+        </div>
+      </section>
+    </aside>
+  </div>
+</article>
