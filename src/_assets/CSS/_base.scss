@@ -13,96 +13,15 @@ body {
   display: flex;
   flex-direction: column;
   font-family: var(--font-body);
-  background-color: var(--amethyst);
-  background-image: linear-gradient(
+  background: linear-gradient(
     180deg,
     var(--amethyst) 0,
     var(--amethyst) calc(100% - 14rem),
     var(--dark-amethyst) calc(100% - 8rem),
     var(--dark-amethyst) 100%
   );
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: auto;
   color: var(--text);
   line-height: 1.5;
-}
-
-body.page-home {
-  --home-vellum-top-height: clamp(30rem, 72vw, 54rem);
-  --home-vellum-bottom-height: clamp(14rem, 30vw, 24rem);
-  position: relative;
-  isolation: isolate;
-}
-
-body.page-home::before,
-body.page-home::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  pointer-events: none;
-  background-image: url("/Images/vellum-bg-2k.webp");
-  background-repeat: no-repeat;
-  background-size: 100vw auto;
-  mix-blend-mode: multiply;
-  z-index: 0;
-}
-
-body.page-home::before {
-  inset-block-start: 0;
-  block-size: var(--home-vellum-top-height);
-  background-position: center top;
-  opacity: 0.3;
-  -webkit-mask-image: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.96) 0%,
-    rgba(0, 0, 0, 0.84) 24%,
-    rgba(0, 0, 0, 0.48) 62%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.96) 0%,
-    rgba(0, 0, 0, 0.84) 24%,
-    rgba(0, 0, 0, 0.48) 62%,
-    transparent 100%
-  );
-}
-
-body.page-home::after {
-  inset-block-end: 0;
-  block-size: var(--home-vellum-bottom-height);
-  background-position: center bottom;
-  opacity: 0.3;
- -webkit-mask-image: linear-gradient(
-    rgba(0, 0, 0, 0.96) 0%,
-    rgba(0, 0, 0, 0.84) 24%,
-    rgba(0, 0, 0, 0.48) 62%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    rgba(0, 0, 0, 0.96) 0%,
-    rgba(0, 0, 0, 0.84) 24%,
-    rgba(0, 0, 0, 0.48) 62%,
-    transparent 100%
-  );
-}
-
-body.page-home::before,
-body.page-home::after {
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
-
-body.page-home > :where(header, main, footer) {
-  position: relative;
-  z-index: 1;
-}
-
-body.page-home footer {
-  background: var(--dark-amethyst);
 }
 
 .lead {

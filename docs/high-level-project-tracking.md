@@ -55,16 +55,6 @@ Purpose
 - Intended for local wireframe iteration (including Preview.js workflows) only; it is not wired into Eleventy production output or GitHub Pages deployment.
 - `main` guard workflow: `.github/workflows/guard-experimental-only-main.yml` blocks this experimental-only path from landing on `main`.
 
-## Homepage vellum experiment (2026-03-12)
-- Tracking artifact: `docs/planning/homepage-vellum-background-experiment.md`.
-- Current implementation direction on this branch:
-  - homepage-only body class hook in `src/index.njk` and `src/_includes/layouts/base.njk`
-  - shared base background override in `src/_assets/CSS/_base.scss`
-  - vellum treatment uses the non-repeating `src/_assets/Images/vellum-bg-2k.webp` asset
-- Intent:
-  - add a subtle upper-page vellum atmosphere without attaching the effect to the sticky scroll-reactive header
-  - keep the lower page returning to the existing cleaner Musifer gradient baseline
-
 ## CMS operational notes
 - Decap config path: `src/admin/config.yml`
 - CMS branch target: `main`
