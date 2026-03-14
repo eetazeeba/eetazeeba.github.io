@@ -4,10 +4,11 @@
 - Stage 1 and Stage 2: completed.
 - Stage 3: authorized and executed on 2026-03-06.
 - Canonical branch model: `main` is the source-of-truth Jamstack branch.
+- Infrastructure note (2026-03-13): this document records the GitHub Pages cutover baseline. Active infrastructure planning now treats GitHub Pages custom-domain use as transitional before a later Vercel migration; see `docs/planning/domain-hosting-email-rollout-plan.md`.
 
 ## Consolidation decisions
 - Migration strategy: controlled cutover branch from `main` with Jamstack tree replacement.
-- Deployment model: GitHub Pages via Actions, deploying built `_site`.
+- Deployment model at cutover time: GitHub Pages via Actions, deploying built `_site`.
 - Decap `/admin` policy: keep `/admin` in repo, keep route unlinked in public nav until verification is complete.
 
 ## Keepers preserved from pre-cutover `main`
