@@ -13,6 +13,17 @@ Purpose
 - Registrar/DNS provider of choice: Porkbun
 - Planned domain email provider after hosting migration: Proton
 - Pages workflow: `.github/workflows/deploy-pages.yml`
+- Feature work should return to `main` through reviewed pull requests rather than direct feature-branch pushes.
+- Preferred merge method for short-lived feature branches: **Squash and merge**
+- Intended required checks for pull requests into `main`: `guard-main` and `validate-main-pr`
+- Deployment still occurs only after the merge lands on `main`
+- Node baseline source of truth: `.nvmrc` (used for local development and Pages CI)
+- Rollout planning artifact: `docs/planning/domain-hosting-email-rollout-plan.md`
+- Feature work should return to `main` through reviewed pull requests rather than direct feature-branch pushes.
+- Preferred merge method for short-lived feature branches: **Squash and merge**
+- Intended required checks for pull requests into `main`: `guard-main` and `validate-main-pr`
+- Deployment still occurs only after the merge lands on `main`
+- Node baseline source of truth: `.nvmrc` (used for local development and Pages CI)
 - Rollout planning artifact: `docs/planning/domain-hosting-email-rollout-plan.md`
 
 ## Analytics and SEO planning status (Umami, planning only) (2026-03-13)
