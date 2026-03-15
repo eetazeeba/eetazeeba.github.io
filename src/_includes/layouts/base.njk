@@ -8,6 +8,7 @@
   {% set canonicalPath = page.url or "/" %}
   {% set canonicalUrl = site.url + canonicalPath %}
   {% set metaDescription = description %}
+  {% set faviconSvgPath = site.organization.logoPath or site.socialImagePath %}
   {% set socialImageUrl = site.url + (socialImagePath or site.socialImagePath) %}
   {% set robotsValue = robots %}
   <title>{{ metaTitle }} | {{ siteTitle }}</title>
@@ -15,6 +16,9 @@
   <meta name="description" content="{{ metaDescription }}">
   {% endif %}
   <link rel="canonical" href="{{ canonicalUrl }}">
+  <link rel="icon" href="{{ faviconSvgPath }}" type="image/svg+xml">
+  <link rel="icon" href="{{ site.faviconPath }}" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="{{ site.appleTouchIconPath }}" sizes="180x180">
   {% if robotsValue %}
   <meta name="robots" content="{{ robotsValue }}">
   {% endif %}

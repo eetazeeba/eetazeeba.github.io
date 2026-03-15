@@ -35,6 +35,11 @@ Use `npm ci` for normal setup and branch sync on an existing clone. Use `npm ins
 - `docs/`: planning, migration, and architecture notes
 - `.github/workflows/`: Continuous Integration and Continuous Delivery/Deployment (CI/DI) workflows (including Pages deploy)
 
+## Shared head and favicon
+- Site-wide metadata and favicon links are wired in `src/_includes/layouts/base.njk`.
+- The favicon uses the existing `src/_assets/Images/Musifer_Logo.svg` mark directly, with generated fallbacks at `src/_assets/Images/favicon-32x32.png` and `src/_assets/Images/apple-touch-icon.png`.
+- Those PNG derivatives exist only to improve browser-tab and touch-icon compatibility while staying inside the existing Eleventy passthrough image pipeline.
+
 ## Documentation map
 - [`docs/workflows/two-device-development-routine.md`](docs/workflows/two-device-development-routine.md): day-to-day branch, device, and dependency routine
 - [`docs/planning/README.md`](docs/planning/README.md): planning-folder index and scope notes
