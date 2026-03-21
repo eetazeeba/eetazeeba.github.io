@@ -142,6 +142,60 @@ body {
   line-height: 1.5;
 }
 
+body.page-atmosphere {
+  position: relative;
+  isolation: isolate;
+}
+
+body.page-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: clamp(34rem, 92vh, 58rem);
+  background: center top/cover no-repeat url("/Images/vellum-bg-2k.webp");
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.84) 22%, rgba(0, 0, 0, 0.58) 56%, rgba(0, 0, 0, 0.2) 82%, transparent 100%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.84) 22%, rgba(0, 0, 0, 0.58) 56%, rgba(0, 0, 0, 0.2) 82%, transparent 100%);
+}
+
+body.page-atmosphere > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.page-home.page-atmosphere--vellum::before {
+  height: clamp(38rem, 108vh, 68rem);
+  opacity: 0.3;
+  background-position: center top;
+}
+
+body.page-about.page-atmosphere--vellum::before {
+  height: clamp(44rem, 122vh, 80rem);
+  opacity: 0.17;
+  background-position: center top;
+}
+
+body.page-services.page-atmosphere--vellum::before {
+  height: clamp(48rem, 132vh, 88rem);
+  opacity: 0.16;
+  background-position: center top;
+}
+
+body.page-blog.page-atmosphere--vellum::before {
+  height: clamp(54rem, 148vh, 98rem);
+  opacity: 0.15;
+  background-position: center top;
+}
+
+body.page-contact.page-atmosphere--vellum::before {
+  height: clamp(42rem, 116vh, 72rem);
+  opacity: 0.16;
+  background-position: center top;
+}
+
 .lead {
   color: var(--muted);
   margin-top: 0.5rem;
@@ -470,7 +524,7 @@ footer {
   box-shadow: 0 6px 12px rgba(15, 23, 42, 0.04);
 }
 
-/* Phase 4 step 3: reusable horizontal card rail (CSS-first, mobile-first). */
+/* Reusable horizontal card rail (CSS-first, mobile-first). */
 .module-rail {
   --module-rail-gap: 1rem;
   --module-rail-card-min: 15rem;
@@ -760,6 +814,11 @@ footer {
 
 .breadcrumbs__item [aria-current=page] {
   color: var(--soft-apricot);
+}
+
+.home-page .card,
+.home-page .card-impact {
+  margin-bottom: 0;
 }
 
 /* About reference page: visual QA target for Phase 4 composition work. */

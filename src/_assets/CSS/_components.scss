@@ -168,7 +168,7 @@
   box-shadow: 0 6px 12px rgba(15, 23, 42, 0.04);
 }
 
-/* Phase 4 step 3: reusable horizontal card rail (CSS-first, mobile-first). */
+/* Reusable horizontal card rail (CSS-first, mobile-first). */
 .module-rail {
   --module-rail-gap: 1rem;
   --module-rail-card-min: 15rem;
@@ -480,6 +480,11 @@
 
 .breadcrumbs__item [aria-current="page"] {
   color: var(--soft-apricot);
+}
+
+.home-page .card,
+.home-page .card-impact {
+  margin-bottom: 0;
 }
 
 /* About reference page: visual QA target for Phase 4 composition work. */
