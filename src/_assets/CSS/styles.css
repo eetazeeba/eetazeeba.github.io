@@ -151,7 +151,7 @@ body.page-atmosphere::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
-  height: clamp(34rem, 92vh, 58rem);
+  height: min(100%, clamp(34rem, 92vh, 58rem));
   background: center top/cover no-repeat url("/Images/vellum-bg-2k.webp");
   opacity: 0.16;
   mix-blend-mode: multiply;
@@ -163,35 +163,39 @@ body.page-atmosphere::before {
 
 body.page-atmosphere > * {
   position: relative;
+}
+
+body.page-atmosphere > main,
+body.page-atmosphere > footer {
   z-index: 1;
 }
 
 body.page-home.page-atmosphere--vellum::before {
-  height: clamp(38rem, 108vh, 68rem);
+  height: min(100%, clamp(38rem, 108vh, 68rem));
   opacity: 0.3;
   background-position: center top;
 }
 
 body.page-about.page-atmosphere--vellum::before {
-  height: clamp(44rem, 122vh, 80rem);
+  height: min(100%, clamp(44rem, 122vh, 80rem));
   opacity: 0.17;
   background-position: center top;
 }
 
 body.page-services.page-atmosphere--vellum::before {
-  height: clamp(48rem, 132vh, 88rem);
+  height: min(100%, clamp(48rem, 132vh, 88rem));
   opacity: 0.16;
   background-position: center top;
 }
 
 body.page-blog.page-atmosphere--vellum::before {
-  height: clamp(54rem, 148vh, 98rem);
+  height: min(100%, clamp(54rem, 148vh, 98rem));
   opacity: 0.15;
   background-position: center top;
 }
 
 body.page-contact.page-atmosphere--vellum::before {
-  height: clamp(42rem, 116vh, 72rem);
+  height: min(100%, clamp(42rem, 116vh, 72rem));
   opacity: 0.16;
   background-position: center top;
 }
