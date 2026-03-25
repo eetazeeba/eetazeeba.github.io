@@ -41,9 +41,10 @@
 
 ## Final Status
 - About: visible scaffold-style section kickers removed; heading hierarchy left intact.
-- Services: visible scaffold-style section kickers removed; numbered in-card labels and subheadings retained where they still organize content.
+- Services: visible scaffold-style section kickers removed. A later micro-UI follow-up then removed `services-order`, preserved process sequencing semantically, and restyled `services-subheading`; see [visual-update-micro-ui-cleanup.md](visual-update-micro-ui-cleanup.md).
 - Blog: scaffold-like landing-page signposts removed; editorial metadata labels retained where they support discovery and scanning.
 - Sequence status: complete for the current `about`, `services`, and `blog` landing-page cleanup pass.
 
 ## Follow-up
+- Later follow-up: [visual-update-micro-ui-cleanup.md](visual-update-micro-ui-cleanup.md) continues the cleanup sequence by removing `about-order`, removing `services-order`, removing the decorative `services-chip`, and selectively preserving or restyling meaningful Services micro-UI.
 - If Blog metadata patterns expand later, consider splitting the current `.blog-kicker` role into separate scaffold and editorial-label classes before applying similar cleanup to bucket pages or article surfaces.

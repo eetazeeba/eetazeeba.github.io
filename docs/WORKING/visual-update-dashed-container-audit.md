@@ -9,7 +9,7 @@
 - Editorial note cards and empty states: `blog-note-card`, `blog-empty-state`
 - Nested preview, route, and reading cards: `about-preview-card`, `services-lane-card`, `services-route-card`, `blog-priority-card`, `blog-post-card`, `blog-route-card`, `blog-bucket-entry`, `blog-inline-card`
 - Page-owned aligned panels: `services-panel`, `services-panel--soft`
-- Deferred chip-like accent UI: `services-chip`, `services-value-chip`
+- Chip-like accent UI reviewed in later follow-up: `services-chip`, `services-value-chip`
 
 ## Overlap And Redundancy Notes
 - `about-panel` is doing one shell job across multiple element types: `article`, `p`, `li`, and `div`.
@@ -19,7 +19,6 @@
 - `blog-kicker` remains a meaningful editorial label in active UI and was intentionally left out of this surface pass.
 
 ## Shared Treatment Approach
-- Added two stable shared helper classes in `src/_assets/CSS/_components.scss`:
 - Added two stable shared helper classes in `src/_assets/CSS/_components.scss`: `.surface-note` and `.surface-card`
 - Implementation stayed hybrid and SCSS-first: legacy selectors now map onto the shared note-like or card-like shells in shared SCSS, and no broad template rewrite was needed for this first normalization pass.
 - The helper classes extend the existing `card` / `card-impact` language instead of creating a separate visual system.
@@ -42,6 +41,6 @@
 - Confirm copy, IA, typography, and `blog-kicker` behavior remain unchanged.
 
 ## Deferred Follow-Up
-- Audit captured `services-chip` and `services-value-chip`, but their dashed treatment is deferred for a narrower chip/pill cleanup pass.
+- Later follow-up: [visual-update-micro-ui-cleanup.md](visual-update-micro-ui-cleanup.md) removed the decorative `services-chip` and restyled `services-value-chip` away from the dashed chip treatment.
 - If future work benefits from clearer markup-level migration, individual templates can adopt `.surface-note` and `.surface-card` directly without moving layout logic out of page selectors.
 - If `about-panel` or `services-panel` roles diverge further, split them by function before making another cross-page surface pass.

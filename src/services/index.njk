@@ -8,8 +8,7 @@ valuePoints:
   - Artist-first scope
   - Clear next steps
 serviceLanes:
-  - number: "01"
-    title: Production + release support
+  - title: Production + release support
     summary: Hands-on support for recordings, launch planning, and the practical structure that helps a release leave the draft stage and meet the public cleanly.
     bullets:
       - Production coordination
@@ -18,8 +17,7 @@ serviceLanes:
     fit: Best for singles, EPs, albums, and artist-led releases that need both momentum and shape.
     linkHref: /services/production/
     linkLabel: Explore production support
-  - number: "02"
-    title: Visual + asset systems
+  - title: Visual + asset systems
     summary: Cover art direction, promo graphics, and visual support built to travel across streaming platforms, socials, press kits, and launch materials.
     bullets:
       - Cover art systems
@@ -28,8 +26,7 @@ serviceLanes:
     fit: Best for artists who need a recognizable package instead of one-off assets that drift apart.
     linkHref: /services/rates-quote/
     linkLabel: Start with rates / quote
-  - number: "03"
-    title: Writing + editorial clarity
+  - title: Writing + editorial clarity
     summary: Artist bios, one-sheets, page copy, and editorial cleanup that makes the project easier to understand without sanding off its personality.
     bullets:
       - Artist bios
@@ -38,8 +35,7 @@ serviceLanes:
     fit: Best for projects that need clearer language before a release, outreach push, or site update.
     linkHref: /contact/work-with-us/
     linkLabel: Discuss the project
-  - number: "04"
-    title: Rights + future legal track
+  - title: Rights + future legal track
     summary: Legal support is being built carefully rather than oversold. Musifer can still help capture the project context now and point you toward the next honest step.
     bullets:
       - Rights-question triage
@@ -49,14 +45,11 @@ serviceLanes:
     linkHref: /services/legal/
     linkLabel: See legal status
 processSteps:
-  - number: "01"
-    title: Share the project
+  - title: Share the project
     body: Start with the basics. What are you building, where does it stand now, and what kind of help do you think you need?
-  - number: "02"
-    title: We review the fit
+  - title: We review the fit
     body: Musifer reviews scope, goals, timing, and constraints to identify the right lane or recommend a cleaner next move.
-  - number: "03"
-    title: Get a clear next step
+  - title: Get a clear next step
     body: You receive a quote, recommendation, or practical direction instead of being left to guess what happens next.
 prepItems:
   - Project type and current stage
@@ -64,16 +57,13 @@ prepItems:
   - Known deliverables or wishlist
   - Links, drafts, references, or current assets
 faqItems:
-  - number: "01"
-    question: Not sure which lane fits?
+  - question: Not sure which lane fits?
     answer: Use the quote path anyway and describe the project in plain language. Sorting the work is part of the intake, not a test you have to pass first.
     linkHref: /services/rates-quote/
     linkLabel: Use the rates / quote path
-  - number: "02"
-    question: Can smaller or early-stage work still be a fit?
+  - question: Can smaller or early-stage work still be a fit?
     answer: Yes, if the scope is clear and the goals are realistic. Musifer is more interested in a workable project than in inflated agency theater.
-  - number: "03"
-    question: What if Musifer is not the right match?
+  - question: What if Musifer is not the right match?
     answer: Reach out anyway. If the fit is off, the goal is still to point you toward a better next step, community path, or future-ready direction.
     linkHref: /contact/community/
     linkLabel: Explore community pathways
@@ -135,13 +125,11 @@ adjacentPaths:
           These four lanes help visitors self-sort without pretending the page needs a giant checklist or a maze of thin child pages.
         </p>
       </div>
-      <p class="services-chip">4 core lanes</p>
     </div>
 
     <div class="l-grid--2 services-lane-grid">
       {% for lane in serviceLanes %}
       <article class="services-lane-card">
-        <p class="services-order">{{ lane.number }}</p>
         <h3 class="card-title">{{ lane.title }}</h3>
         <p>{{ lane.summary }}</p>
 
@@ -174,38 +162,41 @@ adjacentPaths:
   <section class="l-grid--2 services-process-grid">
     <article class="card services-section" id="how-work-starts" aria-labelledby="how-work-starts-heading">
       <h2 class="card-title" id="how-work-starts-heading">A simple intake path, not a maze</h2>
-      <div class="services-step-grid">
+      <ol class="services-step-grid services-step-list">
         {% for step in processSteps %}
-        <div class="services-panel services-panel--soft">
-          <p class="services-order">{{ step.number }}</p>
+        <li class="services-panel services-panel--soft">
           <h3 class="card-title">{{ step.title }}</h3>
           <p>{{ step.body }}</p>
-        </div>
+        </li>
         {% endfor %}
-      </div>
+      </ol>
     </article>
 
-    <article class="card services-section" aria-labelledby="project-fit-heading">
+    <article class="card services-section" id="project-fit" aria-labelledby="project-fit-heading">
       <h2 class="card-title" id="project-fit-heading">What helps before reaching out</h2>
-      <div class="services-panel services-panel--soft">
-        <p class="services-subheading">Helpful starting info</p>
-        <ul class="services-bullet-list">
-          {% for item in prepItems %}
-          <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
+      <div class="services-process-support">
+        <div class="services-panel services-panel--soft">
+          <h3 class="card-title">Helpful starting info</h3>
+          <ul class="services-bullet-list">
+            {% for item in prepItems %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="services-panel">
+          <p>
+            If you are unsure where the project belongs, the quote path still works as the general entry point.
+            Describe the work in plain language and sort the details together from there.
+          </p>
+        </div>
+        <a class="services-inline-link"
+          href="/services/rates-quote/"
+          data-analytics-event="service_interest"
+          data-analytics-service="rates_quote"
+          data-analytics-surface="project_fit">
+          Bring the project into the quote path
+        </a>
       </div>
-      <p class="services-fit-note">
-        If you are unsure where the project belongs, the quote path still works as the general entry point.
-        Describe the work in plain language and sort the details together from there.
-      </p>
-      <a class="services-inline-link"
-        href="/services/rates-quote/"
-        data-analytics-event="service_interest"
-        data-analytics-service="rates_quote"
-        data-analytics-surface="project_fit">
-        Bring the project into the quote path
-      </a>
     </article>
   </section>
 
@@ -246,7 +237,6 @@ adjacentPaths:
       <div class="services-faq-stack">
         {% for item in faqItems %}
         <div class="services-panel services-panel--soft">
-          <p class="services-order">{{ item.number }}</p>
           <h3 class="card-title">{{ item.question }}</h3>
           <p>{{ item.answer }}</p>
           {% if item.linkHref and item.linkLabel %}
