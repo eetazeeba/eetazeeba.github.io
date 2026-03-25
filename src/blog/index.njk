@@ -168,8 +168,26 @@ contactLinks:
     <div class="l-grid--2 blog-recent-grid">
       {% for entry in blog.recentEntries %}
       <article class="blog-post-card">
-        <p class="blog-inline-meta">{{ entry.metadataLabel }}</p>
         <h3 class="card-title">{{ entry.title }}</h3>
+        <div class="blog-meta-panel" aria-label="Post metadata">
+          <ul class="blog-meta-list" role="list">
+            {% for item in entry.metadataItems %}
+            <li class="blog-meta-item">
+              {% if item.href %}
+              <a class="blog-meta-link"
+                href="{{ item.href }}"
+                data-analytics-event="blog_engagement"
+                data-analytics-surface="recent_post_metadata"
+                data-analytics-bucket="{{ entry.bucket }}">
+                {{ item.label }}
+              </a>
+              {% else %}
+              <span>{{ item.label }}</span>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
         <p>{{ entry.summary }}</p>
         <a class="blog-inline-link"
           href="{{ entry.url }}"

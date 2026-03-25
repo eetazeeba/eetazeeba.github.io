@@ -191,6 +191,38 @@ function buildEntry(entry) {
     ? (updatedTimestamp.hasMinutePrecision ? updatedTimestamp.dateTimeLabel : updatedTimestamp.dateLabel)
     : null;
   const articleMetadataLabel = metadataParts.join(" / ");
+  const metadataItems = [
+    bucketMeta.isPublicBucket
+      ? {
+          label: bucketMeta.shortLabel,
+          href: bucketMeta.url
+        }
+      : {
+          label: bucketMeta.shortLabel
+        },
+    readingTimeMinutes
+      ? {
+          label: `${readingTimeMinutes} min read`
+        }
+      : null,
+    publishedLabel
+      ? {
+          label: publishedLabel
+        }
+      : null
+  ].filter(Boolean);
+  const articleDetailItems = [
+    author.length
+      ? {
+          label: `By ${author.join(", ")}`
+        }
+      : null,
+    articleUpdatedLabel
+      ? {
+          label: `Updated ${articleUpdatedLabel}`
+        }
+      : null
+  ].filter(Boolean);
 
   return {
     id: data.id || slug,
@@ -211,6 +243,8 @@ function buildEntry(entry) {
     readingTimeMinutes,
     metadataLabel: articleMetadataLabel,
     articleMetadataLabel,
+    metadataItems,
+    articleDetailItems,
     copyright: data.copyright || null,
     tags: asArray(data.tags),
     relatedIds: asArray(data.related_ids),

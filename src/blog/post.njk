@@ -6,36 +6,39 @@ bodyClass: page-blog page-atmosphere page-atmosphere--vellum
   <header class="card card-impact blog-article-hero" aria-labelledby="blog-article-heading">
     <div class="l-grid--2 blog-article-hero__layout">
       <div class="l-module-stack">
-        <p class="blog-kicker">Article / {{ entry.bucketTitle }}</p>
         <h1 class="card-title display-title" id="blog-article-heading">{{ entry.title }}</h1>
         <p class="blog-article-lede">{{ entry.summary }}</p>
       </div>
 
       <aside class="blog-article-hero__meta" aria-label="Article metadata">
-        <p class="blog-article-meta">{{ entry.articleMetadataLabel }}</p>
-        <p class="blog-article-meta">
-          By {{ entry.author | join(", ") }}
-          {% if entry.showUpdatedLine %}
-            / Updated {{ entry.articleUpdatedLabel }}
+        <div class="blog-meta-panel">
+          <ul class="blog-meta-list" role="list">
+            {% for item in entry.metadataItems %}
+            <li class="blog-meta-item">
+              {% if item.href %}
+              <a class="blog-meta-link"
+                href="{{ item.href }}"
+                data-analytics-event="blog_engagement"
+                data-analytics-surface="article_hero_metadata"
+                data-analytics-bucket="{{ entry.bucket }}">
+                {{ item.label }}
+              </a>
+              {% else %}
+              <span>{{ item.label }}</span>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+          {% if entry.articleDetailItems.length %}
+          <ul class="blog-meta-list blog-meta-list--secondary" role="list">
+            {% for item in entry.articleDetailItems %}
+            <li class="blog-meta-item">
+              <span>{{ item.label }}</span>
+            </li>
+            {% endfor %}
+          </ul>
           {% endif %}
-        </p>
-        {% if entry.bucketIsPublic %}
-        <a class="btn btn--secondary"
-          href="{{ entry.bucketUrl }}"
-          data-analytics-event="blog_engagement"
-          data-analytics-surface="article_hero"
-          data-analytics-bucket="{{ entry.bucket }}">
-          Browse {{ entry.bucketTitle }}
-        </a>
-        {% else %}
-        <a class="btn btn--secondary"
-          href="/blog/"
-          data-analytics-event="blog_engagement"
-          data-analytics-surface="article_hero"
-          data-analytics-destination="blog_hub">
-          Back to the blog hub
-        </a>
-        {% endif %}
+        </div>
       </aside>
     </div>
   </header>
@@ -56,8 +59,26 @@ bodyClass: page-blog page-atmosphere page-atmosphere--vellum
         <div class="module-card-stack is-compact">
           {% for related in entry.relatedBlogEntries %}
           <article class="blog-inline-card">
-            <p class="blog-inline-meta">{{ related.metadataLabel }}</p>
             <h3 class="card-title">{{ related.title }}</h3>
+            <div class="blog-meta-panel" aria-label="Post metadata">
+              <ul class="blog-meta-list" role="list">
+                {% for item in related.metadataItems %}
+                <li class="blog-meta-item">
+                  {% if item.href %}
+                  <a class="blog-meta-link"
+                    href="{{ item.href }}"
+                    data-analytics-event="blog_engagement"
+                    data-analytics-surface="related_post_metadata"
+                    data-analytics-bucket="{{ related.bucket }}">
+                    {{ item.label }}
+                  </a>
+                  {% else %}
+                  <span>{{ item.label }}</span>
+                  {% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
             <p>{{ related.summary }}</p>
             <a class="blog-inline-link"
               href="{{ related.url }}"

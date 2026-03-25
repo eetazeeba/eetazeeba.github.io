@@ -35,8 +35,26 @@ description: Browse Musifer case studies for applied breakdowns, process notes, 
     <div class="module-card-stack">
       {% for entry in bucket.entries %}
       <article class="blog-bucket-entry">
-        <p class="blog-inline-meta">{{ entry.metadataLabel }}</p>
         <h3 class="card-title">{{ entry.title }}</h3>
+        <div class="blog-meta-panel" aria-label="Post metadata">
+          <ul class="blog-meta-list" role="list">
+            {% for item in entry.metadataItems %}
+            <li class="blog-meta-item">
+              {% if item.href %}
+              <a class="blog-meta-link"
+                href="{{ item.href }}"
+                data-analytics-event="blog_engagement"
+                data-analytics-surface="bucket_metadata"
+                data-analytics-bucket="case_studies">
+                {{ item.label }}
+              </a>
+              {% else %}
+              <span>{{ item.label }}</span>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
         <p>{{ entry.summary }}</p>
         <a class="blog-inline-link"
           href="{{ entry.url }}"

@@ -21,14 +21,22 @@
 - Follow-up refinement: restored equal-height pairing between the two outer cards by letting the parent process grid stretch again, while keeping the inner step cards top-aligned so they do not inherit the old faux-padding problem.
 - Follow-up refinement: restored an explicit `id="project-fit"` hook on the right-hand Services card.
 - `blog-kicker` was preserved because it still carries meaningful editorial metadata and routing context in active Blog templates.
+- Follow-up refinement: blog article metadata now uses a shared framed `blog-meta-panel` pattern on article headers and article cards, so the meaningful metadata stays visible without falling back into the faint overline/kicker role.
 - Blog browse buttons and other button-style routes were preserved because they are real interactive navigation, not decorative chips.
 
 ## Audit Notes By Area
 - About: the only remaining scaffold-style micro-UI in active landing-page markup was the preview-card numbering.
 - Services: this page still carried the most wireframe residue, concentrated in visible order markers, a decorative lane-count chip, low-contrast subheadings, and dashed hero value chips.
 - Blog: the selective audit found no chip-style cleanup to remove in this pass beyond the earlier section-label work; the remaining label-like patterns are still doing real metadata or routing work.
+- Blog follow-up: article cards and article headers now share one metadata surface that keeps the title first in reading order, links the bucket/category item to its archive, and uses a restrained dark-amethyst framed treatment that stays readable on both standard cards and `card-impact` surfaces.
 
 ## Files Changed
+- `src/_data/blog.js`
+- `src/blog/index.njk`
+- `src/blog/post.njk`
+- `src/blog/guides/index.njk`
+- `src/blog/articles/index.njk`
+- `src/blog/case-studies/index.njk`
 - `src/about/index.njk`
 - `src/services/index.njk`
 - `src/_assets/CSS/_components.scss`
@@ -40,6 +48,10 @@
 ## QA Notes
 - Run `npm run build:css`.
 - Run `npm run build`.
+- Confirm article titles now precede metadata in DOM/read order on recent cards, bucket cards, related cards, and article headers.
+- Confirm the shared `blog-meta-panel` stacks cleanly under titles on narrow screens and does not create horizontal overflow.
+- Confirm the linked bucket/category item inside the metadata panel is visibly interactive and keeps a clear keyboard focus state.
+- Confirm the dark-amethyst metadata surface remains legible on both standard blog cards and `card-impact` article hero surfaces.
 - Confirm `about-order`, `services-order`, and `services-chip` no longer appear in active templates or shared component CSS.
 - Confirm `services-subheading` remains only where it still supports comprehension and no longer reads as a faded scaffold label.
 - Confirm `services-value-chip` remains present but no longer uses the dashed chip treatment.
@@ -48,5 +60,5 @@
 - Confirm no rail, card, or grid regressions were introduced by removing the marker/chip markup.
 
 ## Deferred Follow-Up
-- If Blog metadata labels expand later, split `blog-kicker` into clearer editorial and scaffold roles before attempting any broader label cleanup.
+- Blog metadata normalization now covers article headers plus article/recent/bucket card surfaces. If additional metadata variants appear later, extend `blog-meta-panel` before creating page-specific metadata styling.
 - `services-value-chip` still carries a legacy class name; only rename it if a later Services terminology pass justifies the churn.
