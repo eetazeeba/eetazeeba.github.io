@@ -162,9 +162,10 @@ adjacentPaths:
   <section class="l-grid--2 services-process-grid">
     <article class="card services-section" id="how-work-starts" aria-labelledby="how-work-starts-heading">
       <h2 class="card-title" id="how-work-starts-heading">A simple intake path, not a maze</h2>
-      <ol class="services-step-grid services-step-list">
+      <ol class="services-route-grid services-step-list">
         {% for step in processSteps %}
-        <li class="services-panel services-panel--soft">
+        <li class="services-route-card services-step-card">
+          <p class="services-step-label">Step {{ loop.index }}</p>
           <h3 class="card-title">{{ step.title }}</h3>
           <p>{{ step.body }}</p>
         </li>
@@ -177,6 +178,7 @@ adjacentPaths:
       <div class="services-process-support">
         <div class="services-panel services-panel--soft">
           <h3 class="card-title">Helpful starting info</h3>
+          <p>A few anchor points help Musifer sort the request faster and answer with a cleaner next step.</p>
           <ul class="services-bullet-list">
             {% for item in prepItems %}
             <li>{{ item }}</li>

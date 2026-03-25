@@ -1154,10 +1154,6 @@ footer {
   margin: 0;
 }
 
-.services-step-grid {
-  align-items: start;
-}
-
 .services-lane-card,
 .services-route-card {
   display: flex;
@@ -1178,6 +1174,19 @@ footer {
   --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(216, 212, 213, 0.18));
   --surface-shadow: 0 12px 24px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   padding: 1.05rem;
+}
+
+.services-step-card {
+  gap: 0.7rem;
+}
+
+.services-step-label {
+  margin: 0;
+  color: rgba(30, 10, 56, 0.72);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .services-panel {

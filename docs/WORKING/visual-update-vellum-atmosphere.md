@@ -1,4 +1,4 @@
-# Vellum Atmosphere Working Note
+# Visual Update Vellum Atmosphere
 
 ## Current repo state
 - The original homepage vellum experiment was removed from the live codebase before this reset-and-rebuild pass began.
@@ -104,3 +104,10 @@
   - Blog: confirm article prose and metadata zones stay clean on long reads
   - Contact: retune once those pages gain real content depth
   - future one-off pages: opt in deliberately instead of assuming every page wants the same strength
+
+## Good next experiment axes:
+
+global opacity by section
+fade length / falloff
+homepage vs blog intensity contrast
+whether Services should stay slightly stronger than Blog

@@ -755,10 +755,6 @@
   margin: 0;
 }
 
-.services-step-grid {
-  align-items: start;
-}
-
 .services-lane-card,
 .services-route-card {
   display: flex;
@@ -767,6 +763,19 @@
   min-height: 100%;
   @include surface-card-shell;
   padding: 1.05rem;
+}
+
+.services-step-card {
+  gap: 0.7rem;
+}
+
+.services-step-label {
+  margin: 0;
+  color: rgba(30, 10, 56, 0.72);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .services-panel {
