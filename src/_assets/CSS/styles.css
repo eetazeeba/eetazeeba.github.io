@@ -142,6 +142,64 @@ body {
   line-height: 1.5;
 }
 
+body.page-atmosphere {
+  position: relative;
+  isolation: isolate;
+}
+
+body.page-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: min(100%, clamp(34rem, 92vh, 58rem));
+  background: center top/cover no-repeat url("/Images/vellum-bg-2k.webp");
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.84) 22%, rgba(0, 0, 0, 0.58) 56%, rgba(0, 0, 0, 0.2) 82%, transparent 100%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.84) 22%, rgba(0, 0, 0, 0.58) 56%, rgba(0, 0, 0, 0.2) 82%, transparent 100%);
+}
+
+body.page-atmosphere > * {
+  position: relative;
+}
+
+body.page-atmosphere > main,
+body.page-atmosphere > footer {
+  z-index: 1;
+}
+
+body.page-home.page-atmosphere--vellum::before {
+  height: min(100%, clamp(38rem, 108vh, 68rem));
+  opacity: 0.3;
+  background-position: center top;
+}
+
+body.page-about.page-atmosphere--vellum::before {
+  height: min(100%, clamp(44rem, 122vh, 80rem));
+  opacity: 0.17;
+  background-position: center top;
+}
+
+body.page-services.page-atmosphere--vellum::before {
+  height: min(100%, clamp(48rem, 132vh, 88rem));
+  opacity: 0.16;
+  background-position: center top;
+}
+
+body.page-blog.page-atmosphere--vellum::before {
+  height: min(100%, clamp(54rem, 148vh, 98rem));
+  opacity: 0.15;
+  background-position: center top;
+}
+
+body.page-contact.page-atmosphere--vellum::before {
+  height: min(100%, clamp(42rem, 116vh, 72rem));
+  opacity: 0.16;
+  background-position: center top;
+}
+
 .lead {
   color: var(--muted);
   margin-top: 0.5rem;
@@ -457,6 +515,51 @@ footer {
   content: none;
 }
 
+/* Nested surfaces extend the existing card language without taking over layout ownership. */
+.surface-note {
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
+  margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.18);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(216, 212, 213, 0.22));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 18px rgba(15, 23, 42, 0.04);
+}
+
+.surface-card {
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
+  margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.2);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(216, 212, 213, 0.18));
+  --surface-shadow: 0 12px 24px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.card-impact .surface-note {
+  --surface-border-color: rgba(30, 10, 56, 0.24);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.24));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 10px 20px rgba(15, 23, 42, 0.05);
+}
+
+.card-impact .surface-card {
+  --surface-border-color: rgba(30, 10, 56, 0.26);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.28));
+  --surface-shadow: 0 14px 26px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -470,7 +573,7 @@ footer {
   box-shadow: 0 6px 12px rgba(15, 23, 42, 0.04);
 }
 
-/* Phase 4 step 3: reusable horizontal card rail (CSS-first, mobile-first). */
+/* Reusable horizontal card rail (CSS-first, mobile-first). */
 .module-rail {
   --module-rail-gap: 1rem;
   --module-rail-card-min: 15rem;
@@ -762,24 +865,15 @@ footer {
   color: var(--soft-apricot);
 }
 
+.home-page .card,
+.home-page .card-impact {
+  margin-bottom: 0;
+}
+
 /* About reference page: visual QA target for Phase 4 composition work. */
 .about-page .card,
 .about-page .card-impact {
   margin-bottom: 0;
-}
-
-.about-kicker,
-.about-order {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.card-impact .about-kicker {
-  color: var(--dark-amethyst);
 }
 
 .about-hero__intro {
@@ -793,10 +887,20 @@ footer {
   align-items: center;
   gap: 0.65rem;
   text-align: center;
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
+  margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.18);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(216, 212, 213, 0.22));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 18px rgba(15, 23, 42, 0.04);
   padding: 1rem;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.35);
-  border: 1px dashed rgba(30, 10, 56, 0.35);
 }
 
 .about-callouts {
@@ -804,16 +908,27 @@ footer {
 }
 
 .about-panel {
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
   margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.18);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(216, 212, 213, 0.22));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 18px rgba(15, 23, 42, 0.04);
   padding: 0.85rem 1rem;
-  border-radius: 10px;
-  border: 1px dashed rgba(30, 10, 56, 0.25);
-  background: rgba(216, 212, 213, 0.35);
 }
 
+.card-impact .about-hero__visual,
 .card-impact .about-panel {
-  background: rgba(255, 255, 255, 0.35);
-  border-color: rgba(30, 10, 56, 0.35);
+  --surface-border-color: rgba(30, 10, 56, 0.24);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.24));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 10px 20px rgba(15, 23, 42, 0.05);
 }
 
 .about-panel .card-title {
@@ -842,10 +957,20 @@ footer {
   flex-direction: column;
   gap: 0.55rem;
   min-height: 100%;
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
+  margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.2);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(216, 212, 213, 0.18));
+  --surface-shadow: 0 12px 24px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   padding: 1rem;
-  border-radius: 10px;
-  border: 1px dashed rgba(30, 10, 56, 0.25);
-  background: rgba(216, 212, 213, 0.25);
 }
 
 .about-preview-card p {
@@ -885,25 +1010,19 @@ footer {
     grid-auto-columns: clamp(17rem, 34vw, 24rem);
   }
 }
-/* Services landing page: production implementation from locked wireframe. */
+/* Services landing page */
 .services-page .card,
 .services-page .card-impact {
   margin-bottom: 0;
 }
 
-.services-kicker,
-.services-order,
 .services-subheading {
   margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.card-impact .services-kicker {
-  color: var(--dark-amethyst);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
 }
 
 .services-lead,
@@ -929,17 +1048,28 @@ footer {
 .services-fit-note,
 .services-cta-note,
 .services-final-band {
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
   margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.18);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(216, 212, 213, 0.22));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 18px rgba(15, 23, 42, 0.04);
   padding: 0.95rem 1rem;
-  border-radius: 10px;
-  border: 1px dashed rgba(30, 10, 56, 0.28);
-  background: rgba(216, 212, 213, 0.28);
 }
 
 .card-impact .services-support-note,
-.card-impact .services-cta-note {
-  background: rgba(255, 255, 255, 0.34);
-  border-color: rgba(30, 10, 56, 0.35);
+.card-impact .services-cta-note,
+.card-impact .services-hero__aside {
+  --surface-border-color: rgba(30, 10, 56, 0.24);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.24));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 10px 20px rgba(15, 23, 42, 0.05);
 }
 
 .services-hero__aside {
@@ -948,10 +1078,20 @@ footer {
   align-items: center;
   gap: 0.8rem;
   text-align: center;
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
+  margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.18);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(216, 212, 213, 0.22));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 18px rgba(15, 23, 42, 0.04);
   padding: 1.1rem;
-  border-radius: 10px;
-  border: 1px dashed rgba(30, 10, 56, 0.35);
-  background: rgba(255, 255, 255, 0.34);
 }
 
 .services-value-grid {
@@ -962,12 +1102,31 @@ footer {
 }
 
 .services-value-chip {
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
   margin: 0;
-  padding: 0.75rem 0.9rem;
-  border-radius: 10px;
-  border: 1px dashed rgba(30, 10, 56, 0.3);
-  background: rgba(255, 255, 255, 0.36);
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.18);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(216, 212, 213, 0.22));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 18px rgba(15, 23, 42, 0.04);
+  --surface-pad-block: 0.75rem;
+  --surface-pad-inline: 0.9rem;
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(216, 212, 213, 0.16));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 6px 14px rgba(15, 23, 42, 0.04);
   font-size: 0.92rem;
+}
+
+.card-impact .services-value-chip {
+  --surface-border-color: rgba(30, 10, 56, 0.24);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.24));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 10px 20px rgba(15, 23, 42, 0.05);
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24), 0 8px 16px rgba(15, 23, 42, 0.05);
 }
 
 .services-section-header {
@@ -977,21 +1136,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-.services-chip {
-  display: inline-block;
-  width: fit-content;
-  margin: 0;
-  padding: 0.3rem 0.7rem;
-  border-radius: 999px;
-  border: 1px dashed rgba(30, 10, 56, 0.3);
-  background: rgba(216, 212, 213, 0.25);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 .services-lane-grid,
-.services-step-grid,
 .services-route-grid {
   align-items: stretch;
 }
@@ -1003,29 +1148,80 @@ footer {
   gap: 1rem;
 }
 
+.services-step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .services-lane-card,
 .services-route-card {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
   min-height: 100%;
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
+  margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.2);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(216, 212, 213, 0.18));
+  --surface-shadow: 0 12px 24px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   padding: 1.05rem;
-  border-radius: 10px;
-  border: 1px dashed rgba(30, 10, 56, 0.25);
-  background: rgba(216, 212, 213, 0.25);
+}
+
+.services-step-card {
+  gap: 0.7rem;
+}
+
+.services-step-label {
+  margin: 0;
+  color: rgba(30, 10, 56, 0.72);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .services-panel {
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
   margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.18);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(216, 212, 213, 0.22));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 18px rgba(15, 23, 42, 0.04);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(216, 212, 213, 0.16));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 6px 12px rgba(15, 23, 42, 0.03);
   padding: 0.95rem 1rem;
-  border-radius: 10px;
-  border: 1px dashed rgba(30, 10, 56, 0.25);
-  background: rgba(216, 212, 213, 0.2);
   overflow-wrap: anywhere;
 }
 
 .services-panel--soft {
-  background: rgba(216, 212, 213, 0.25);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(216, 212, 213, 0.2));
+}
+
+.services-process-support {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.services-process-support > * {
+  min-width: 0;
 }
 
 .services-bullet-list {
@@ -1038,6 +1234,7 @@ footer {
 }
 
 .services-inline-link {
+  display: inline-block;
   width: fit-content;
   color: var(--dark-amethyst);
   font-weight: 600;
@@ -1096,9 +1293,7 @@ footer {
   margin-bottom: 0;
 }
 
-.blog-kicker,
-.blog-inline-meta,
-.blog-article-meta {
+.blog-kicker {
   margin: 0;
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -1116,6 +1311,81 @@ footer {
 .blog-featured-meta,
 .blog-article-lede {
   margin: 0;
+}
+
+.blog-meta-panel {
+  --blog-meta-surface-bg: linear-gradient(180deg, rgba(30, 10, 56, 0.94), rgba(30, 10, 56, 0.82));
+  --blog-meta-surface-border: rgba(237, 211, 181, 0.28);
+  --blog-meta-surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 10px 20px rgba(15, 23, 42, 0.12);
+  margin: 0;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--blog-meta-surface-border);
+  border-radius: 10px;
+  background: var(--blog-meta-surface-bg);
+  box-shadow: var(--blog-meta-surface-shadow);
+  color: var(--soft-apricot);
+}
+
+.card-impact .blog-meta-panel {
+  --blog-meta-surface-bg: linear-gradient(180deg, rgba(30, 10, 56, 0.96), rgba(30, 10, 56, 0.86));
+  --blog-meta-surface-border: rgba(237, 211, 181, 0.34);
+  --blog-meta-surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 12px 22px rgba(15, 23, 42, 0.14);
+}
+
+.blog-meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-meta-list + .blog-meta-list {
+  margin-top: 0.55rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(237, 211, 181, 0.18);
+}
+
+.blog-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.blog-meta-item:not(:last-child)::after {
+  content: "/";
+  color: rgba(237, 211, 181, 0.6);
+}
+
+.blog-meta-item span,
+.blog-meta-link {
+  color: inherit;
+}
+
+.blog-meta-link {
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.blog-meta-link:hover,
+.blog-meta-link:focus-visible {
+  color: #fff4e6;
+  text-decoration-color: currentColor;
+}
+
+.blog-meta-link:focus-visible {
+  outline: 2px solid rgba(237, 211, 181, 0.8);
+  outline-offset: 3px;
+  border-radius: 0.2rem;
 }
 
 .blog-featured-rail {
@@ -1161,24 +1431,48 @@ footer {
 }
 
 .blog-note-card,
+.blog-empty-state {
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
+  margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.18);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(216, 212, 213, 0.22));
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 18px rgba(15, 23, 42, 0.04);
+  padding: 1rem;
+}
+
 .blog-priority-card,
 .blog-post-card,
 .blog-route-card,
 .blog-bucket-entry,
-.blog-inline-card,
-.blog-empty-state,
-.blog-article-hero__meta {
+.blog-inline-card {
+  --surface-radius: 10px;
+  --surface-pad-block: 1rem;
+  --surface-pad-inline: 1rem;
+  --surface-border-width: 1px;
   margin: 0;
+  padding: var(--surface-pad-block) var(--surface-pad-inline);
+  border-radius: var(--surface-radius);
+  border: var(--surface-border-width) solid var(--surface-border-color);
+  background: var(--surface-bg);
+  box-shadow: var(--surface-shadow);
+  --surface-border-color: rgba(30, 10, 56, 0.2);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(216, 212, 213, 0.18));
+  --surface-shadow: 0 12px 24px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   padding: 1rem;
-  border-radius: 10px;
-  border: 1px dashed rgba(30, 10, 56, 0.26);
-  background: rgba(216, 212, 213, 0.22);
 }
 
-.card-impact .blog-route-card,
-.card-impact .blog-article-hero__meta {
-  background: rgba(255, 255, 255, 0.34);
-  border-color: rgba(30, 10, 56, 0.35);
+.card-impact .blog-route-card {
+  --surface-border-color: rgba(30, 10, 56, 0.26);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.28));
+  --surface-shadow: 0 14px 26px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
 .blog-browse-links {
@@ -1230,6 +1524,10 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+}
+
+.blog-article-hero__meta .blog-meta-panel {
+  width: 100%;
 }
 
 .blog-prose {

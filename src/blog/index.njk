@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Blog
+bodyClass: page-blog page-atmosphere page-atmosphere--vellum
 description: Browse Musifer's curated blog hub for guides, articles, and case studies that help independent artists move from confusion toward clearer project decisions.
 editorialPoints:
   - The library is being built with an evergreen bias, so the page stays useful between launches and updates.
@@ -28,7 +29,6 @@ contactLinks:
 
 <div class="l-page-shell l-module-stack blog-page">
   <section class="card card-impact blog-page-header" aria-labelledby="blog-page-heading">
-    <p class="blog-kicker">Blog</p>
     <h1 class="card-title display-title" id="blog-page-heading">Curated reading for independent artists building real work</h1>
     <p class="blog-page-deck">
       Start with the featured lane, then move into the broader reading paths once you know whether the work needs guidance,
@@ -39,7 +39,6 @@ contactLinks:
   <section class="card blog-featured-section" aria-labelledby="blog-featured-heading">
     <div class="blog-section-header">
       <div>
-        <p class="blog-kicker">01 / Featured lane</p>
         <h2 class="card-title" id="blog-featured-heading">Start with a curated reading rail</h2>
         <p class="blog-section-copy">
           The featured lane comes first on purpose: it gives visitors a few strong ways in without making the top of the page feel like a lecture.
@@ -91,7 +90,6 @@ contactLinks:
   <section class="card blog-editorial-section" aria-labelledby="blog-editorial-heading">
     <div class="l-grid--2 blog-editorial-grid">
       <div class="l-module-stack">
-        <p class="blog-kicker">02 / Editorial framing</p>
         <h2 class="card-title" id="blog-editorial-heading">The page is meant to guide, not sprawl</h2>
         <p class="blog-section-copy">
           Musifer&apos;s blog is being shaped as a clean discovery surface: enough structure to help people self-sort, enough restraint to avoid archive wallpaper,
@@ -110,7 +108,6 @@ contactLinks:
   <section class="card blog-browse-section" aria-labelledby="blog-browse-heading">
     <div class="blog-section-header">
       <div>
-        <p class="blog-kicker">03 / Browse lanes</p>
         <h2 class="card-title" id="blog-browse-heading">Choose a real lane</h2>
         <p class="blog-section-copy">These links are actual navigation, not decorative topic chips.</p>
       </div>
@@ -132,7 +129,6 @@ contactLinks:
   <section class="card blog-priority-section" aria-labelledby="blog-priority-heading">
     <div class="blog-section-header">
       <div>
-        <p class="blog-kicker">04 / Priority reading</p>
         <h2 class="card-title" id="blog-priority-heading">Keep the main reading lanes visible</h2>
         <p class="blog-section-copy">
           The second curated lane keeps the current blog structure legible without implying a bigger taxonomy system than the site actually needs.
@@ -162,7 +158,6 @@ contactLinks:
   <section class="card blog-recent-section" aria-labelledby="blog-recent-heading">
     <div class="blog-section-header">
       <div>
-        <p class="blog-kicker">05 / Recent posts</p>
         <h2 class="card-title" id="blog-recent-heading">Recent publishing stays truthful</h2>
         <p class="blog-section-copy">
           The library is still small, so the page shows only what is actually live instead of padding the section with filler.
@@ -173,8 +168,26 @@ contactLinks:
     <div class="l-grid--2 blog-recent-grid">
       {% for entry in blog.recentEntries %}
       <article class="blog-post-card">
-        <p class="blog-inline-meta">{{ entry.metadataLabel }}</p>
         <h3 class="card-title">{{ entry.title }}</h3>
+        <div class="blog-meta-panel" aria-label="Post metadata">
+          <ul class="blog-meta-list" role="list">
+            {% for item in entry.metadataItems %}
+            <li class="blog-meta-item">
+              {% if item.href %}
+              <a class="blog-meta-link"
+                href="{{ item.href }}"
+                data-analytics-event="blog_engagement"
+                data-analytics-surface="recent_post_metadata"
+                data-analytics-bucket="{{ entry.bucket }}">
+                {{ item.label }}
+              </a>
+              {% else %}
+              <span>{{ item.label }}</span>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
         <p>{{ entry.summary }}</p>
         <a class="blog-inline-link"
           href="{{ entry.url }}"
@@ -191,7 +204,6 @@ contactLinks:
   <section class="card card-impact blog-services-bridge" aria-labelledby="blog-services-heading">
     <div class="l-grid--2 blog-bridge-grid">
       <div>
-        <p class="blog-kicker">06 / Services bridge</p>
         <h2 class="card-title" id="blog-services-heading">When reading turns into project work</h2>
         <p class="blog-section-copy">
           The blog is a discovery surface first, but it should still hand people into the right support path when a project needs more than another article.
@@ -223,7 +235,6 @@ contactLinks:
   <section class="card blog-contact-bridge" aria-labelledby="blog-contact-heading">
     <div class="blog-section-header">
       <div>
-        <p class="blog-kicker">07 / Contact and community</p>
         <h2 class="card-title" id="blog-contact-heading">Keep a lower-pressure route visible</h2>
         <p class="blog-section-copy">
           Not every visitor who reads a guide wants a quote next. These routes stay available without turning the blog into a contact page in disguise.
