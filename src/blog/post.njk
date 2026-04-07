@@ -52,9 +52,8 @@ bodyClass: page-blog page-atmosphere page-atmosphere--vellum
     </section>
 
     <aside class="module-card-stack is-compact blog-article-sidebar" aria-label="Article pathways">
-      <section class="card">
-        <p class="blog-kicker">Keep reading</p>
-        <h2 class="card-title">More from the blog</h2>
+      <section class="card" aria-labelledby="blog-related-heading">
+        <h2 class="card-title" id="blog-related-heading">Keep reading</h2>
         {% if entry.relatedBlogEntries.length %}
         <div class="module-card-stack is-compact">
           {% for related in entry.relatedBlogEntries %}
@@ -113,9 +112,8 @@ bodyClass: page-blog page-atmosphere page-atmosphere--vellum
         {% endif %}
       </section>
 
-      <section class="card">
-        <p class="blog-kicker">Need help?</p>
-        <h2 class="card-title">Move from reading into real support</h2>
+      <section class="card" aria-labelledby="blog-support-heading">
+        <h2 class="card-title" id="blog-support-heading">Need help?</h2>
         <p>When the article stops being enough and the project needs structure, the next step should stay clear.</p>
         <div class="module-card-stack is-compact">
           <a class="btn"
