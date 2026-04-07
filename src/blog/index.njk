@@ -60,10 +60,26 @@ contactLinks:
         <div class="module-rail module-rail--snap blog-featured-rail" id="blog-featured-rail" aria-label="Featured blog cards">
           {% for card in blog.landingFeaturedCards %}
           <article class="{% if loop.first %}card-impact{% else %}card{% endif %} blog-featured-card{% if loop.first %} blog-featured-card--intro{% endif %}">
-            <p class="blog-kicker">{{ card.eyebrow }}</p>
             <h3 class="card-title">{{ card.title }}</h3>
+            <div class="blog-meta-panel" aria-label="Featured card metadata">
+              <ul class="blog-meta-list" role="list">
+                {% for item in card.metadataItems %}
+                <li class="blog-meta-item">
+                  {% if item.href %}
+                  <a class="blog-meta-link"
+                    href="{{ item.href }}"
+                    data-analytics-event="blog_engagement"
+                    data-analytics-surface="featured_lane_metadata">
+                    {{ item.label }}
+                  </a>
+                  {% else %}
+                  <span>{{ item.label }}</span>
+                  {% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
             <p>{{ card.summary }}</p>
-            <p class="blog-featured-meta">{{ card.meta }}</p>
             <a class="btn{% if not loop.first %} btn--soft-emphasis{% endif %}"
               href="{{ card.href }}"
               data-analytics-event="blog_engagement"
@@ -139,17 +155,23 @@ contactLinks:
     <div class="l-grid--3 blog-priority-grid">
       {% for bucket in blog.priorityLaneCards %}
       <article class="blog-priority-card">
-        <p class="blog-kicker">{{ bucket.eyebrow }}</p>
-        <h3 class="card-title">{{ bucket.title }}</h3>
-        <p>{{ bucket.summary }}</p>
-        <p class="blog-inline-meta">{{ bucket.meta }}</p>
-        <a class="blog-inline-link"
-          href="{{ bucket.url }}"
-          data-analytics-event="blog_engagement"
-          data-analytics-surface="priority_lane"
-          data-analytics-bucket="{{ bucket.title }}">
-          {{ bucket.ctaLabel }}
-        </a>
+        <div class="blog-priority-card__header">
+          <div class="blog-priority-card__header-row">
+            <h3 class="card-title">
+              <a class="blog-priority-card__title-link"
+                href="{{ bucket.url }}"
+                data-analytics-event="blog_engagement"
+                data-analytics-surface="priority_lane"
+                data-analytics-bucket="{{ bucket.title }}">
+                {{ bucket.title }}
+              </a>
+            </h3>
+            <p class="blog-priority-card__meta">{{ bucket.displayMeta.countLabelShort }}</p>
+          </div>
+        </div>
+        <div class="blog-priority-card__body">
+          <p>{{ bucket.summary }}</p>
+        </div>
       </article>
       {% endfor %}
     </div>

@@ -9,7 +9,6 @@ description: Browse Musifer guides for evergreen walkthroughs, checklists, and p
 
 <div class="l-page-shell l-module-stack blog-bucket-page">
   <section class="card card-impact blog-bucket-header" aria-labelledby="guides-heading">
-    <p class="blog-kicker">Blog / Guides</p>
     <h1 class="card-title display-title" id="guides-heading">{{ bucket.title }}</h1>
     <p class="blog-page-deck">{{ bucket.hubDescription }}</p>
   </section>
@@ -17,9 +16,8 @@ description: Browse Musifer guides for evergreen walkthroughs, checklists, and p
   <section class="card" aria-labelledby="guides-list-heading">
     <div class="blog-section-header">
       <div>
-        <p class="blog-kicker">Current publishing</p>
         <h2 class="card-title" id="guides-list-heading">What is live in this lane</h2>
-        <p class="blog-section-copy">{{ bucket.countLabel }}</p>
+        <p class="blog-section-copy">{{ bucket.displayMeta.countLabelLong }}</p>
       </div>
       <a class="btn btn--secondary"
         href="/blog/"

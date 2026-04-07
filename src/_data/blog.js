@@ -64,6 +64,34 @@ function asArray(value) {
   return [value];
 }
 
+function metadataItem(label, href = null) {
+  if (!label) {
+    return null;
+  }
+
+  return href ? { label, href } : { label };
+}
+
+function buildPostCountLabel(count, qualifier = null) {
+  const normalizedCount = Number.isInteger(count) && count >= 0 ? count : 0;
+  const noun = normalizedCount === 1 ? "post" : "posts";
+
+  return qualifier
+    ? `${normalizedCount} ${qualifier} ${noun}`
+    : `${normalizedCount} ${noun}`;
+}
+
+function buildBucketDisplayMeta(title, count) {
+  const countLabelShort = buildPostCountLabel(count);
+  const countLabelLong = buildPostCountLabel(count, "published");
+
+  return {
+    compactLabel: `${title} / ${countLabelShort}`,
+    countLabelShort,
+    countLabelLong
+  };
+}
+
 function isPublicEntry(data) {
   const visibility = data.visibility || "public";
   return data.status === "published" && visibility === "public";
@@ -300,14 +328,17 @@ const featuredEntries = publishedEntries.filter((entry) => entry.isFeatured);
 
 const publicBuckets = PUBLIC_BUCKETS.map((bucket) => {
   const entries = publishedEntries.filter((entry) => entry.bucket === bucket.slug);
+  const count = entries.length;
+  const displayMeta = buildBucketDisplayMeta(bucket.title, count);
 
   return {
     ...bucket,
     url: `/blog/${bucket.slug}/`,
-    count: entries.length,
+    count,
     entries,
     latestEntry: entries[0] || null,
-    countLabel: entries.length === 1 ? "1 published post" : `${entries.length} published posts`
+    displayMeta,
+    countLabel: displayMeta.countLabelLong
   };
 });
 
@@ -318,10 +349,12 @@ const publicBucketMap = publicBuckets.reduce((accumulator, bucket) => {
 
 const featuredLeadCard = {
   kind: "editorial",
-  eyebrow: "Start here",
   title: "A curated lane for independent artists who need clearer next steps",
   summary: "Begin with a strong guide, then move outward into the broader reading lanes once you know which part of the work needs attention.",
-  meta: "Curated entry point",
+  metadataItems: [
+    metadataItem("Start here"),
+    metadataItem("Guides lane")
+  ].filter(Boolean),
   href: "/blog/guides/",
   ctaLabel: "Start with guides"
 };
@@ -333,10 +366,18 @@ const landingFeaturedCards = [
   featuredStory
     ? {
         kind: "entry",
-        eyebrow: `Featured ${featuredStory.bucketShortLabel.toLowerCase()}`,
         title: featuredStory.title,
         summary: featuredStory.summary,
-        meta: featuredStory.metadataLabel,
+        metadataItems: [
+          metadataItem(
+            `Featured ${featuredStory.bucketShortLabel.toLowerCase()}`,
+            featuredStory.bucketIsPublic ? featuredStory.bucketUrl : null
+          ),
+          metadataItem(
+            featuredStory.readingTimeMinutes ? `${featuredStory.readingTimeMinutes} min read` : null
+          ),
+          metadataItem(featuredStory.publishedLabel)
+        ].filter(Boolean),
         href: featuredStory.url,
         ctaLabel: "Read featured post",
         entry: featuredStory
@@ -345,10 +386,12 @@ const landingFeaturedCards = [
   publicBucketMap["articles"]
     ? {
         kind: "bucket",
-        eyebrow: "Perspective lane",
         title: publicBucketMap["articles"].title,
         summary: publicBucketMap["articles"].landingSummary,
-        meta: publicBucketMap["articles"].countLabel,
+        metadataItems: [
+          metadataItem("Perspective lane"),
+          metadataItem(publicBucketMap["articles"].displayMeta.countLabelLong)
+        ].filter(Boolean),
         href: publicBucketMap["articles"].url,
         ctaLabel: publicBucketMap["articles"].ctaLabel,
         bucket: publicBucketMap["articles"]
@@ -357,10 +400,12 @@ const landingFeaturedCards = [
   publicBucketMap["case-studies"]
     ? {
         kind: "bucket",
-        eyebrow: "Applied lane",
         title: publicBucketMap["case-studies"].title,
         summary: publicBucketMap["case-studies"].landingSummary,
-        meta: publicBucketMap["case-studies"].countLabel,
+        metadataItems: [
+          metadataItem("Applied lane"),
+          metadataItem(publicBucketMap["case-studies"].displayMeta.countLabelLong)
+        ].filter(Boolean),
         href: publicBucketMap["case-studies"].url,
         ctaLabel: publicBucketMap["case-studies"].ctaLabel,
         bucket: publicBucketMap["case-studies"]
@@ -370,10 +415,12 @@ const landingFeaturedCards = [
 
 const priorityLaneCards = publicBuckets.map((bucket) => ({
   ...bucket,
-  eyebrow: bucket.shortLabel,
   title: bucket.title,
   summary: bucket.landingSummary,
-  meta: bucket.countLabel
+  metadataItems: [
+    metadataItem(`${bucket.shortLabel} lane`, bucket.url),
+    metadataItem(bucket.displayMeta.countLabelLong)
+  ].filter(Boolean)
 }));
 
 const recentEntries = publishedEntries.slice(0, 6);

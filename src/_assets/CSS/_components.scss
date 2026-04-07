@@ -52,22 +52,22 @@
   display: inline-block;
   padding: 0.5rem 0.9rem;
   background: var(--accent);
-  color: #fff;
+  color: var(--text);
   border: 1px solid transparent;
   border-radius: 8px;
   text-decoration: none;
 }
 
 .btn--secondary {
-  background: rgba(216, 212, 213, 0.35);
+  background: rgba(217, 212, 213, 0.35);
   color: var(--text);
-  border-color: rgba(30, 10, 56, 0.24);
+  border-color: rgba(43, 32, 57, 0.24);
 }
 
 .btn--soft-emphasis {
   background: var(--sandy-clay);
   color: var(--text);
-  border-color: rgba(30, 10, 56, 0.22);
+  border-color: rgba(43, 32, 57, 0.22);
 }
 
 .btn--soft-emphasis:hover,
@@ -83,7 +83,7 @@
 
 .card-impact .btn--secondary {
   background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(30, 10, 56, 0.35);
+  border-color: rgba(43, 32, 57, 0.35);
 }
 
 /* Stacked card baseline for single-column module flow. */
@@ -126,7 +126,7 @@
 /* Emphasis modifiers add hierarchy cues beyond color alone. */
 :where(.card, .card-impact).card--featured {
   --card-border-width: 2px;
-  --card-border-color: rgba(30, 10, 56, 0.35);
+  --card-border-color: rgba(43, 32, 57, 0.35);
   --card-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
 }
 
@@ -171,26 +171,26 @@
 
 @mixin surface-note-shell {
   @include surface-shell-base;
-  --surface-border-color: rgba(30, 10, 56, 0.18);
-  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(216, 212, 213, 0.22));
+  --surface-border-color: rgba(43, 32, 57, 0.18);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(217, 212, 213, 0.22));
   --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 18px rgba(15, 23, 42, 0.04);
 }
 
 @mixin surface-note-impact-shell {
-  --surface-border-color: rgba(30, 10, 56, 0.24);
+  --surface-border-color: rgba(43, 32, 57, 0.24);
   --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.24));
   --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 10px 20px rgba(15, 23, 42, 0.05);
 }
 
 @mixin surface-card-shell {
   @include surface-shell-base;
-  --surface-border-color: rgba(30, 10, 56, 0.2);
-  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(216, 212, 213, 0.18));
+  --surface-border-color: rgba(43, 32, 57, 0.2);
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(217, 212, 213, 0.18));
   --surface-shadow: 0 12px 24px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 @mixin surface-card-impact-shell {
-  --surface-border-color: rgba(30, 10, 56, 0.26);
+  --surface-border-color: rgba(43, 32, 57, 0.26);
   --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.28));
   --surface-shadow: 0 14px 26px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
@@ -240,13 +240,13 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-gutter: stable both-edges;
   scrollbar-width: thin;
-  scrollbar-color: rgba(30, 10, 56, 0.58) rgba(216, 212, 213, 0.42);
+  scrollbar-color: rgba(43, 32, 57, 0.58) rgba(217, 212, 213, 0.42);
   padding-block: 0.2rem 0.45rem;
 }
 
 .module-rail:hover,
 .module-rail:focus-within {
-  scrollbar-color: rgba(30, 10, 56, 0.82) rgba(216, 212, 213, 0.62);
+  scrollbar-color: rgba(43, 32, 57, 0.82) rgba(217, 212, 213, 0.62);
 }
 
 .module-rail::-webkit-scrollbar {
@@ -255,18 +255,18 @@
 
 .module-rail::-webkit-scrollbar-track {
   border-radius: 999px;
-  background: rgba(216, 212, 213, 0.42);
+  background: rgba(217, 212, 213, 0.42);
 }
 
 .module-rail::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  border: 2px solid rgba(216, 212, 213, 0.32);
-  background: rgba(30, 10, 56, 0.58);
+  border: 2px solid rgba(217, 212, 213, 0.32);
+  background: rgba(43, 32, 57, 0.58);
 }
 
 .module-rail:hover::-webkit-scrollbar-thumb,
 .module-rail:focus-within::-webkit-scrollbar-thumb {
-  background: rgba(30, 10, 56, 0.82);
+  background: rgba(43, 32, 57, 0.82);
 }
 
 .module-rail > * {
@@ -366,9 +366,9 @@
   justify-content: center;
   inline-size: var(--module-rail-nav-size);
   block-size: var(--module-rail-nav-size);
-  border: 1px solid rgba(30, 10, 56, 0.24);
+  border: 1px solid rgba(43, 32, 57, 0.24);
   border-radius: 999px;
-  background: rgba(30, 10, 56, 0.88);
+  background: rgba(43, 32, 57, 0.88);
   color: #fff;
   box-shadow: 0 12px 26px rgba(15, 23, 42, 0.2);
   cursor: pointer;
@@ -423,12 +423,12 @@
 
 .module-rail-nav:hover,
 .module-rail-nav:focus-visible {
-  background: rgba(30, 10, 56, 0.98);
+  background: rgba(43, 32, 57, 0.98);
   border-color: rgba(232, 178, 125, 0.6);
 }
 
 .module-rail-nav:focus-visible {
-  outline: 3px solid rgba(126, 200, 80, 0.72);
+  outline: 3px solid rgba(154, 191, 131, 0.72);
   outline-offset: 2px;
 }
 
@@ -459,8 +459,8 @@
   inline-size: 0.55rem;
   block-size: 0.55rem;
   border-radius: 999px;
-  background: rgba(30, 10, 56, 0.2);
-  box-shadow: inset 0 0 0 1px rgba(30, 10, 56, 0.12);
+  background: rgba(43, 32, 57, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(43, 32, 57, 0.12);
   transition:
     transform 180ms ease,
     background-color 180ms ease,
@@ -470,7 +470,7 @@
 .module-position-pip.is-active {
   background: var(--amethyst);
   box-shadow:
-    0 0 0 3px rgba(160, 99, 175, 0.18),
+    0 0 0 3px rgba(173, 120, 186, 0.18),
     inset 0 0 0 1px rgba(255, 255, 255, 0.28);
   transform: scale(1.25);
 }
@@ -720,7 +720,7 @@
   @include surface-note-shell;
   --surface-pad-block: 0.75rem;
   --surface-pad-inline: 0.9rem;
-  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(216, 212, 213, 0.16));
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(217, 212, 213, 0.16));
   --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 6px 14px rgba(15, 23, 42, 0.04);
   font-size: 0.92rem;
 }
@@ -771,7 +771,7 @@
 
 .services-step-label {
   margin: 0;
-  color: rgba(30, 10, 56, 0.72);
+  color: rgba(43, 32, 57, 0.72);
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -780,14 +780,14 @@
 
 .services-panel {
   @include surface-note-shell;
-  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(216, 212, 213, 0.16));
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(217, 212, 213, 0.16));
   --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 6px 12px rgba(15, 23, 42, 0.03);
   padding: 0.95rem 1rem;
   overflow-wrap: anywhere;
 }
 
 .services-panel--soft {
-  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(216, 212, 213, 0.2));
+  --surface-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(217, 212, 213, 0.2));
 }
 
 .services-process-support {
@@ -873,28 +873,14 @@
   margin-bottom: 0;
 }
 
-.blog-kicker {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.card-impact .blog-kicker {
-  color: var(--dark-amethyst);
-}
-
 .blog-page-deck,
 .blog-section-copy,
-.blog-featured-meta,
 .blog-article-lede {
   margin: 0;
 }
 
 .blog-meta-panel {
-  --blog-meta-surface-bg: linear-gradient(180deg, rgba(30, 10, 56, 0.94), rgba(30, 10, 56, 0.82));
+  --blog-meta-surface-bg: linear-gradient(180deg, rgba(43, 32, 57, 0.94), rgba(43, 32, 57, 0.82));
   --blog-meta-surface-border: rgba(237, 211, 181, 0.28);
   --blog-meta-surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 10px 20px rgba(15, 23, 42, 0.12);
   margin: 0;
@@ -907,7 +893,7 @@
 }
 
 .card-impact .blog-meta-panel {
-  --blog-meta-surface-bg: linear-gradient(180deg, rgba(30, 10, 56, 0.96), rgba(30, 10, 56, 0.86));
+  --blog-meta-surface-bg: linear-gradient(180deg, rgba(43, 32, 57, 0.96), rgba(43, 32, 57, 0.86));
   --blog-meta-surface-border: rgba(237, 211, 181, 0.34);
   --blog-meta-surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 12px 22px rgba(15, 23, 42, 0.14);
 }
@@ -993,7 +979,6 @@
 
 .blog-featured-card .btn,
 .blog-post-card .blog-inline-link,
-.blog-priority-card .blog-inline-link,
 .blog-route-card .blog-inline-link,
 .blog-bucket-entry .blog-inline-link {
   width: fit-content;
@@ -1049,6 +1034,84 @@
   flex-direction: column;
   gap: 0.8rem;
   min-height: 100%;
+}
+
+.blog-priority-card {
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+}
+
+.blog-priority-card__header {
+  padding: 0.95rem 1rem 0.9rem;
+  background: linear-gradient(180deg, rgba(43, 32, 57, 0.97), rgba(63, 45, 76, 0.92));
+  border-bottom: 1px solid rgba(237, 211, 181, 0.14);
+  color: var(--soft-apricot);
+}
+
+.blog-priority-card__header-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.45rem 0.85rem;
+}
+
+.blog-priority-card__header .card-title {
+  margin-bottom: 0;
+  flex: 1 1 8rem;
+  min-width: 0;
+  color: currentColor;
+  font-size: 1rem;
+  line-height: 1.15;
+}
+
+.blog-priority-card__title-link {
+  color: inherit;
+  text-decoration: none;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+  text-transform: uppercase;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.blog-priority-card__title-link:hover,
+.blog-priority-card__title-link:focus-visible {
+  color: #fff4e6;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
+
+.blog-priority-card__title-link:focus-visible {
+  outline: 2px solid rgba(237, 211, 181, 0.82);
+  outline-offset: 4px;
+  border-radius: 0.2rem;
+}
+
+.blog-priority-card__meta {
+  margin: 0;
+  flex: 0 0 auto;
+  margin-inline-start: auto;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: rgba(237, 211, 181, 0.78);
+}
+
+.blog-priority-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding: 0.95rem 1rem 1rem;
+}
+
+.blog-priority-card__body p {
+  margin: 0;
 }
 
 .blog-route-grid {
