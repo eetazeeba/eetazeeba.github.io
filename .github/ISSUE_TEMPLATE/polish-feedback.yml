@@ -1,99 +1,198 @@
----
 name: Polish Feedback
-about: Areas of improvement
-title: Feedback
-labels: ''
-assignees: ''
+description: Capture polish issues, UX friction, visual inconsistencies, and related follow-up work.
+title: "[Polish]: "
+labels:
+  - polish
+  - needs-triage
+body:
+  - type: input
+    id: feedback_id
+    attributes:
+      label: Feedback ID
+      description: Leave blank if this is a new item and does not already have a tracker ID.
+      placeholder: FB-###
+    validations:
+      required: false
 
----
+  - type: input
+    id: title_summary
+    attributes:
+      label: Title / Summary
+      description: Short, specific summary of the issue.
+      placeholder: Metadata badge alignment shifts on featured blog cards
+    validations:
+      required: true
 
-## Feedback ID
-`FB-###`
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      description: Intake status for the issue.
+      options:
+        - NEW
+        - TRIAGED
+        - PLANNED
+        - IN PROGRESS
+        - BLOCKED
+        - DONE
+        - WON'T FIX
+      default: 0
+    validations:
+      required: true
 
-## Title
-Short, specific summary of the issue.
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: |
+        P0: Critical or blocking issues requiring immediate attention
+        P1: High-impact issues likely to affect many users or break important functionality
+        P2: Meaningful issues affecting a narrower set of users, routes, or workflows
+        P3: Polish issues with noticeable UX, visual, or content impact
+        P4: Suggestions, minor refinements, or non-issue observations worth tracking
+      options:
+        - P0
+        - P1
+        - P2
+        - P3
+        - P4
+    validations:
+      required: true
 
-## Status
-`NEW` | `TRIAGED` | `PLANNED` | `IN PROGRESS` | `BLOCKED` | `DONE` | `WON'T FIX`
+  - type: input
+    id: area_surface
+    attributes:
+      label: Area / Surface
+      description: Specific feature, pattern, or interface area affected by the issue.
+      placeholder: Blog card carousel, primary navigation, impact cards, footer CTA, homepage hero
+    validations:
+      required: true
 
-## Priority
-- `P0` Critical or blocking issues requiring immediate attention
-- `P1` High-impact issues likely to affect many users or break important functionality
-- `P2` Meaningful issues affecting a narrower set of users, routes, or workflows
-- `P3` Polish issues with noticeable UX, visual, or content impact
-- `P4` Suggestions, minor refinements, or non-issue observations worth tracking
+  - type: textarea
+    id: affected_routes_components
+    attributes:
+      label: Affected Route(s) or Component(s)
+      description: Optional. List the page route, template, partial, stylesheet, script, or component involved.
+      placeholder: |
+        /blog/
+        src/blog/index.njk
+        src/_includes/header.html
+        src/_assets/CSS/_nav.scss
+      render: shell
+    validations:
+      required: false
 
-## Area / Surface
-Specific feature, pattern, or interface area affected by the issue.  
-Examples: blog card carousel, primary navigation, impact cards, footer CTA, homepage hero.
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Problem Statement
+      description: Describe the issue as currently experienced on the site or in the feature. State what is happening, not how to fix it.
+      placeholder: Describe the current behavior and visible problem.
+    validations:
+      required: true
 
-## Affected Route(s) or Component(s) _(optional)_
-If known, list the page route, template, partial, stylesheet, script, or component involved.
+  - type: textarea
+    id: reproduction_trigger_conditions
+    attributes:
+      label: Reproduction / Trigger Conditions
+      description: Optional. List the conditions under which the issue appears.
+      placeholder: |
+        1. Visit /blog/ on desktop at ~1280px width
+        2. Hover the first featured card
+        3. Observe metadata alignment shift
+    validations:
+      required: false
 
-**Examples**
-- `/blog/`
-- `src/blog/index.njk`
-- `src/_includes/header.html`
-- `src/_assets/CSS/_nav.scss`
+  - type: textarea
+    id: user_impact
+    attributes:
+      label: User Impact
+      description: Describe who is affected and why it matters.
+      placeholder: |
+        - Causes confusion in navigation
+        - Reduces readability and scan quality
+        - Creates accessibility friction for keyboard users
+        - Makes the page feel visually unfinished
+    validations:
+      required: true
 
-## Problem Statement
-Describe the issue as currently experienced on the site or in the feature.  
-State what is happening, not how to fix it.
+  - type: dropdown
+    id: likely_root_area
+    attributes:
+      label: Likely Root Area
+      description: Optional best-guess source of the issue.
+      options:
+        - markup / template structure
+        - CSS layout
+        - responsive behavior
+        - interaction script
+        - content model
+        - navigation data
+        - metadata / SEO handling
+        - unknown
+    validations:
+      required: false
 
-## Reproduction / Trigger Conditions _(optional)_
-List the conditions under which the issue appears.
+  - type: textarea
+    id: proposed_direction
+    attributes:
+      label: Proposed Direction
+      description: Optional. Record the likely fix direction or design intent without requiring a full implementation plan.
+      placeholder: Describe the likely direction for resolving the issue.
+    validations:
+      required: false
 
-**Examples**
-1. Visit `/blog/` on desktop at ~1280px width
-2. Hover the first featured card
-3. Observe metadata alignment shift
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Define what must be true for the issue to count as resolved.
+      placeholder: |
+        - Metadata remains aligned across target breakpoints
+        - Keyboard tab order remains logical
+        - No duplicate homepage link remains in the header
+        - No regression to existing card spacing or hover behavior
+    validations:
+      required: true
 
-## User Impact
-Describe who is affected and why it matters.
+  - type: textarea
+    id: evidence_references
+    attributes:
+      label: Evidence / References
+      description: Optional. List screenshots, recordings, notes, or linked discussion relevant to the issue.
+      placeholder: |
+        docs/issues/screenshots/FB-003-blog-grid-gap-desktop.png
+        Designer feedback dated 2026-04-07
+        Accessibility pass notes
+    validations:
+      required: false
 
-**Examples**
-- Causes confusion in navigation
-- Reduces readability and scan quality
-- Creates accessibility friction for keyboard users
-- Makes the page feel visually unfinished
+  - type: textarea
+    id: files_likely_impacted
+    attributes:
+      label: Files Likely Impacted
+      description: Optional. List likely implementation targets if already known.
+      placeholder: |
+        src/blog/index.njk
+        src/_assets/CSS/_blog.scss
+        src/_includes/components/card-grid.njk
+    validations:
+      required: false
 
-## Likely Root Area _(optional)_
-Best-guess source of the issue, if known.
+  - type: textarea
+    id: notes_constraints
+    attributes:
+      label: Notes / Constraints
+      description: Optional. Capture guardrails, known limitations, or things that must not regress while fixing this.
+      placeholder: Do not break existing hover behavior, preserve reading order on mobile, avoid layout regressions in the rail.
+    validations:
+      required: false
 
-**Examples**
-- markup / template structure
-- CSS layout
-- responsive behavior
-- interaction script
-- content model
-- navigation data
-- metadata / SEO handling
-
-## Proposed Direction _(optional)_
-Record the likely fix direction or design intent without requiring a full implementation plan.
-
-## Acceptance Criteria
-Define what must be true for the issue to count as resolved.
-
-**Examples**
-- Metadata remains aligned across target breakpoints
-- Keyboard tab order remains logical
-- No duplicate homepage link remains in the header
-- No regression to existing card spacing or hover behavior
-
-## Evidence / References _(optional)_
-List screenshots, recordings, notes, or linked discussion relevant to the issue.
-
-**Examples**
-- `docs/issues/screenshots/FB-003-blog-grid-gap-desktop.png`
-- Designer feedback dated 2026-04-07
-- Accessibility pass notes
-
-## Files Likely Impacted _(optional)_
-List likely implementation targets if already known.
-
-## Notes / Constraints _(optional)_
-Capture guardrails, known limitations, or “do not break this while fixing that” concerns.
-
-## Completion Notes _(for resolved items)_
-Brief note on what changed, where, and anything still deferred.
+  - type: textarea
+    id: completion_notes
+    attributes:
+      label: Completion Notes
+      description: Optional. Usually filled later if creating or documenting a resolved issue retroactively.
+      placeholder: Brief note on what changed, where, and anything still deferred.
+    validations:
+      required: false
