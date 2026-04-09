@@ -37,6 +37,10 @@ function asArray(value) {
   return [value];
 }
 
+function isNonEmptyString(value) {
+  return typeof value === "string" && value.trim() !== "";
+}
+
 function validateEntry(entry) {
   const errors = [];
   const { data } = entry;
@@ -98,6 +102,10 @@ function validateEntry(entry) {
       errors.push("blog entries must include bucket");
     } else if (typeof data.bucket !== "string" || !ID_PATTERN.test(data.bucket)) {
       errors.push("blog bucket must be lowercase URL-safe text (letters, numbers, hyphens)");
+    }
+
+    if (!isNonEmptyString(data.summary)) {
+      errors.push("blog entries must include summary");
     }
   }
 

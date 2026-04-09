@@ -5,7 +5,7 @@
 - Content managed in Markdown/front matter files.
 - Optional Decap CMS admin interface for editing content.
 - GitHub remains the source-of-truth repo for code, content, and normal CI/CD workflow context.
-- Phase 1 is active: the repo targets `musifer.studio` as the canonical public domain on transitional GitHub Pages, while live custom-domain activation still depends on external Pages/DNS verification and Vercel and Proton remain later-phase work.
+- Phase 1 direction is set: the repo targets `musifer.studio` as the canonical public domain on transitional GitHub Pages, while live custom-domain activation still depends on external Pages/DNS verification and Vercel and Proton remain later-phase work.
 
 ## Core stack and infrastructure
 - [Eleventy (11ty)](https://www.11ty.dev/docs/) for static site generation
@@ -90,9 +90,10 @@ Use `npm ci` for normal setup and branch sync on an existing clone. Use `npm ins
 
 ## CMS notes
 - CMS config is in `src/admin/config.yml`.
+- Phase 1 public CMS scope is limited to blog authoring.
 - `/admin` is intentionally not linked in public navigation until CMS access checks are complete.
+- `npm run cms:local` only verifies the local proxy-backed editing flow; it does not complete public auth or repo-settings setup for a public `/admin/` launch.
 - Local CMS test flow:
   1. `npm run start`
   2. `npm run cms:local`
   3. Open `http://localhost:8080/admin/`
-

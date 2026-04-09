@@ -11,10 +11,11 @@
     "cms:validate": "node scripts/cms/validate-content.js",
     "cms:index": "node scripts/cms/build-index.js",
     "cms:check": "npm run cms:validate && npm run cms:index",
-    "cms:local": "npx decap-server"
+    "cms:local": "decap-server"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
+    "decap-server": "3.6.0",
     "sass": "^1.80.0"
   }
 }

@@ -22,6 +22,7 @@ Use this routine when moving between the macOS and Windows development machines 
 - Use `npm ci` for normal installs on an existing clone.
 - Use `npm install` only when intentionally changing dependencies.
 - `experimental` is a sandbox branch for deliberate tests, not a second default work branch.
+- Decap editorial-workflow PR branches are the controlled exception to the usual terminal-created `feature/*` branch pattern.
 - SCSS files in `src/_assets/CSS/` are the source of truth.
 - Compiled `styles.css` and `header-nav.css` stay tracked for now and should not be hand-edited.
 - GitHub Actions Pages builds should follow `.nvmrc`, so local development and CI share the same Node baseline.
@@ -122,6 +123,14 @@ git push
 ```
 
 If a content change requires a refreshed index, run `npm run cms:check` manually before the final push and include the tracked `content/_index.json` update in the branch.
+
+### CMS-authored pull requests
+
+Decap's editorial workflow may create repo-side PR branches that were not created from the terminal.
+
+Treat those branches as a controlled exception to the normal `feature/*` routine, while keeping the same review gates, `main` merge target, and **Squash and merge** expectation.
+
+If a browser-authored CMS PR changes content and needs a refreshed index, pull that PR branch locally before merge, run `npm run cms:check`, and push the resulting `content/_index.json` update back to the same PR branch.
 
 ### Open, review, and squash merge the PR
 

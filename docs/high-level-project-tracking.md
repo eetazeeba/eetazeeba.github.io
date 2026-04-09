@@ -53,7 +53,7 @@ Purpose
   - `docs/planning/domain-direction-musifer-studio-art.md`
   - `docs/planning/domain-hosting-email-rollout-plan.md`
 - Current direction: `musifer.studio` preferred primary; `musifer.art` retained as backup/brand-protection.
-- Phase 1 active state:
+- Phase 1 repo-side state:
   - Porkbun remains the registrar and DNS authority.
   - GitHub Pages via Actions from `main` remains the transitional live host path.
   - Repo-side custom-domain readiness does not require a tracked `CNAME` for the current Actions-based deploy.
@@ -72,6 +72,8 @@ Purpose
 ## CMS operational notes
 - Decap config path: `src/admin/config.yml`
 - CMS branch target: `main`
+- Phase 1 public CMS scope: blog only
+- Local proxy-backed CMS testing exists in-repo, but public `/admin/` activation still depends on external auth and repo-setting work.
 - `/admin` is kept in-repo but intentionally not linked in public navigation while access/permission checks are finalized.
 
 ## Recent consolidation checkpoints
