@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+title: SoundCloud Wrapper Demo
+description: Internal SoundCloud wrapper demo for Musifer component QA.
+robots: noindex, nofollow
+permalink: /component-demos/soundcloud-wrapper/index.html
+bodyClass: page-component-demo page-atmosphere page-atmosphere--vellum
+soundcloudDemo:
+  soundcloudUrl: https://soundcloud.com/forss/flickermood
+  title: SoundCloud wrapper first pass
+  description: A focused embed pattern for artist audio references while Musifer keeps the broader media system deliberately small.
+  variant: feature
+  artworkSrc: /Images/Musifer_Logo.svg
+  artworkAlt: Musifer brand mark
+  sourceLabel: Open the source track on SoundCloud
+---
+
+<div class="l-page-shell l-module-stack component-demo-page">
+  <section class="card card-impact" aria-labelledby="soundcloud-demo-heading">
+    <h1 class="card-title display-title" id="soundcloud-demo-heading">SoundCloud wrapper demo</h1>
+    <p>
+      A quiet test surface for SoundCloud embeds before this pattern moves into artist pages,
+      release notes, or case studies.
+    </p>
+  </section>
+
+  {% set soundcloudWrapper = soundcloudDemo %}
+  {% include "components/soundcloud-wrapper.njk" %}
+</div>

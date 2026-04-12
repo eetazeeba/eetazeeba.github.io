@@ -22,6 +22,7 @@
 - Follow-up refinement: restored an explicit `id="project-fit"` hook on the right-hand Services card.
 - `blog-kicker` was preserved because it still carries meaningful editorial metadata and routing context in active Blog templates.
 - Follow-up refinement: blog article metadata now uses a shared framed `blog-meta-panel` pattern on article headers and article cards, so the meaningful metadata stays visible without falling back into the faint overline/kicker role.
+- Follow-up refinement: blog landing cards now separate outer shell and content-role responsibilities. `card` / `card-impact` stays the outer shell where used, `blog-card` variants own entry/bucket/editorial content roles, `blog-meta-panel` stays entry-only metadata, and supporting bucket/editorial copy now uses plain `blog-card-supporting-meta` instead of metadata classes.
 - Blog browse buttons and other button-style routes were preserved because they are real interactive navigation, not decorative chips.
 
 ## Audit Notes By Area
@@ -29,6 +30,7 @@
 - Services: this page still carried the most wireframe residue, concentrated in visible order markers, a decorative lane-count chip, low-contrast subheadings, and dashed hero value chips.
 - Blog: the selective audit found no chip-style cleanup to remove in this pass beyond the earlier section-label work; the remaining label-like patterns are still doing real metadata or routing work.
 - Blog follow-up: article cards and article headers now share one metadata surface that keeps the title first in reading order, links the bucket/category item to its archive, and uses a restrained dark-amethyst framed treatment that stays readable on both standard cards and `card-impact` surfaces.
+- Blog landing follow-up: featured-rail and priority-lane cards now use explicit `blog-card` variants so featured entry cards can reuse the shared metadata panel while bucket/editorial promo cards keep simpler support text without borrowing article-metadata styling.
 
 ## Files Changed
 - `src/_data/blog.js`
@@ -52,6 +54,8 @@
 - Confirm the shared `blog-meta-panel` stacks cleanly under titles on narrow screens and does not create horizontal overflow.
 - Confirm the linked bucket/category item inside the metadata panel is visibly interactive and keeps a clear keyboard focus state.
 - Confirm the dark-amethyst metadata surface remains legible on both standard blog cards and `card-impact` article hero surfaces.
+- Confirm the featured story card now uses `blog-meta-panel` while intro and bucket promo cards render `blog-card-supporting-meta` instead of metadata chrome.
+- Confirm priority-lane bucket counts still read clearly as support text and no active landing-page template renders `blog-featured-meta` or `blog-inline-meta`.
 - Confirm `about-order`, `services-order`, and `services-chip` no longer appear in active templates or shared component CSS.
 - Confirm `services-subheading` remains only where it still supports comprehension and no longer reads as a faded scaffold label.
 - Confirm `services-value-chip` remains present but no longer uses the dashed chip treatment.
@@ -61,4 +65,5 @@
 
 ## Deferred Follow-Up
 - Blog metadata normalization now covers article headers plus article/recent/bucket card surfaces. If additional metadata variants appear later, extend `blog-meta-panel` before creating page-specific metadata styling.
+- Blog landing cards now have clearer ownership through `blog-card` variants; if future landing cards diverge again, extend those variants before introducing new metadata-specific utility classes.
 - `services-value-chip` still carries a legacy class name; only rename it if a later Services terminology pass justifies the churn.

@@ -59,17 +59,21 @@ contactLinks:
         </button>
         <div class="module-rail module-rail--snap blog-featured-rail" id="blog-featured-rail" aria-label="Featured blog cards">
           {% for card in blog.landingFeaturedCards %}
-          <article class="{% if loop.first %}card-impact{% else %}card{% endif %} blog-featured-card{% if loop.first %} blog-featured-card--intro{% endif %}">
+          <article class="{% if card.kind == 'editorial' %}card-impact{% else %}card{% endif %} blog-card blog-card--featured blog-card--{{ card.kind }}">
+            <p class="blog-kicker">{{ card.eyebrow }}</p>
             <h3 class="card-title">{{ card.title }}</h3>
-            <div class="blog-meta-panel" aria-label="Featured card metadata">
+            <p>{{ card.summary }}</p>
+            {% if card.kind == "entry" and card.entry %}
+            <div class="blog-meta-panel" aria-label="Post metadata">
               <ul class="blog-meta-list" role="list">
-                {% for item in card.metadataItems %}
+                {% for item in card.entry.metadataItems %}
                 <li class="blog-meta-item">
                   {% if item.href %}
                   <a class="blog-meta-link"
                     href="{{ item.href }}"
                     data-analytics-event="blog_engagement"
-                    data-analytics-surface="featured_lane_metadata">
+                    data-analytics-surface="featured_lane_metadata"
+                    data-analytics-bucket="{{ card.entry.bucket }}">
                     {{ item.label }}
                   </a>
                   {% else %}
@@ -79,7 +83,9 @@ contactLinks:
                 {% endfor %}
               </ul>
             </div>
-            <p>{{ card.summary }}</p>
+            {% else %}
+            <p class="blog-card-supporting-meta">{{ card.meta }}</p>
+            {% endif %}
             <a class="btn{% if not loop.first %} btn--soft-emphasis{% endif %}"
               href="{{ card.href }}"
               data-analytics-event="blog_engagement"
@@ -154,24 +160,18 @@ contactLinks:
 
     <div class="l-grid--3 blog-priority-grid">
       {% for bucket in blog.priorityLaneCards %}
-      <article class="blog-priority-card">
-        <div class="blog-priority-card__header">
-          <div class="blog-priority-card__header-row">
-            <h3 class="card-title">
-              <a class="blog-priority-card__title-link"
-                href="{{ bucket.url }}"
-                data-analytics-event="blog_engagement"
-                data-analytics-surface="priority_lane"
-                data-analytics-bucket="{{ bucket.title }}">
-                {{ bucket.title }}
-              </a>
-            </h3>
-            <p class="blog-priority-card__meta">{{ bucket.displayMeta.countLabelShort }}</p>
-          </div>
-        </div>
-        <div class="blog-priority-card__body">
-          <p>{{ bucket.summary }}</p>
-        </div>
+      <article class="blog-priority-card blog-card blog-card--bucket">
+        <p class="blog-kicker">{{ bucket.eyebrow }}</p>
+        <h3 class="card-title">{{ bucket.title }}</h3>
+        <p>{{ bucket.summary }}</p>
+        <p class="blog-card-supporting-meta">{{ bucket.meta }}</p>
+        <a class="blog-inline-link"
+          href="{{ bucket.url }}"
+          data-analytics-event="blog_engagement"
+          data-analytics-surface="priority_lane"
+          data-analytics-bucket="{{ bucket.title }}">
+          {{ bucket.ctaLabel }}
+        </a>
       </article>
       {% endfor %}
     </div>
@@ -189,7 +189,7 @@ contactLinks:
 
     <div class="l-grid--2 blog-recent-grid">
       {% for entry in blog.recentEntries %}
-      <article class="blog-post-card">
+      <article class="blog-post-card blog-card blog-card--entry">
         <h3 class="card-title">{{ entry.title }}</h3>
         <div class="blog-meta-panel" aria-label="Post metadata">
           <ul class="blog-meta-list" role="list">

@@ -98,6 +98,13 @@ Purpose
 - Before starting major experimental work, periodically rebase or hard-reset `experimental` from `main` to avoid silent drift.
 - Legacy `experimental` history was preserved before realignment using the backup branch and safety tag listed above.
 
+## Media/embed component checkpoint (2026-04-11)
+- `feature/soundcloud-wrapper` is the first concrete reusable media/embed component pass intended to merge back through `experimental`.
+- Current scope is intentionally SoundCloud-only, iframe-driven, and static-site friendly.
+- The pass does not introduce SoundCloud API fetches, build-time remote data, serverless handling, self-hosted audio delivery, custom player controls, media analytics events, or a multi-provider abstraction.
+- A noindex demo route exists at `/component-demos/soundcloud-wrapper/` for QA before the pattern is placed on public artist, release, blog, or case-study surfaces.
+- Working note: [WORKING/soundcloud-wrapper-first-pass.md](WORKING/soundcloud-wrapper-first-pass.md)
+
 ## Branch hygiene checkpoint (2026-03-07)
 - Deprecated migration/intermediary branches reviewed and removed:
   - `jamstack-builder`

@@ -57,7 +57,7 @@ bodyClass: page-blog page-atmosphere page-atmosphere--vellum
         {% if entry.relatedBlogEntries.length %}
         <div class="module-card-stack is-compact">
           {% for related in entry.relatedBlogEntries %}
-          <article class="blog-inline-card">
+          <article class="blog-inline-card blog-card blog-card--entry">
             <h3 class="card-title">{{ related.title }}</h3>
             <div class="blog-meta-panel" aria-label="Post metadata">
               <ul class="blog-meta-list" role="list">

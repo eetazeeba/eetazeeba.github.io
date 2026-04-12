@@ -1,0 +1,61 @@
+{% set item = soundcloudWrapper or {} %}
+{% set title = item.title or "SoundCloud audio" %}
+{% set description = item.description %}
+{% set soundcloudUrl = item.soundcloudUrl %}
+{% set variant = item.variant or "standard" %}
+{% set className = item.className or "" %}
+{% set artworkSrc = item.artworkSrc %}
+{% set artworkAlt = item.artworkAlt or "" %}
+{% set visualLabel = item.visualLabel %}
+{% set sourceLabel = item.sourceLabel or "Open on SoundCloud" %}
+{% set playerTitle = item.playerTitle or title + " SoundCloud player" %}
+
+<section class="card soundcloud-wrapper soundcloud-wrapper--{{ variant | escape }}{% if className %} {{ className | escape }}{% endif %}" data-soundcloud-wrapper{% if soundcloudUrl %} data-soundcloud-source="{{ soundcloudUrl | escape }}"{% endif %}>
+  <div class="soundcloud-wrapper__layout">
+    <div class="soundcloud-wrapper__info">
+      {% if artworkSrc or visualLabel %}
+      <div class="soundcloud-wrapper__visual{% if not artworkSrc %} soundcloud-wrapper__visual--shell{% endif %}"{% if not artworkSrc %} aria-hidden="true"{% endif %}>
+        {% if artworkSrc %}
+        <img class="soundcloud-wrapper__artwork" src="{{ artworkSrc | escape }}" alt="{{ artworkAlt | escape }}" loading="lazy">
+        {% else %}
+        <span class="soundcloud-wrapper__visual-mark">{{ visualLabel }}</span>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <div class="soundcloud-wrapper__copy">
+        <h2 class="card-title soundcloud-wrapper__title">{{ title }}</h2>
+        {% if description %}
+        <p class="soundcloud-wrapper__description">{{ description }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="soundcloud-wrapper__player">
+      {% if soundcloudUrl %}
+      {% set embedUrl = "https://w.soundcloud.com/player/?url=" + (soundcloudUrl | urlencode) + "&color=%23ad78ba&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false" %}
+      <div class="soundcloud-wrapper__embed-shell">
+        <iframe
+          class="soundcloud-wrapper__iframe"
+          title="{{ playerTitle | escape }}"
+          width="100%"
+          height="166"
+          scrolling="no"
+          frameborder="no"
+          allow="autoplay"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          src="{{ embedUrl | escape }}"
+          data-soundcloud-iframe>
+        </iframe>
+      </div>
+      <p class="soundcloud-wrapper__source">
+        <span>Source:</span>
+        <a href="{{ soundcloudUrl | escape }}" target="_blank" rel="noopener noreferrer">{{ sourceLabel }}</a>
+      </p>
+      {% else %}
+      <p class="soundcloud-wrapper__fallback">SoundCloud source link pending.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>

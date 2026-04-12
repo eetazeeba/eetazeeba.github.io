@@ -2,26 +2,178 @@
 layout: layouts/base.njk
 title: Homepage
 bodyClass: page-home page-atmosphere page-atmosphere--vellum
+heroHighlights:
+  - Release the thing
+  - Sharpen the signal
+  - Guard the work
+servicePaths:
+  - title: Get the release out of limbo
+    body: Turn the scattered pieces around a single, EP, album, or artist-led launch into a plan that can actually leave the cave.
+    href: /services/production/
+    label: Plan the release
+    analyticsService: production_support
+  - title: Make the project harder to ignore
+    body: Tighten the bios, visuals, page copy, and project materials that tell people what this is before they invent the wrong story.
+    href: /services/rates-quote/
+    label: Build the materials
+    analyticsService: rates_quote
+  - title: Ask the rights questions early
+    body: Name the ownership, credit, clearance, and contract questions before they become expensive folklore.
+    href: /services/legal/
+    label: Check the legal track
+    analyticsService: legal_status
+featuredListening:
+  soundcloudUrl: "https://soundcloud.com/ethernetsky/sets/95mp3"
+  title: "From the orbit: ETHERNET_SKY"
+  description: "A live signal from the Musifer orbit, not a velvet-rope endorsement scheme. ETHERNET_SKY's 95mp3 set moves with grit, shimmer, and enough static to keep the room awake."
+  variant: feature
+  className: home-listening
+  sourceLabel: Listen to 95mp3 on SoundCloud
+  playerTitle: ETHERNET_SKY 95mp3 SoundCloud player
 ---
 
 <div class="l-page-shell l-module-stack home-page">
-  <h2 class="card-title" id="featured-items-heading">Featured Items</h2>
-  <section class="card" aria-labelledby="featured-items-heading">
-    <article>
-      <h3 class="card-title">Assignment Content</h3>
-      <p>While I never felt called to perform on stage, I have always been passionate about building spaces where artists can connect, collaborate, and thrive. Musifer is growing into a creative home base designed to support and empower artists at every step of their journey. I am starting with a curated library of practical resources for early-career artists, giving you clear tools to move faster and smarter. And once my Juris Doctor journey is complete, Musifer will evolve into a trusted first stop for artists who need legal protection in an ever-evolving music industry.</p>
-    </article>
+  <section class="card card-impact home-hero" aria-labelledby="home-hero-heading">
+    <div class="l-grid--2 home-hero__layout">
+      <div class="l-module-stack">
+        <h1 class="card-title display-title" id="home-hero-heading">For artists building without waiting for permission</h1>
+        <p class="home-hero__lede">
+          Musifer helps independent artists turn songs, rough plans, stubborn ideas, and rights questions
+          into work that can move in public without losing its teeth.
+        </p>
+        <div class="home-action-row">
+          <a class="btn"
+            href="/services/"
+            data-analytics-event="service_interest"
+            data-analytics-service="services_hub"
+            data-analytics-surface="homepage_hero">
+            Find your lane
+          </a>
+          <a class="btn btn--secondary"
+            href="/blog/"
+            data-analytics-event="blog_engagement"
+            data-analytics-destination="blog_hub"
+            data-analytics-surface="homepage_hero">
+            Read the field notes
+          </a>
+        </div>
+        <p class="home-support-note">
+          No permission slips. No bloated agency ritual. Bring the almost-release,
+          the stubborn draft, the cursed asset folder, and the question you keep dodging.
+        </p>
+      </div>
+
+      <aside class="home-hero__aside" aria-label="Musifer starting points">
+        <img class="content-logo" src="/Images/Musifer_Logo.svg" alt="Musifer brand mark">
+        <p class="home-hero__aside-copy">
+          Practical creative support with a little myth in the margins and a bias toward getting the work out alive.
+        </p>
+        <ul class="home-value-list" role="list">
+          {% for point in heroHighlights %}
+          <li class="home-value-chip">{{ point }}</li>
+          {% endfor %}
+        </ul>
+      </aside>
+    </div>
   </section>
-  <section class="card-impact">
-    <h3 class="card-title">Important Update</h3>
-    <p>This section is styled to draw attention to important information.</p>
-    <a class="btn" href="/important-update/">Read more</a>
+
+  <section class="card home-services" aria-labelledby="home-services-heading">
+    <div class="home-section-header">
+      <div>
+        <h2 class="card-title" id="home-services-heading">Get the work out of limbo</h2>
+        <p class="home-section-copy">
+          A song rarely stalls because it lacks magic. It stalls because the plan,
+          copy, assets, rights questions, or next ask are tangled. Musifer untangles those.
+        </p>
+      </div>
+      <a class="home-inline-link"
+        href="/services/"
+        data-analytics-event="service_interest"
+        data-analytics-service="services_hub"
+        data-analytics-surface="homepage_services">
+        See every lane
+      </a>
+    </div>
+
+    <div class="l-grid--3 home-route-grid">
+      {% for path in servicePaths %}
+      <article class="surface-card home-route-card">
+        <h3 class="card-title">{{ path.title }}</h3>
+        <p>{{ path.body }}</p>
+        <a class="home-inline-link"
+          href="{{ path.href }}"
+          data-analytics-event="service_interest"
+          data-analytics-service="{{ path.analyticsService }}"
+          data-analytics-surface="homepage_service_paths">
+          {{ path.label }}
+        </a>
+      </article>
+      {% endfor %}
+    </div>
   </section>
-  <section class="card">
-    <h2 class="card-title">What You'll Find Here</h2>
-    <p>Current iteration of the site has AI integration through OpenAI's Codex and GitHub Copilot extensions providing support in VS Code. Most often, I use these tools to help with bulk code generation and debugging. <br>
-    If you're interested in digging into what is going on behind the scenes, check out the <a href="https://github.com/eetazeeba/eetazeeba.github.io" target="_blank" rel="noopener noreferrer">GitHub repository for this site</a>.
-    The README has the basics and I'd be happy to chat about my time getting familiar with 11ty and Decap CMS - the scripts that are doing the heavy lifting.</p>
-    <a class="btn" href="#root">Back to top</a>
+
+  {% set soundcloudWrapper = featuredListening %}
+  {% include "components/soundcloud-wrapper.njk" %}
+
+  <section class="card home-blog" aria-labelledby="home-blog-heading">
+    <div class="home-section-header">
+      <div>
+        <h2 class="card-title" id="home-blog-heading">Field notes for artists allergic to vague advice</h2>
+        <p class="home-section-copy">
+          The blog is where the slower thinking lives: guides, essays, and process notes
+          for decisions that deserve better than panic, folklore, or somebody's thread from 2018.
+        </p>
+      </div>
+      <a class="home-inline-link"
+        href="/blog/"
+        data-analytics-event="blog_engagement"
+        data-analytics-destination="blog_hub"
+        data-analytics-surface="homepage_blog">
+        Raid the library
+      </a>
+    </div>
+
+    <div class="l-grid--3 home-route-grid">
+      {% for bucket in blog.publicBuckets %}
+      <article class="surface-card home-route-card">
+        <h3 class="card-title">{{ bucket.title }}</h3>
+        <p>{{ bucket.landingSummary }}</p>
+        <a class="home-inline-link"
+          href="{{ bucket.url }}"
+          data-analytics-event="blog_engagement"
+          data-analytics-bucket="{{ bucket.title }}"
+          data-analytics-surface="homepage_blog_paths">
+          {{ bucket.ctaLabel }}
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="card card-impact home-final-cta" aria-labelledby="home-final-heading">
+    <div class="l-grid--2 home-final-cta__layout">
+      <div>
+        <h2 class="card-title" id="home-final-heading">Stop circling the gate</h2>
+        <p class="home-section-copy">
+          Show Musifer what you are making, what keeps snagging, and where the next move needs teeth.
+        </p>
+      </div>
+
+      <div class="home-cta-cluster">
+        <a class="btn"
+          href="/services/rates-quote/"
+          data-analytics-event="service_interest"
+          data-analytics-service="rates_quote"
+          data-analytics-surface="homepage_final_cta">
+          Start the quote path
+        </a>
+        <a class="btn btn--secondary"
+          href="/contact/work-with-us/"
+          data-analytics-contact="work_with_us"
+          data-analytics-surface="homepage_final_cta">
+          Send the signal
+        </a>
+      </div>
+    </div>
   </section>
 </div>
