@@ -784,11 +784,11 @@
   margin-bottom: 0;
 }
 
-.home-route-card .home-inline-link {
+.home-route-card .surface-inline-link {
   margin-top: auto;
 }
 
-.home-inline-link {
+.surface-inline-link {
   display: inline-flex;
   width: fit-content;
   max-width: 100%;
@@ -803,14 +803,14 @@
     text-decoration-color 160ms ease;
 }
 
-.home-inline-link:hover,
-.home-inline-link:focus-visible {
+.surface-inline-link:hover,
+.surface-inline-link:focus-visible {
   color: var(--text);
   box-shadow: inset 0 -0.45em 0 rgba(154, 191, 131, 0.46);
   text-decoration-color: currentColor;
 }
 
-.home-inline-link:focus-visible {
+.surface-inline-link:focus-visible {
   outline: 2px solid rgba(43, 32, 57, 0.72);
   outline-offset: 3px;
   border-radius: 0.2rem;
