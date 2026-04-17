@@ -18,7 +18,8 @@
 - Kept homepage-specific styles small and colocated with the existing homepage CSS block.
 - Kept the SoundCloud include contract unchanged.
 - Revised the public homepage copy to make the page feel less generic while preserving the services, blog, listening, and contact paths.
-- Kept homepage inline-link and SoundCloud source-link hover states dark with a visible highlight so links do not disappear on apricot surfaces.
+- Promoted the homepage inline-link treatment into a portable `.surface-inline-link` utility.
+- Kept `.surface-inline-link` and SoundCloud source-link hover states dark with a visible highlight so links do not disappear on apricot surfaces.
 - Gave the base `.btn` a visible border so primary and secondary buttons share the same edge treatment when paired.
 
 ## Files Touched
@@ -44,7 +45,7 @@
 - Checked generated `_site/index.html` for `/services/`, `/blog/`, `/services/rates-quote/`, and `/contact/work-with-us/` routes.
 - Checked generated `_site/index.html` for the ETHERNET_SKY SoundCloud set URL, encoded iframe URL with `auto_play=false`, and direct SoundCloud source link.
 - Checked compiled CSS for homepage layout rules and SoundCloud iframe containment rules.
-- Checked compiled CSS for dark hover/focus link color on homepage inline links and SoundCloud source links.
+- Checked compiled CSS for dark hover/focus link color on `.surface-inline-link` and SoundCloud source links.
 - Checked compiled CSS for a visible base `.btn` border.
 - Tried local Eleventy serving through `npx eleventy --input=src --output=_site --serve --port=8080` and `npm start -- --port=8080`; both built and watched, but port `8080` was not reachable inside this sandbox.
 
