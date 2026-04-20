@@ -35,6 +35,7 @@ Favor correctness, clarity, maintainability, and compatibility with the existing
 ## Safe Defaults
 
 - Treat the checked-out repository contents as the source of truth over earlier generated notes.
+- Treat GitHub Issues + GitHub Project as the canonical backlog/issue intake system; treat `docs/issues/` as historical archive context unless a task explicitly reopens that workflow.
 - When reporting file references in saved docs, optimize for portability and human readability first.
 
 ## Workflow
@@ -43,6 +44,12 @@ Favor correctness, clarity, maintainability, and compatibility with the existing
 - Use short-lived feature branches for normal work.
 - Before switching devices, prefer committing and pushing the active branch.
 - Resume the same branch on the other device rather than recreating work from `main`.
+
+## Planning Taxonomy
+- Default project-management vocabulary is `Saga` > `Arc` > `Episode`.
+- Use an `Arc` for each major migration/workstream chunk.
+- Use `Episode` for actionable implementation steps inside an `Arc`.
+- Completion notes should state outcomes in this form: `Arc X <name> is complete after Episodes ... were completed.`
 
 ## Expected Task Flow
 For non-trivial tasks:

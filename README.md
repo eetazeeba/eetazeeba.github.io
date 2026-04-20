@@ -5,6 +5,7 @@
 - Content managed in Markdown/front matter files.
 - Optional Decap CMS admin interface for editing content.
 - GitHub remains the source-of-truth repo for code, content, and normal CI/CD workflow context.
+- Canonical backlog and issue tracking is now managed through GitHub Issues + GitHub Project using the intake templates in `.github/ISSUE_TEMPLATE/`; `docs/issues/` is historical archive context and is no longer the intake source for new backlog items.
 - Phase 1 direction is set: the repo targets `musifer.studio` as the canonical public domain on transitional GitHub Pages, while live custom-domain activation still depends on external Pages/DNS verification and Vercel and Proton remain later-phase work.
 
 ## Core stack and infrastructure

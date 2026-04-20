@@ -2,7 +2,7 @@ name: Bug / Regression
 description: Report broken behavior, regressions, functional errors, accessibility failures, and other defects that need investigation.
 title: "[Bug]: "
 labels:
-  - bug
+  - type:bug
   - needs-triage
 body:
   - type: input
@@ -27,7 +27,7 @@ body:
     id: status
     attributes:
       label: Status
-      description: Intake status for the issue.
+      description: Intake status for the issue. Use WON'T FIX only for explicit resolution/disposition.
       options:
         - NEW
         - TRIAGED
@@ -39,6 +39,32 @@ body:
       default: 0
     validations:
       required: true
+
+  - type: dropdown
+    id: arc
+    attributes:
+      label: Arc
+      description: Optional arc/workstream grouping for roadmap tracking.
+      options:
+        - unknown
+        - Arc 1 - Domain + Pages
+        - Arc 2 - Vercel
+        - Arc 3 - Proton
+        - Arc - Analytics
+        - Arc - Blog Rollout
+        - Arc - Navigation Refresh
+        - Arc - Visual Update
+    validations:
+      required: false
+
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      description: Optional component/pattern name for triage filtering.
+      placeholder: compact-drawer, header-nav, module-rail, blog-article-hero
+    validations:
+      required: false
 
   - type: dropdown
     id: priority
@@ -177,6 +203,8 @@ body:
       label: Likely Root Area
       description: Optional best-guess source of the issue.
       options:
+        - unknown
+        - navigation
         - markup / template structure
         - CSS layout
         - responsive behavior
@@ -184,9 +212,18 @@ body:
         - content model
         - navigation data
         - metadata / SEO handling
+        - analytics instrumentation
         - build / deployment
         - third-party integration
-        - unknown
+    validations:
+      required: false
+
+  - type: textarea
+    id: proposed_direction
+    attributes:
+      label: Proposed Direction
+      description: Optional. Capture likely fix direction without requiring a full implementation plan.
+      placeholder: Describe the likely direction for resolving the issue.
     validations:
       required: false
 

@@ -26,5 +26,7 @@ Notes
 - Primary tracker remains at `docs/high-level-project-tracking.md` for quick top-level access.
 - Infrastructure rollout sequencing should now be anchored from `domain-hosting-email-rollout-plan.md`.
 - Audits remain in `docs/audits/`.
-- Issue/backlog logs remain in `docs/issues/`.
+- Active issue/backlog intake now lives in GitHub Issues + GitHub Project (using `.github/ISSUE_TEMPLATE/` forms).
+- `docs/issues/` remains as historical archive context, evidence indexing, and migration traceability.
+- Planning outputs should use the shared project taxonomy: `Saga` > `Arc` > `Episode`.
 - Content/IA reference docs such as `docs/cms-content-spec.md` and `docs/sitemap.md` remain at `docs/` root.

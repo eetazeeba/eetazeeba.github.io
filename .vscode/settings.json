@@ -1,4 +1,19 @@
 {
     "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.shellIntegration.enabled": false
+    "terminal.integrated.shellIntegration.enabled": false,
+ // WSL: Ubuntu workspace Copilot auto-approve settings. Potential to refactor to be more generic in the future.
+    "chat.tools.terminal.autoApprove": {
+        "/^export PATH=\"\\$HOME/\\.local/bin:\\$PATH\"; gh issue list --repo eetazeeba/eetazeeba\\.github\\.io --state open --limit 20$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^export PATH=\"\\$HOME/\\.local/bin:\\$PATH\"; gh issue list --repo eetazeeba/eetazeeba\\.github\\.io --state all --limit 20$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^export PATH=\"\\$HOME/\\.local/bin:\\$PATH\"; gh issue view 12 --repo eetazeeba/eetazeeba\\.github\\.io --json number,title,state,body,url$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
 }

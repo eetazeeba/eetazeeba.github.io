@@ -1,7 +1,12 @@
 # Deferred Polish Feedback Log
 
+Status
+- Historical archive as of `2026-04-20 UTC`.
+- New polish intake must be filed in GitHub Issues using `.github/ISSUE_TEMPLATE/polish-feedback.yml` and tracked in the canonical GitHub Project.
+- This file is retained for migration traceability and completed historical records.
+
 Purpose
-- Track deferred visual/UX polish issues for future patches without mixing them into active implementation phase plans.
+- Preserve deferred visual/UX polish history recorded before GitHub Issues + GitHub Project became the canonical backlog system.
 
 Priority legend
 - `P0` = critical

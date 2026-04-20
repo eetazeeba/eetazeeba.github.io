@@ -2,7 +2,7 @@ name: Polish Feedback
 description: Capture polish issues, UX friction, visual inconsistencies, and related follow-up work.
 title: "[Polish]: "
 labels:
-  - polish
+  - type:polish
   - needs-triage
 body:
   - type: input
@@ -27,7 +27,7 @@ body:
     id: status
     attributes:
       label: Status
-      description: Intake status for the issue.
+      description: Intake status for the issue. Use WON'T FIX only for explicit resolution/disposition.
       options:
         - NEW
         - TRIAGED
@@ -39,6 +39,32 @@ body:
       default: 0
     validations:
       required: true
+
+  - type: dropdown
+    id: arc
+    attributes:
+      label: Arc
+      description: Optional arc/workstream grouping for roadmap tracking.
+      options:
+        - unknown
+        - Arc 1 - Domain + Pages
+        - Arc 2 - Vercel
+        - Arc 3 - Proton
+        - Arc - Analytics
+        - Arc - Blog Rollout
+        - Arc - Navigation Refresh
+        - Arc - Visual Update
+    validations:
+      required: false
+
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      description: Optional component/pattern name for triage filtering.
+      placeholder: compact-drawer, header-nav, module-rail, blog-article-hero
+    validations:
+      required: false
 
   - type: dropdown
     id: priority
@@ -122,6 +148,8 @@ body:
       label: Likely Root Area
       description: Optional best-guess source of the issue.
       options:
+        - unknown
+        - navigation
         - markup / template structure
         - CSS layout
         - responsive behavior
@@ -129,7 +157,9 @@ body:
         - content model
         - navigation data
         - metadata / SEO handling
-        - unknown
+        - analytics instrumentation
+        - build / deployment
+        - third-party integration
     validations:
       required: false
 

@@ -4,6 +4,13 @@ Purpose
 - Keep operational and migration context out of the top-level README.
 - Track the current branch/deployment model and near-term implementation focus.
 
+## Issue tracking source of truth (2026-04-20 UTC)
+- Canonical issue/backlog intake and lifecycle tracking now lives in GitHub Issues + GitHub Project.
+- This applies to all backlog streams previously tracked under `docs/issues/`.
+- `docs/issues/` is retained as historical archive context and evidence indexing, not a source for new intake.
+- New issue intake should use `.github/ISSUE_TEMPLATE/bug-regression.yml` or `.github/ISSUE_TEMPLATE/polish-feedback.yml`.
+- Existing `FB-###` references may be preserved in issue titles/bodies for migration traceability.
+
 ## Current operating model (2026-03-13)
 - Canonical source branch and clean sync/deploy branch: `main`
 - Daily work happens on short-lived feature branches merged back through reviewed pull requests.
