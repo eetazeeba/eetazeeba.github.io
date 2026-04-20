@@ -1,0 +1,12 @@
+I'm not a fan of the resulting wide cell. With text planned to be a certain width, the content will read quite differently in different viewports. Explore the steps necessary to use the new `Flame_Element.svg` (src/_assets/Images/Flame_Element.svg) as filler blocks to maintain "justified" surface card elements.
+
+Warning!! Pages' treatment of surfaces are drifting apart significantly, presenting semanticly similar but practically inconsistent. 
+
+Examples:
+`home/root` built from <section> "surfaces" populated by <article> surface-card elements
+
+`About` surfaces are a mix of top level <section> and <article> surfaces. These top level <article> surfaces are not even self consistent with a mix of <p>, <ol> and <div> elements containing copy.
+
+`Blog` and `Services` have less drift in the overall use of surfaces, though there are some oddities. The <aside> in the `Services` hero section that is unique to that page. Another instance of an <ol> similar to `About`, but with a "grid" treatment instead of "pillar".
+
+Important 

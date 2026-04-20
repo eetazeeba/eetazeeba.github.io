@@ -121,49 +121,6 @@ Common rollout issue buckets
 - Notes:
   - Planning-only item for a future polish pass; no behavior rewrite.
 
-### FB-003 - Grid dead-space handling in uneven content cells
-- Priority: `P2`
-- Status: `triaged`
-- Area: `about, phase-4-layout, grid-composition`
-- Reported: `2026-03-07`
-- Source: `user screenshot feedback`
-- Related phase: `Phase 4 content-module refinement`
-- Files likely impacted:
-  - `src/_assets/CSS/_layout.scss`
-  - `src/_assets/CSS/_components.scss`
-  - `src/about/index.njk`
-- Evidence (screenshots):
-  - `docs/issues/screenshots/FB-003-01-grid-dead-space.png`
-- Problem statement:
-  - Some grid compositions can leave visually dead/empty space when adjacent cells have uneven content height.
-- Screenshot-derived symptoms:
-  - A cell leaves a noticeable gap that reads unfinished in the current composition.
-  - Nearby content has enough visual weight to potentially absorb/fill the gap.
-- Repro steps:
-  1. Open the affected About grid section shown in `FB-003-01-grid-dead-space.png`.
-  2. Compare neighboring card heights in the same grid row.
-  3. Observe dead space that breaks visual continuity.
-- User impact:
-  - The page can feel less intentional/polished where empty grid pockets appear.
-- Proposed direction:
-  - Add an explicit strategy for dead-space handling in reusable grid modules:
-  - option A: fill with a decorative/supporting asset block.
-  - option B: allow controlled overflow/span from adjacent content cell where appropriate.
-  - Keep behavior reusable and not one-off to `/about/`.
-- Acceptance criteria:
-  1. Dead-space handling rule is defined and reusable.
-  2. Affected grid section no longer shows an obvious empty pocket.
-  3. Mobile reading order remains linear and accessible.
-  4. No regressions in existing grid/rail behavior.
-- Notes:
-  - Priority requested as `P2/3`; tracked as `P2` under current legend.
-  - Update `2026-03-11`: a same-day `services` layout fix widened the large-screen shell and removed dense three-column card internals, which improved readability in the immediate failing sections.
-  - That fix also re-surfaced the broader "progressive bleed" concern at larger resolutions, where extra horizontal room can make uneven adjacent modules and trailing dead-space pockets more noticeable again.
-  - Follow-up should treat this as a reusable composition problem, not a `services`-only bug:
-    - review how wider shells interact with uneven card stacks
-    - define when cards should rebalance, span, or collapse to fewer columns
-    - verify that any dead-space mitigation does not reintroduce narrow-copy columns or overflow regressions
-
 ### FB-004 - Rail navigation affordance and optional position pips
 - Priority: `P3`
 - Status: `planned`
@@ -317,6 +274,21 @@ Common rollout issue buckets
   - `docs/issues/screenshots/FB-002-02-mobile-overflow.png`
   - `docs/issues/screenshots/FB-002-postfix-375x812.png`
   - `docs/issues/screenshots/FB-002-postfix-992x900.png`
+
+### FB-003 - Grid dead-space handling in uneven content cells
+- Priority: `P2`
+- Status: `done`
+- Completed: `2026-04-18`
+- Resolution summary:
+  - Audited the shared `l-grid*` primitives, legacy `.grid`, rail/card-stack modules, and active Home/About/Services/Blog grid compositions before implementation.
+  - Chosen direction: Option C, refining the shared `l-grid--3` medium breakpoint so an odd trailing item spans the temporary two-column row instead of leaving an empty pocket.
+  - The affected About callout composition now uses the shared rule with no About-only class or markup exception; existing Home route grids and Blog priority triads inherit the same handling automatically.
+- Evidence:
+  - `docs/issues/screenshots/FB-003-01-grid-dead-space.png`
+- Notes:
+  - Files changed: `src/_assets/CSS/_layout.scss`, `src/_assets/CSS/styles.css`, `docs/planning/responsive-layout-phase-4-content-modules-implementation-brief.md`, and `docs/issues/deferred-polish-feedback-log.md`.
+  - QA performed: `npm run build:css`, `npm run build`, and generated-output checks for About, Home, Blog, and Services grid/rail surfaces at narrow, medium, and wide expectations.
+  - Follow-up cleanup opportunity: Services and Blog still have deliberate page-specific grid variants for dense route/process layouts; leave them alone unless future drift shows the same behavior being reimplemented outside the shared primitive.
 
 ### FB-007 - Blog article update-time visibility and CMS timestamp precision
 - Priority: `P2`
