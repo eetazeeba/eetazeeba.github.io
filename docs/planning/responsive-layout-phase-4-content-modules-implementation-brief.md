@@ -3,7 +3,7 @@
 Status
 - Parent roadmap: `docs/planning/responsive-layout-navigation-refresh-plan.md` (Phase 4)
 - Brief status: implementation state documentation
-- Last updated: 2026-03-07
+- Last updated: 2026-04-18
 - Implementation state: complete baseline for Phase 4 system primitives/modules
 
 ## 1) Scope and outcome
@@ -25,7 +25,7 @@ What Phase 4 did not deliver
 - `.l-module-stack`: vertical module rhythm wrapper.
 - `.l-grid`: base 1-column grid wrapper.
 - `.l-grid--2`: 1-column default, upgrades to 2 columns at `>=768px`.
-- `.l-grid--3`: 1-column default, upgrades to 2 columns at `>=768px`, 3 columns at `>=992px`.
+- `.l-grid--3`: 1-column default, upgrades to 2 columns at `>=768px`, 3 columns at `>=992px`; an odd trailing item spans the temporary 2-column row at `768-991px` to avoid dead grid pockets.
 
 ### Module/container classes (`_components.scss`)
 - `.module-rail`: horizontal overflow rail with card-width clamps and gap rhythm.
@@ -126,6 +126,7 @@ Narrow (`0-767px`)
 
 Medium (`768-991px`)
 - `l-grid--2` and `l-grid--3` activate 2-column composition.
+- `l-grid--3` balances odd trailing items across both columns in this temporary 2-column state.
 - Gutters and stack/grid gaps increase progressively.
 
 Wide (`992-1199px`)
@@ -156,11 +157,16 @@ Results
 - Keyboard focus can scroll rail content into view when focusable controls are present.
 - Horizontal wheel-delta scrolling changes rail position as expected in desktop viewport checks.
 - Density/emphasis modifiers produce distinct, additive visual changes while preserving readable line-height.
-- No corrective code changes were required in this pass.
+- No corrective code changes were required in the original Phase 4 final pass; the later FB-003 grid refinement is recorded below.
 
 Known constraints for future page adoption
 - Current `/about/` rail preview cards are intentionally inert; when real links/buttons are introduced, keep them inside the existing rail/card contract.
 - Avoid adding global overflow clipping (`html/body overflow-x hidden`) as a substitute for container-level width fixes.
+
+FB-003 follow-up (`2026-04-18`)
+- Grid audit confirmed the reported About dead-space pocket came from the shared `l-grid--3` medium breakpoint, not an About-only composition failure.
+- The shared `l-grid--3` rule now lets an odd trailing item span the temporary 2-column row at `768-991px`.
+- Future 3-up card groups should use this shared primitive before adding page-specific last-card span helpers.
 
 ## 7) Deferred items after Phase 4
 
