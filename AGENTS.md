@@ -60,6 +60,7 @@ Favor correctness, clarity, maintainability, and compatibility with the existing
 
 ## GitHub CLI (gh) — shell environment constraints
 - No browser opener (`xdg-open`) is present; `gh auth login --web` requires manually opening the device-code URL.
+- `jq` is available in the local shell environment and should be preferred for structured `gh api` parsing when JSON verification is needed.
 - Multiline `--body "..."` strings and heredoc (`<<'EOF'`) inputs are unreliable in chat-driven terminal sessions.
 - Safe pattern for `gh issue create`: use `--body-file <file>` or a single escaped Bash string `--body $'line1\nline2'`.
 

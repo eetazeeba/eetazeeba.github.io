@@ -17,10 +17,12 @@ Execution contract:
 4. Return exact manual non-interactive commands when blocked.
 5. Keep commands single-line and deterministic.
 6. For issue creation bodies, prefer `--body-file`; avoid heredoc and multiline quoted `--body "..."`.
+7. Prefer `gh api` plus `jq` for structured GitHub verification and mutation checks when JSON output is involved.
 
 Phase order:
 1. Preflight
 - Confirm command execution path in the active terminal.
+- Confirm `jq` is available when the workflow depends on JSON parsing or parity checks.
 - Confirm `gh` authentication and target repo access.
 - Confirm current live state of the mutation target.
 2. Read-only verification
