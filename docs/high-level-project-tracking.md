@@ -90,10 +90,10 @@ Purpose
   - keep the default GitHub Pages hostname available until the custom domain is stable
   - avoid adding Vercel or Proton records during Phase 1
 
-## Historical wireframe preview note (2026-03-10)
-- docs/wireframe-playground/ was an experimental-only local wireframe workspace, not a main repo workspace.
-- The path is not present in this checkout of main.
-- .github/workflows/guard-experimental-only-main.yml explicitly blocks that path from landing on main.
+## Resolved: Wireframe playground cleanup (2026-04-26)
+- docs/wireframe-playground/ was an experimental-only local Vite/React wireframe workspace (created 2026-03-10, removed 2026-04-26).
+- The directory and associated guard check have been completely removed from the repo.
+- Guard workflow updated to remove the wireframe-playground blocking logic.
 
 ## CMS operational notes
 - Decap config path: `src/admin/config.yml`
