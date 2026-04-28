@@ -1,22 +1,25 @@
 # Contact Form Microsoft 365 Graph Setup
 
+Status
+- Completed implementation on `experimental` and validated with a successful form submission test (`2026-04-27`).
+- Pull request to merge implementation into `main`: `#29`.
+
 Purpose
 - Record the Microsoft 365 / Exchange Online setup used by `api/contact.js` to send Contact form email via Microsoft Graph using certificate-based app authentication.
 
 Current State
 - `api/contact.js` accepts validated contact submissions and returns normalized JSON responses.
 - SMTP AUTH/app-password workflow is deprecated for this project path.
-- Graph API with Entra app certificate is the current implementation direction.
+- Graph API with Entra app certificate is implemented and currently the supported delivery path.
 
 Recommended Delivery Path
 - Use Microsoft Graph API `users/{sender}/sendMail` with OAuth2 client credentials and certificate-based client assertion.
 - Keep sender and receiver mailbox defaults at `contact@musifer.studio` unless product requirements change.
 
-Required Decisions
-- Choose the sending mailbox account used by the site, for example a dedicated address such as `contact@musifer.studio`.
-- Confirm whether the mailbox uses MFA.
-- If MFA is enabled, confirm whether an app password is available or whether the tenant instead requires a Microsoft Graph API integration.
-- Confirm the recipient address for site contact submissions. This can match the sending mailbox or route to a separate inbox.
+Operational Decisions Confirmed
+- Sender mailbox: `contact@musifer.studio`.
+- Recipient mailbox: `contact@musifer.studio`.
+- Authentication mode: Entra app certificate assertion (no client secret/app password).
 
 Environment Variables
 - `CONTACT_EMAIL_TO`
@@ -84,10 +87,15 @@ Validation And Test Steps
 4. Confirm invalid email or missing required fields still fail before network submission on the client.
 5. Inspect Vercel function logs for Graph token or sendMail failures.
 
+Validation Outcome (2026-04-27)
+- Contact form submission was tested successfully end-to-end and delivered to the configured mailbox.
+- Prior SMTP-specific path was replaced by Graph certificate auth in `api/contact.js`.
+
 Fallback Path
 - If certificate auth cannot be supported in deployment constraints, use a short-lived client secret plus secret rotation policy as a temporary fallback.
 
 Notes
 - Do not commit credentials to the repository.
+- Certificate and private-key material should be kept in a credential manager and Vercel environment variables only.
 - Keep `.env.local` local-only.
 - Preserve the existing generic success and failure UI copy unless product requirements change.

@@ -7,7 +7,6 @@ Purpose
 ## Active References
 - [domain-hosting-email-rollout-plan.md](domain-hosting-email-rollout-plan.md): current infrastructure rollout sequence for Porkbun -> GitHub Pages -> Vercel -> Proton.
 - [analytics-feasibility-and-implementation-plan.md](analytics-feasibility-and-implementation-plan.md): current analytics feasibility/status reference; near-term direction remains Umami.
-- [contact-form-microsoft-365-smtp-setup.md](contact-form-microsoft-365-smtp-setup.md): implementation note for wiring Contact form delivery via Microsoft Graph certificate auth and Vercel environment variables.
 - [SEO/strategy.md](SEO/strategy.md), [SEO/schema-plan.md](SEO/schema-plan.md), and [SEO/launch-checklist.md](SEO/launch-checklist.md): current SEO policy, schema guidance, and launch-validation reference set.
 
 ## Historical Implementation Notes and Completed Records
@@ -17,6 +16,7 @@ Purpose
 - [responsive-layout-navigation-refresh-plan.md](responsive-layout-navigation-refresh-plan.md): completed responsive/navigation roadmap retained for planning and implementation traceability.
 - [jamstack-main-migration-plan.md](jamstack-main-migration-plan.md): completed branch-consolidation and cutover record.
 - [domain-direction-musifer-studio-art.md](domain-direction-musifer-studio-art.md): historical domain naming decision record; live rollout sequencing now belongs to the rollout plan.
+- [contact-form-microsoft-365-smtp-setup.md](contact-form-microsoft-365-smtp-setup.md): completed Contact delivery implementation record (Graph certificate auth), retained as operational maintenance reference.
 
 ## Supporting Drafts and Experiments
 - [responsive-layout-phase-4-content-modules-implementation-brief.md](responsive-layout-phase-4-content-modules-implementation-brief.md): implementation-state brief for the completed Phase 4 module system.

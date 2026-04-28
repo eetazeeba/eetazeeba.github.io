@@ -95,6 +95,12 @@ Purpose
 - The directory and associated guard check have been completely removed from the repo.
 - Guard workflow updated to remove the wireframe-playground blocking logic.
 
+## Resolved: Contact Graph email delivery (2026-04-27)
+- Contact form submission now uses the repo-local API endpoint with Microsoft Graph certificate-based delivery.
+- End-to-end submission test was completed successfully and delivered to the configured business mailbox.
+- SMTP/app-password path is retired for this workflow.
+- Implementation branch/PR reference: `experimental` via PR `#29` into `main`.
+
 ## CMS operational notes
 - Decap config path: `src/admin/config.yml`
 - CMS branch target: `main`
