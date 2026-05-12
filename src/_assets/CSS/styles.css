@@ -137,7 +137,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: var(--font-body);
-  background: linear-gradient(180deg, var(--amethyst) 0, var(--amethyst) calc(100% - 14rem), var(--dark-amethyst) calc(100% - 8rem), var(--dark-amethyst) 100%);
+  background: linear-gradient(180deg, var(--amethyst) 0, var(--amethyst) calc(100% - 14rem), var(--dark-amethyst) calc(100% - 10rem), var(--dark-amethyst) 100%);
   color: var(--text);
   line-height: 1.5;
 }
@@ -157,7 +157,6 @@ body.page-atmosphere::before {
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 0;
-  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.84) 22%, rgba(0, 0, 0, 0.58) 56%, rgba(0, 0, 0, 0.2) 82%, transparent 100%);
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.84) 22%, rgba(0, 0, 0, 0.58) 56%, rgba(0, 0, 0, 0.2) 82%, transparent 100%);
 }
 
@@ -271,11 +270,92 @@ main {
 }
 
 footer {
-  text-align: center;
-  padding: 2rem 1rem;
+  background: var(--dark-amethyst);
+  width: 100%;
+  padding: 2rem 0;
   color: var(--muted);
   font-size: 0.9rem;
   margin-top: auto;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "social" "legal" "copyright";
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .footer-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "social legal" "copyright copyright";
+    column-gap: 2rem;
+    row-gap: 1rem;
+    align-items: start;
+  }
+  .footer-social {
+    justify-self: end;
+    text-align: right;
+  }
+  .footer-social ul {
+    align-items: flex-end;
+  }
+  .footer-legal {
+    justify-self: start;
+    text-align: left;
+  }
+  .footer-legal ul {
+    align-items: flex-start;
+  }
+  .footer-copyright {
+    justify-self: center;
+    text-align: center;
+  }
+}
+.footer-legal {
+  grid-area: legal;
+}
+
+.footer-legal ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.footer-social {
+  grid-area: social;
+  text-align: left;
+}
+
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.footer-copyright {
+  grid-area: copyright;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-social a,
+.footer-legal a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-social a:hover,
+.footer-legal a:hover {
+  text-decoration: underline;
 }
 
 /* Phase 4 step 1 primitives: reusable shell and stack wrappers. */
@@ -2045,5 +2125,3 @@ footer {
   border: 1px solid rgba(199, 141, 87, 0.45);
   color: var(--text);
 }
-
-/*# sourceMappingURL=styles.css.map */

@@ -17,7 +17,7 @@ body {
     180deg,
     var(--amethyst) 0,
     var(--amethyst) calc(100% - 14rem),
-    var(--dark-amethyst) calc(100% - 8rem),
+    var(--dark-amethyst) calc(100% - 10rem),
     var(--dark-amethyst) 100%
   );
   color: var(--text);
@@ -39,14 +39,6 @@ body.page-atmosphere::before {
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 0;
-  -webkit-mask-image: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.92) 0%,
-    rgba(0, 0, 0, 0.84) 22%,
-    rgba(0, 0, 0, 0.58) 56%,
-    rgba(0, 0, 0, 0.2) 82%,
-    transparent 100%
-  );
   mask-image: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.92) 0%,

@@ -64,11 +64,103 @@ main {
 }
 
 footer {
-  text-align: center;
-  padding: 2rem 1rem;
+  background: var(--dark-amethyst);
+  width: 100%;
+  padding: 2rem 0;
   color: var(--muted);
   font-size: 0.9rem;
   margin-top: auto;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "social"
+    "legal"
+    "copyright";
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .footer-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "social legal"
+      "copyright copyright";
+    column-gap: 2rem;
+    row-gap: 1rem;
+    align-items: start;
+  }
+
+  .footer-social {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .footer-social ul {
+    align-items: flex-end;
+  }
+
+  .footer-legal {
+    justify-self: end;
+    text-align: right;
+  }
+
+  .footer-legal ul {
+    align-items: anchor-center;
+  }
+
+  .footer-copyright {
+    justify-self: center;
+    text-align: center;
+  }
+}
+
+.footer-legal {
+  grid-area: legal;
+}
+
+.footer-legal ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.footer-social {
+  grid-area: social;
+  text-align: left;
+}
+
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.footer-copyright {
+  grid-area: copyright;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-social a,
+.footer-legal a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-social a:hover,
+.footer-legal a:hover {
+  text-decoration: underline;
 }
 
 /* Phase 4 step 1 primitives: reusable shell and stack wrappers. */
