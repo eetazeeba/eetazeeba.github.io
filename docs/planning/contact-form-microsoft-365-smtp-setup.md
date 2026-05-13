@@ -1,5 +1,12 @@
 # Contact Form Microsoft 365 Graph Setup
 
+Status
+- Primary: active
+- Updated: 2026-05-13
+- Current reference: docs/planning/domain-hosting-email-rollout-plan.md
+- Note: Active operational baseline for Contact form delivery via Microsoft Graph.
+
+
 Purpose
 - Record the Microsoft 365 / Exchange Online setup used by `api/contact.js` to send Contact form email via Microsoft Graph using certificate-based app authentication.
 
@@ -7,16 +14,27 @@ Current State
 - `api/contact.js` accepts validated contact submissions and returns normalized JSON responses.
 - SMTP AUTH/app-password workflow is deprecated for this project path.
 - Graph API with Entra app certificate is the current implementation direction.
+- Default sender mailbox is `contact@musifer.studio`.
+- Default recipient mailbox is `contact@musifer.studio`.
+- MFA is enabled for Microsoft 365 users.
+- Domain and hosting rollout dependencies are complete; this path operates on the current Vercel + `musifer.studio` baseline.
 
 Recommended Delivery Path
 - Use Microsoft Graph API `users/{sender}/sendMail` with OAuth2 client credentials and certificate-based client assertion.
 - Keep sender and receiver mailbox defaults at `contact@musifer.studio` unless product requirements change.
 
-Required Decisions
-- Choose the sending mailbox account used by the site, for example a dedicated address such as `contact@musifer.studio`.
-- Confirm whether the mailbox uses MFA.
-- If MFA is enabled, confirm whether an app password is available or whether the tenant instead requires a Microsoft Graph API integration.
-- Confirm the recipient address for site contact submissions. This can match the sending mailbox or route to a separate inbox.
+Mailbox Authority and Ownership Model
+- Business owner (site operator) is decision authority for mailbox policy, retention policy, and public-routing changes.
+- Operational mailbox baseline for site contact path is `contact@musifer.studio` for both sender identity and receiver inbox.
+- Tenant/admin authority controls Entra app registration, certificate lifecycle, permission grants, and Conditional Access policy outcomes.
+- Development authority controls implementation in `api/contact.js`, deployment wiring, and non-secret operational documentation updates.
+- Change-control expectation: mailbox identity or routing changes must be reflected in this document and `docs/high-level-project-tracking.md` in the same task.
+
+Resolved Decisions (2026-05-13)
+- Sender mailbox default: `contact@musifer.studio`.
+- Recipient mailbox default: `contact@musifer.studio`.
+- MFA posture: enabled for Microsoft 365 users.
+- Integration path: Microsoft Graph API remains the required delivery path.
 
 Environment Variables
 - `CONTACT_EMAIL_TO`
@@ -69,10 +87,10 @@ Implementation Steps In Code
 6. On Graph auth/send failure, log server-side details and return a normalized error result from `sendEmail()`.
 7. Keep user-facing API responses generic; do not expose provider details to the client.
 
-Suggested Runtime Values
-- `GRAPH_CLIENT_ID`: `c70a07da-501a-471e-9b9c-5f7091e97d1b`
-- `GRAPH_TENANT_ID`: `c02e40f9-9673-46a4-8bfc-b371b1a44438`
-- `GRAPH_CERT_THUMBPRINT`: `5BEE7A13E996820C2988C438CC3B364A0B039769`
+Runtime Identifier Policy
+- Planning docs should reference where runtime identifiers are managed (Entra app registration, certificate records, and deployment environment dashboards) instead of recording concrete runtime IDs/thumbprints inline.
+- If runtime identifiers are temporarily recorded for implementation support, remove them when the implementation task is complete.
+- Keep secrets and private key material out of repo docs at all times.
 
 Validation And Test Steps
 1. Add the environment variables locally in `.env.local` or use `vercel env pull` for local testing.
@@ -91,3 +109,4 @@ Notes
 - Do not commit credentials to the repository.
 - Keep `.env.local` local-only.
 - Preserve the existing generic success and failure UI copy unless product requirements change.
+- Domain/hosting phase gating is complete; this operational note now tracks steady-state contact delivery on the active infrastructure baseline.

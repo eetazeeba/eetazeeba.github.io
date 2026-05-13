@@ -1,12 +1,73 @@
-I'm not a fan of the resulting wide cell. With text planned to be a certain width, the content will read quite differently in different viewports. Explore the steps necessary to use the new `Flame_Element.svg` (src/_assets/Images/Flame_Element.svg) as filler blocks to maintain "justified" surface card elements.
 
-Warning!! Pages' treatment of surfaces are drifting apart significantly, presenting semanticly similar but practically inconsistent. 
+Agent/Instruction Improvement Areas
 
-Examples:
-`home/root` built from <section> "surfaces" populated by <article> surface-card elements
+1) Enforce no-H1 fallback handling for status passes.
+- Decision point: when a file lacks a top `#` heading, choose between auto-inserting H1 or applying compact `Status note` at top.
+- Target files: docs/audits/weekly-repo-sweep/2026-03-15-codex-review.md and any future report-style docs.
 
-`About` surfaces are a mix of top level <section> and <article> surfaces. These top level <article> surfaces are not even self consistent with a mix of <p>, <ol> and <div> elements containing copy.
+2) Add explicit duplicate-status cleanup rule in banner workflows.
+- Decision point: when a compliant banner is inserted, either remove old `Status note:` lines or convert old status blocks into non-status context headings.
+- Target files: docs/planning/services-landing-implementation.md, docs/planning/blog-landing-implementation.md, docs/planning/responsive-layout-navigation-refresh-plan.md, docs/issues/deferred-polish-feedback-log.md.
 
-`Blog` and `Services` have less drift in the overall use of surfaces, though there are some oddities. The <aside> in the `Services` hero section that is unique to that page. Another instance of an <ol> similar to `About`, but with a "grid" treatment instead of "pillar".
+3) Standardize allowed "Current reference" value types.
+- Decision point: define whether non-file references (for example, GitHub Issues/Project) are allowed plain text or require a repo doc proxy.
+- Target files: docs/issues/deferred-polish-feedback-log.md, docs/issues/screenshots/README.md.
 
-Important 
+4) Add WORKING-folder default classification guidance.
+- Decision point: default `docs/WORKING/*` to `historical + snapshot` unless user marks exceptions as active.
+- Target files: docs/WORKING/homepage-landing-refresh.md, docs/WORKING/soundcloud-wrapper-first-pass.md, docs/WORKING/visual-update-vellum-atmosphere.md.
+
+5) Clarify active vs historical boundary for pointer/index docs.
+- Decision point: index-pointer docs can be `active` only when they are maintained live entry points; otherwise label `historical` and reference the latest canonical doc.
+- Target files: docs/audits/css-refresh-conflict-audit.md, docs/planning/README.md.
+
+6) Add promotion path for long-lived active WORKING notes.
+- Decision point: if active for >1 cycle, promote to a dedicated planning/source-of-truth doc and keep WORKING note as historical snapshot.
+- Target files: docs/WORKING/visual-update-vellum-atmosphere.md, docs/WORKING/soundcloud-wrapper-first-pass.md.
+
+---
+
+Recommended status-label fixes only (reference, condensed)
+
+1) Normalize to Doc Status Banners format in all docs without compliant banner blocks.
+- Add under H1:
+	Status
+	- Primary: <status>
+	- Secondary: <optional draft|snapshot|needs-review>
+	- Updated: 2026-05-12
+	- Current reference: <when applicable>
+	- Note: <one-line reader guidance>
+
+2) Source-of-truth priority targets.
+- docs/high-level-project-tracking.md: Primary source-of-truth.
+- docs/planning/domain-hosting-email-rollout-plan.md: Primary source-of-truth.
+- docs/planning/README.md: Primary source-of-truth.
+- docs/planning/SEO/strategy.md: Primary source-of-truth.
+- docs/workflows/two-device-development-routine.md: Primary source-of-truth.
+
+3) Convert free-form status notes to structured banners.
+- docs/planning/services-landing-implementation.md: Primary historical; Secondary snapshot; Current reference docs/high-level-project-tracking.md.
+- docs/planning/blog-landing-implementation.md: Primary historical; Secondary snapshot.
+- docs/planning/responsive-layout-navigation-refresh-plan.md: Primary historical; Secondary snapshot.
+- docs/planning/analytics-rollout-plan.md: Primary historical; Secondary snapshot; Current reference docs/high-level-project-tracking.md.
+- docs/issues/deferred-polish-feedback-log.md: Primary historical; Current reference GitHub Issues/Project note in banner text.
+
+4) Apply historical banners to audit/report/WORKING clusters.
+- All files under docs/audits, docs/planning/Reports, and docs/WORKING should get Primary historical unless intentionally active template/index docs.
+- Exceptions to keep active: docs/audits/css-refresh-conflict-audit-template.md and docs/audits/css-refresh-conflict-audit.md.
+
+5) Mark `draft` qualifier where title indicates draft.
+- docs/cms-content-spec.md: Primary active; Secondary draft.
+- docs/sitemap.md: Primary active; Secondary draft.
+- docs/planning/privacy-policy-draft.md: Primary active; Secondary draft or needs-review.
+
+6) Optional: resolve historical vs superseded ambiguity.
+- If stronger replacement signaling is desired, classify docs/planning/analytics-rollout-plan.md as superseded with Current reference docs/high-level-project-tracking.md.
+- If minimal churn is preferred, keep it historical as currently implied by its language.
+
+QA checklist
+- Confirm every doc under docs has exactly one primary status.
+- Confirm banner placement is directly below H1.
+- Confirm any superseded/deferred docs include a current reference or resume condition.
+- Confirm status wording does not rewrite substantive content.
+- Confirm Updated date consistency across this classification pass.

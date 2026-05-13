@@ -1,5 +1,13 @@
 # Visual Update Kicker Selector Audit
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Working-note completion record.
+
+
 ## Goal
 
 - Audit kicker-related selectors still present in current source and tracked CSS.

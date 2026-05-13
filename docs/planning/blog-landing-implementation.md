@@ -1,8 +1,14 @@
 # Blog Landing Page Implementation Notes
 
-Snapshot date: 2026-03-12 (branch `experimental`)
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Completed implementation record.
 
-Status note: historical implementation snapshot retained for traceability; use current templates and tracker docs for live repo state.
+
+Snapshot date: 2026-03-12 (branch `experimental`)
 
 Purpose
 - Record how the `blog` wireframe was translated into the current Eleventy site.

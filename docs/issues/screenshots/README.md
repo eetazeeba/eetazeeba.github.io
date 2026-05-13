@@ -1,5 +1,12 @@
 # Issue Screenshot Index
 
+Status
+- Primary: historical
+- Updated: 2026-05-12
+- Current reference: docs/issues/deferred-polish-feedback-log.md
+- Note: Legacy screenshot index retained for traceability.
+
+
 Purpose
 - Provide bidirectional tracking between issue IDs and screenshot assets.
 - Rename generic incoming files such as `Screenshot YYYY-MM-DD HHmmss.png` to `FB-###-NN-short-description.png` as soon as the issue is logged.

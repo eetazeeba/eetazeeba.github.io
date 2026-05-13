@@ -1,5 +1,12 @@
 # CMS Content Spec (Draft v0.1)
 
+Status
+- Primary: active
+- Secondary: draft
+- Updated: 2026-05-12
+- Note: Working content schema reference.
+
+
 Purpose
 - Define a dependency-light, file-based content model for three content types: `blog`, `profile`, and `lesson`.
 - Use a shared metadata base for consistent rendering, filtering, and indexing.

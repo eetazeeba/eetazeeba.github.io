@@ -1,3 +1,12 @@
+# Weekly Repo Sweep - 2026-03-15 (Codex Review)
+
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Weekly sweep snapshot.
+
 **Priority Drift Issues**
 
 1. Host/current-domain status is overclaimed and split across docs. [README.md](../../../README.md) line 8 and [README.md](../../../README.md) line 73 read as if `musifer.studio` is already the live transitional public domain, while [docs/high-level-project-tracking.md](../../high-level-project-tracking.md) line 60 and [docs/planning/domain-hosting-email-rollout-plan.md](../../planning/domain-hosting-email-rollout-plan.md) line 59 still treat Pages/DNS setup as manual handoff work.

@@ -1,12 +1,19 @@
 # Privacy Policy
 
-**Last updated:** March 13, 2026
+Status
+- Primary: active
+- Secondary: needs-review
+- Updated: 2026-05-12
+- Note: Policy text is substantial but still tracked as planning artifact.
+
+
+**Last updated:** April 27, 2026
 
 This Privacy Policy describes how **Musifer, operated by Everett Ballance** ("Musifer," "we," "us," or "our") collects, uses, and shares information when you visit musifer.studio, contact us, or otherwise interact with this website (the "Site").
 
 ## 1. Scope
 
-This Privacy Policy applies to information collected through this Site and any contact forms, newsletter signups, or other direct communications connected to this Site.
+This Privacy Policy applies to information collected through this Site and any contact forms or other direct communications connected to this Site.
 
 ## 2. Information We Collect
 
@@ -43,8 +50,9 @@ We may use information we collect to:
 
 We may use privacy-focused analytics tools to understand overall Site traffic and performance.
 
-**Current analytics setup:** "We use Umami self-hosted analytics" 
+**Current analytics setup:** We use Umami analytics for site-level traffic measurement.
 **Cookies used for analytics:** No
+**IP handling in analytics:** We use analytics for aggregate reporting and do not use analytics data to identify individual visitors. We do not use full IP addresses in analytics reports, and IP data may still be processed transiently by hosting/analytics infrastructure for request handling and security.
 **Personal profiling:** No  
 **Advertising or remarketing use:** No
 
@@ -53,7 +61,9 @@ We may use privacy-focused analytics tools to understand overall Site traffic an
 
 The Site may use essential technical measures needed for basic operation and security.
 
-We do not use cookies for advertising or cross-site tracking. If we use analytics, we aim to do so in a privacy-forward manner that minimizes personal data collection.
+We do not use cookies for advertising or cross-site tracking, and our current first-party analytics setup is intended to operate without analytics cookies.
+
+Third-party services embedded in or loaded by the Site (for example media platforms) may set their own cookies or similar technologies under their own policies.
 
 You can usually control cookies through your browser settings.
 
@@ -72,12 +82,13 @@ We may share information only in limited circumstances, such as:
 The Site may rely on third-party services for hosting, analytics, embedded content, form processing, email delivery, or similar functions.
 
 Examples may include:
-- **Hosting:** GitHub Pages
+- **Hosting:** Vercel
 - **Analytics:** Umami
-- **Forms / email delivery:** none
-- **Embedded content:** YouTube, Bandcamp, Spotify 
+- **Forms / email delivery:** Delivery via Microsoft Graph
+- **Embedded content:** SoundCloud, YouTube
+- **Fonts and static assets:** Google Fonts (`fonts.googleapis.com`, `fonts.gstatic.com`)
 
-These third parties may process technical information as necessary to provide their services. Their handling of data is governed by their own privacy policies and practices.
+These third parties may process technical information as necessary to provide their services. Embedded platforms and external vendors may collect data independently when their content or resources are loaded. Their handling of data is governed by their own privacy policies and practices.
 
 ## 8. Data Retention
 
@@ -128,5 +139,9 @@ If you have questions or requests related to this Privacy Policy or your informa
 
 **Musifer**  
 Operated by **Everett Ballance**  
-Email: musifer.recording@gmail.com  
+Email: contact@musifer.studio  
 Location: Idaho, United States
+
+---
+
+Audit alignment note (April 27, 2026): this draft was updated to match current repository implementation by correcting contact details, analytics wording, third-party service disclosures, and contact-form/email-delivery references. These changes were needed because earlier draft text included placeholder-style analytics phrasing and outdated/incomplete service listings. Assumptions: public pages are currently served through GitHub Pages, the contact form API runs on Vercel-compatible serverless runtime, and hosting may transition toward Vercel as documented in planning files.

@@ -1,5 +1,13 @@
 # CSS Conflict Audit - 2026-03-06
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/audits/css-refresh-conflict-audit.md
+- Note: Archived superseded audit snapshot.
+
+
 Source of truth
 - Planning reference: `docs/planning/responsive-layout-navigation-refresh-plan.md`
 - This audit supersedes `docs/audits/archive/css-refresh-conflict-audit-2026-03-05.md`.

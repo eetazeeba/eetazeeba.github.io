@@ -1,5 +1,13 @@
 # Legal and policy comparison for static front-end hosting options for Musifer
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/planning/domain-hosting-email-rollout-plan.md
+- Note: Comparative legal research artifact.
+
+
 ## Scope and methodology
 
 Musifer is described as a regional U.S., all-ages, public-facing music-and-creative-services site running a static/JAMstack architecture with GitHub-centered CI/CD (GitHub repo + GitHub Actions or comparable workflow). This review compares static/front-end hosting providers (not registrars) on operator risk—especially around copyright/DMCA, abuse handling, privacy posture, and suspension/termination discretion—based on each provider’s currently published official documentation as of March 13, 2026. citeturn4view4turn9view0turn6view4turn13view0turn4view6turn5view4

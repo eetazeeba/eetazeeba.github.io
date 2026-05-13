@@ -1,5 +1,13 @@
 # Analytics Rollout Plan: Umami First, Plausible-Compatible Later
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Experimental-phase implementation snapshot.
+
+
 Snapshot date: 2026-03-09 (branch experimental)
 
 Historical snapshot note
@@ -7,7 +15,7 @@ Historical snapshot note
 - The implementation described here is now present on main.
 - Current analytics status and rollout ownership live in docs/high-level-project-tracking.md.
 
-Status
+Implementation snapshot context
 - Historical snapshot status: Phase 1 base analytics script insertion strategy was implemented on `experimental` (2026-03-09).
 - Build-time env gating is active in the GitHub Pages production workflow and Eleventy global data.
 - Historical snapshot status: Phase 2 shared wrapper/helper layer was implemented on `experimental` (2026-03-09).

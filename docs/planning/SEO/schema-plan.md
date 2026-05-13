@@ -1,5 +1,12 @@
 # Musifer Schema Plan
 
+Status
+- Primary: active
+- Updated: 2026-05-12
+- Current reference: docs/planning/SEO/strategy.md
+- Note: Active schema implementation policy.
+
+
 Snapshot date: 2026-03-12 (branch `experimental`)
 
 Purpose

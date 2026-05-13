@@ -1,5 +1,13 @@
 # SEO Page Metadata Audit
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/planning/SEO/strategy.md
+- Note: Point-in-time SEO audit.
+
+
 Snapshot date: 2026-03-15 (reviewed against current `main` source)
 
 ## Purpose and scope

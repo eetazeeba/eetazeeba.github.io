@@ -58,6 +58,12 @@ Favor correctness, clarity, maintainability, and compatibility with the existing
 - Task-specific reusable prompts should live in `.github/prompts/*.prompt.md`.
 - Prefer the most specific reusable prompt that matches the task instead of inventing one-off prompt structures.
 
+## Documentation Steward Operating Modes
+- The custom agent `.github/agents/documentation-steward.agent.md` supports `Audit` and `Cleanup` modes.
+- Default mode is `Audit` unless the user explicitly asks to implement cleanup changes.
+- In `Audit` mode, do not edit files; inspect, classify, and recommend.
+- In `Cleanup` mode, keep changes small and reviewable; do not delete docs unless explicitly authorized.
+
 ## GitHub CLI (gh) — shell environment constraints
 - No browser opener (`xdg-open`) is present; `gh auth login --web` requires manually opening the device-code URL.
 - `jq` is available in the local shell environment and should be preferred for structured `gh api` parsing when JSON verification is needed.

@@ -1,5 +1,11 @@
 # High-Level Project Tracking
 
+Status
+- Primary: source-of-truth
+- Updated: 2026-05-13
+- Note: Canonical project and workflow status tracker.
+
+
 Purpose
 - Keep operational and migration context out of the top-level README.
 - Track the current branch/deployment model and near-term implementation focus.
@@ -27,6 +33,7 @@ Purpose
   - `.github/prompts/core-execution.prompt.md`
   - `.github/prompts/bugfix.prompt.md`
   - `.github/prompts/docs-sync.prompt.md`
+  - `.github/prompts/docs-audit-report.prompt.md`
   - `.github/prompts/plan-only.prompt.md`
 - Prompt-library rollout should continue with MVP-first usage feedback before adding phase-2 prompts.
 
@@ -36,11 +43,10 @@ Purpose
 - Experimental test branch: `experimental` (realigned to `main` before new test cycles)
 - Canonical public domain: `musifer.studio`
 - Backup/brand-protection domain: `musifer.art`
-- Current repo-visible deploy baseline: GitHub Pages via GitHub Actions
-- GitHub Pages custom-domain use is now treated as a transitional phase, not the final hosting architecture
-- Planned long-term primary host: Vercel
+- Current primary public host: Vercel
+- GitHub Pages custom-domain use is completed historical rollout context, not the active hosting baseline
 - Registrar/DNS provider of choice: Porkbun
-- Planned domain email provider after hosting migration: Proton
+- Domain email/contact delivery baseline: Microsoft 365 via Graph-based integration path
 - Pages workflow: `.github/workflows/deploy-pages.yml`
 - Feature work should return to `main` through reviewed pull requests rather than direct feature-branch pushes.
 - Preferred merge method for short-lived feature branches: **Squash and merge**
@@ -63,13 +69,11 @@ Purpose
   - Earlier Plausible-specific guidance is now superseded unless explicitly retained as historical context in the tracking artifacts.
   - Event taxonomy planning can remain vendor-neutral.
 - Hosting and SEO context relevant to analytics:
-  - The near-term public-domain activation plan still uses GitHub Pages via Actions.
-  - The target long-term host is Vercel after the custom-domain transition is complete.
+  - Public-domain hosting baseline is Vercel on `musifer.studio`.
+  - GitHub Pages is retained as historical transitional context only.
   - SEO validation for canonical routing, metadata behavior, robots behavior, and final sitemap behavior still depends on the later domain and hosting rollout phases.
   - Historical Netlify linkage (`creative-cassata-f39fb9`) is not the active rollout plan and still has no repo-tracked deploy/config artifact.
 - Open decisions before fuller rollout verification:
-  - Confirm `musifer.studio` resolution, HTTPS, and Pages-settings stability once the manual GitHub Pages and Porkbun steps are completed.
-  - Whether analytics should start during the transitional GitHub Pages phase or wait for Vercel cutover.
   - Production-only tracking versus preview/branch deploy tracking.
   - Privacy/disclosure requirements before enabling analytics.
   - `/contact/` and thin child-page instrumentation should wait until those templates expose real funnel actions beyond scaffold navigation.
@@ -79,16 +83,11 @@ Purpose
   - `docs/planning/domain-direction-musifer-studio-art.md`
   - `docs/planning/domain-hosting-email-rollout-plan.md`
 - Current direction: `musifer.studio` preferred primary; `musifer.art` retained as backup/brand-protection.
-- Phase 1 repo-side state:
+- Completed rollout state:
   - Porkbun remains the registrar and DNS authority.
-  - GitHub Pages via Actions from `main` remains the transitional live host path.
-  - Repo-side custom-domain readiness does not require a tracked `CNAME` for the current Actions-based deploy.
-  - Vercel remains Phase 2 and Proton remains Phase 3.
-- Manual operator handoff still outstanding:
-  - set the GitHub Pages custom domain in repo settings
-  - add only the required Porkbun DNS records using live dashboard values
-  - keep the default GitHub Pages hostname available until the custom domain is stable
-  - avoid adding Vercel or Proton records during Phase 1
+  - Vercel is the active primary public host.
+  - GitHub Pages custom-domain setup is completed historical context.
+  - Microsoft 365 domain email/contact delivery baseline supersedes the earlier Proton phase plan.
 
 ## Resolved: Wireframe playground cleanup (2026-04-26)
 - docs/wireframe-playground/ was an experimental-only local Vite/React wireframe workspace (created 2026-03-10, removed 2026-04-26).

@@ -1,5 +1,13 @@
 # Visual Update Dashed Container Audit
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Working-note completion record.
+
+
 ## Goal
 - Normalize the active dashed-border container drift across About, Services, and Blog into a smaller shared nested-surface system that feels intentional inside the current Musifer card language.
 

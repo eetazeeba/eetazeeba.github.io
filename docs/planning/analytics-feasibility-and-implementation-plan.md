@@ -1,6 +1,14 @@
 # Analytics Feasibility and Implementation Plan
 
 Status
+- Primary: active
+- Secondary: needs-review
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Active planning with mixed historical wording.
+
+
+Planning context
 - Snapshot refreshed on 2026-03-13.
 - Renamed from `plausible-feasibility-and-implementation-plan.md` to reduce vendor-specific naming drift.
 - Current intended near-term analytics direction: Umami.

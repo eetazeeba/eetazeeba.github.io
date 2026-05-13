@@ -1,5 +1,11 @@
 # CSS Conflict Audit Template (VS Code-friendly)
 
+Status
+- Primary: active
+- Updated: 2026-05-12
+- Note: Reusable audit template.
+
+
 Use this template for future audits to avoid Markdown table wrapping issues in raw editor view.
 
 ## Header

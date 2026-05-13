@@ -1,6 +1,13 @@
 # Deferred Polish Feedback Log
 
 Status
+- Primary: historical
+- Updated: 2026-05-12
+- Current reference: GitHub Issues and GitHub Project
+- Note: Legacy backlog archive.
+
+
+Archive context
 - Historical archive as of `2026-04-20 UTC`.
 - New polish intake must be filed in GitHub Issues using `.github/ISSUE_TEMPLATE/polish-feedback.yml` and tracked in the canonical GitHub Project.
 - This file is retained for migration traceability and completed historical records.

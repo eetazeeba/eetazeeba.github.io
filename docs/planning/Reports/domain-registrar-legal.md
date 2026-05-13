@@ -1,5 +1,13 @@
 # Legal-document comparison for Musifer’s domain, DNS, CDN, and static hosting options
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/planning/domain-hosting-email-rollout-plan.md
+- Note: Comparative legal research artifact.
+
+
 ## Executive summary
 
 - For a registrar-only relationship (domain registration + DNS), the most “operator-friendly” options for Musifer (regional U.S., all-ages, frequently publishing copyrighted material) are **Porkbun** and **Namecheap**, mainly because they provide comparatively direct abuse/data-disclosure/UDRP documentation and make clear distinctions between **registrar action** (domain/DNS) vs **hosting action** (content removal). citeturn21view0turn21view2turn21view3turn21view4turn7view3turn7view4turn9view4  

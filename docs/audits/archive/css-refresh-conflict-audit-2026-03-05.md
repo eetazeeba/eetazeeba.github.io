@@ -1,5 +1,13 @@
 # CSS Audit: Responsive Layout + Navigation Refresh
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/audits/css-refresh-conflict-audit.md
+- Note: Archived superseded audit snapshot.
+
+
 Source of truth
 - Planning reference: `docs/planning/responsive-layout-navigation-refresh-plan.md`
 - Prioritization applied from `## 6) Proposed implementation sequence` (Phase 1 -> Phase 3 first, including compact/hamburger accordion behavior).

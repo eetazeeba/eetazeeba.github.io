@@ -1,11 +1,18 @@
 # Copilot Prompt Tooling Baseline
 
+Status
+- Primary: active
+- Updated: 2026-05-12
+- Current reference: .github/copilot-instructions.md
+- Note: Active prompt-tooling baseline.
+
+
 Purpose
 - Provide a reusable, repo-native prompt cookbook for GitHub Copilot and similar AI assistants used in VS Code.
 - Improve session consistency by standardizing prompt structure, scope framing, and validation/reporting expectations.
 - Keep this document as a working reference that can evolve with real usage.
 
-Status
+Operational context
 - Baseline planning and working guidance.
 - Canonical placement for prompt-tooling notes moved from `docs/WORKING/` to `docs/planning/` on 2026-04-20.
 - MVP prompt workflow structure is now implemented in `.github/`:
@@ -14,6 +21,7 @@ Status
   - `.github/prompts/core-execution.prompt.md`
   - `.github/prompts/bugfix.prompt.md`
   - `.github/prompts/docs-sync.prompt.md`
+  - `.github/prompts/docs-audit-report.prompt.md`
   - `.github/prompts/plan-only.prompt.md`
 
 ## Source-of-truth boundaries
@@ -38,7 +46,8 @@ Status
    ├─ core-execution.prompt.md
    ├─ bugfix.prompt.md
    ├─ docs-sync.prompt.md
-   └─ plan-only.prompt.md
+  ├─ docs-audit-report.prompt.md
+  └─ plan-only.prompt.md
 ```
 
 Phase 2 (only if usage warrants it):
@@ -51,6 +60,7 @@ Phase 2 (only if usage warrants it):
 - `core-execution.prompt.md`: default implementation prompt for scoped tasks.
 - `bugfix.prompt.md`: defect/regression isolation and minimal-risk fixes.
 - `docs-sync.prompt.md`: reconcile canonical documentation with current behavior/workflow.
+- `docs-audit-report.prompt.md`: targeted Audit Mode documentation reports (drift, decision, consolidation).
 - `plan-only.prompt.md`: analysis and task decomposition with no edits.
 
 ## Baseline prompt shape (wiki pattern)

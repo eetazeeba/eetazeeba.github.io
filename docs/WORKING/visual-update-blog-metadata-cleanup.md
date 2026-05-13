@@ -1,5 +1,13 @@
 # Visual Update Blog Metadata Cleanup
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Working-note completion record.
+
+
 ## Goal
 
 - Complete the remaining blog visual cleanup with `/blog/` as the highest-priority target.

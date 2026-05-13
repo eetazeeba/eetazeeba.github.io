@@ -1,5 +1,11 @@
 # Two-Device Development Routine
 
+Status
+- Primary: source-of-truth
+- Updated: 2026-05-12
+- Note: Canonical cross-device dev workflow.
+
+
 Use this routine when moving between the macOS and Windows development machines for this repo.
 
 ## Baseline

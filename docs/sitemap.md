@@ -1,5 +1,12 @@
 # Musifer Sitemap (Draft)
 
+Status
+- Primary: active
+- Secondary: draft
+- Updated: 2026-05-12
+- Note: Planning sitemap, not generated sitemap.xml.
+
+
 Notes
 - This file is the planning and navigation sitemap for Musifer.
 - It is intended to improve readability, menu formatting, and overall IA direction.

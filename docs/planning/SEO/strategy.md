@@ -1,5 +1,11 @@
 # Musifer SEO Strategy
 
+Status
+- Primary: source-of-truth
+- Updated: 2026-05-12
+- Note: Canonical SEO policy.
+
+
 Snapshot date: 2026-03-12 (branch `experimental`)
 
 Purpose

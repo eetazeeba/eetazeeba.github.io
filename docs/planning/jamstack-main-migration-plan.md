@@ -1,5 +1,12 @@
 # Jamstack Main Migration Plan
 
+Status
+- Primary: historical
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Completed migration record.
+
+
 ## Status
 - Stage 1 and Stage 2: completed.
 - Stage 3: authorized and executed on 2026-03-06.

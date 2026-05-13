@@ -1,5 +1,12 @@
 # Musifer Domain Direction (`.studio` primary, `.art` backup)
 
+Status
+- Primary: historical
+- Updated: 2026-05-12
+- Current reference: docs/planning/domain-hosting-email-rollout-plan.md
+- Note: Decision-history record.
+
+
 ## Current decision
 - Preferred primary public domain direction: `musifer.studio`.
 - Secondary/backup/brand-protection direction: `musifer.art`.

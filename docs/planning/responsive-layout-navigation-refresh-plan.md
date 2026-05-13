@@ -1,6 +1,12 @@
 # Responsive Layout and Navigation Refresh Plan
 
-Status note: completed roadmap retained for historical planning context; use current implementation docs and code for live behavior where older baseline notes differ.
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/planning/responsive-layout-phase-4-content-modules-implementation-brief.md
+- Note: Completed roadmap retained for traceability.
+
 
 Purpose
 - Define an implementation-ready plan for the next UI refresh on `main`.

@@ -1,5 +1,13 @@
 # Decap CMS Readiness Re-Audit On `main`
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Point-in-time audit record.
+
+
 Citation note: local file citations below use repo-relative links plus plain-text line refs because many markdown viewers do not reliably render local `#L` anchors.
 
 ## 1. Current State On `main`

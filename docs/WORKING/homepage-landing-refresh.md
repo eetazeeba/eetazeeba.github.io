@@ -1,5 +1,13 @@
 # Homepage Landing Refresh
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Working-note completion record.
+
+
 ## Goal
 - Refresh the homepage into a clearer Musifer landing page.
 - Strengthen the opening value proposition, service paths, blog discovery, and contact/quote CTAs.

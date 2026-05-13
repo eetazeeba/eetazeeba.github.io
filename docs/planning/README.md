@@ -1,13 +1,20 @@
 # Planning Documents
 
+Status
+- Primary: source-of-truth
+- Updated: 2026-05-13
+- Current reference: docs/high-level-project-tracking.md
+- Note: Canonical planning index and classification map.
+
+
 Purpose
 - Keep active planning and rollout documents grouped under `docs/planning/`.
 - Reduce path drift by providing a stable index for planning-oriented references.
 
 ## Active References
-- [domain-hosting-email-rollout-plan.md](domain-hosting-email-rollout-plan.md): current infrastructure rollout sequence for Porkbun -> GitHub Pages -> Vercel -> Proton.
+- [domain-hosting-email-rollout-plan.md](domain-hosting-email-rollout-plan.md): current infrastructure baseline after completed rollout (Porkbun DNS + Vercel hosting, with `musifer.studio` canonical and `musifer.art` backup).
 - [analytics-feasibility-and-implementation-plan.md](analytics-feasibility-and-implementation-plan.md): current analytics feasibility/status reference; near-term direction remains Umami.
-- [contact-form-microsoft-365-smtp-setup.md](contact-form-microsoft-365-smtp-setup.md): implementation note for wiring Contact form delivery via Microsoft Graph certificate auth and Vercel environment variables.
+- [contact-form-microsoft-365-smtp-setup.md](contact-form-microsoft-365-smtp-setup.md): active operational note for Contact form delivery via Microsoft Graph with `contact@musifer.studio` sender/recipient defaults and MFA-enabled M365 baseline.
 - [SEO/strategy.md](SEO/strategy.md), [SEO/schema-plan.md](SEO/schema-plan.md), and [SEO/launch-checklist.md](SEO/launch-checklist.md): current SEO policy, schema guidance, and launch-validation reference set.
 
 ## Historical Implementation Notes and Completed Records

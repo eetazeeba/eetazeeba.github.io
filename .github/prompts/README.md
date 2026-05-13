@@ -6,6 +6,7 @@ Reusable Copilot prompt files for this repository.
 - `core-execution.prompt.md`: default prompt for scoped implementation work.
 - `bugfix.prompt.md`: targeted defect and regression fixes.
 - `docs-sync.prompt.md`: align canonical docs with current behavior and workflow.
+- `docs-audit-report.prompt.md`: targeted Audit Mode reporting for drift, decision, and consolidation analysis.
 - `plan-only.prompt.md`: analysis and implementation planning with no edits.
 - `gh-write-preflight.prompt.md`: GitHub mutation preflight and minimal write execution with deterministic fallback behavior.
 

@@ -1,5 +1,13 @@
 # SoundCloud Wrapper First Pass
 
+Status
+- Primary: active
+- Secondary: needs-review
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Active working note; promote to a dedicated atmosphere planning/implementation source-of-truth for long-term constants and future ideas.
+
+
 ## Feature Goal
 - Add a modest reusable SoundCloud-only wrapper for Musifer embeds.
 - Keep the first pass iframe-driven and static-site friendly.

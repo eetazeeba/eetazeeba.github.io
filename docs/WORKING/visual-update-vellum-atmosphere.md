@@ -1,5 +1,13 @@
 # Visual Update Vellum Atmosphere
 
+Status
+- Primary: active
+- Secondary: needs-review
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Active working note; promote to a dedicated atmosphere planning/implementation source-of-truth for long-term constants and future ideas.
+
+
 ## Current repo state
 - The original homepage vellum experiment was removed from the live codebase before this reset-and-rebuild pass began.
 - The current vellum rollout is active on the homepage plus the current About, Services, Blog, and Contact page surfaces, including the blog bucket pages and blog article template.

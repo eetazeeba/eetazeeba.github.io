@@ -1,5 +1,13 @@
 # FB Migration Proof Of Concept
 
+Status
+- Primary: historical
+- Secondary: snapshot
+- Updated: 2026-05-12
+- Current reference: docs/high-level-project-tracking.md
+- Note: Working-note completion record.
+
+
 Purpose
 - Provide manual-ready GitHub issue drafts for a small proof-of-concept migration from the legacy FB log into GitHub Issues.
 - Keep the scope intentionally small: two well-scoped legacy FB items plus one new test `[Polish]` issue for arc/phase wording cleanup.
